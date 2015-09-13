@@ -213,9 +213,17 @@ public class ChatGui : MonoBehaviour, IChatClientListener
                 {
                     for (int i = 0; i < this.selectedChannel.Messages.Count; i++)
                     {
-                        string sender = this.selectedChannel.Senders[i];
-                        object message = this.selectedChannel.Messages[i];
-                        GUILayout.Label(string.Format("{0}{1}", sender, ": " + message));
+						string sender = this.selectedChannel.Senders[i];
+						string message = this.selectedChannel.Messages[i].ToString();
+
+						if (message.StartsWith("/"))
+						{
+							GUILayout.Label(message.Remove(0, 1));
+						}
+						else
+						{
+							GUILayout.Label(string.Format("{0}: {1}", sender,  message));
+						}
                     }
                 }
 
@@ -337,7 +345,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
             this.chatClient.Subscribe(this.ChannelsToJoinOnConnect, this.HistoryLengthToFetch);
         }
 
-        this.chatClient.AddFriends(new string[] {"tobi", "ilya"});          // Add some users to the server-list to get their status updates
+        //this.chatClient.AddFriends(new string[] {"tobi", "ilya"});          // Add some users to the server-list to get their status updates
         this.chatClient.SetOnlineStatus(ChatUserStatus.Online);             // You can set your online state (without a mesage).
     }
 
@@ -364,7 +372,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
         {
             foreach (string channel in channels)
             {
-                this.chatClient.PublishMessage(channel, "has joined the chat"); // you don't HAVE to send a msg on join but you could.
+				this.chatClient.PublishMessage(channel, String.Format("/{0} has joined the chat", UserName)); // you don't HAVE to send a msg on join but you could.
             }
         }
     }
