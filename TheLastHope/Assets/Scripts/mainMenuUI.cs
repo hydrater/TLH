@@ -3,12 +3,16 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class mainMenuUI : MonoBehaviour {
-	[SerializeField] GameObject start, createnew, options, exit;
+	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, charFace, optionScreen;
+	[SerializeField] Material[] charFaceList;
 	bool hoverStart, hoverNew, hoverOption, hoverExit;
+	int charNo, maxChar;
 
 	void Start()
 	{
 		hoverStart = hoverNew = hoverOption = hoverExit = false;
+		charNo = 0;
+		maxChar = charFaceList.Length - 1;
 	}
 
 	void Update()
@@ -56,7 +60,7 @@ public class mainMenuUI : MonoBehaviour {
 		}
 	}
 
-	//Hover over start
+	//Start
 	public void HoverOverStart()
 	{
 		hoverStart = true;
@@ -67,7 +71,7 @@ public class mainMenuUI : MonoBehaviour {
 		hoverStart = false;
 	}
 
-	//Hover over create new
+	//Create new
 	public void HoverOverNew()
 	{
 		hoverNew = true;
@@ -78,7 +82,23 @@ public class mainMenuUI : MonoBehaviour {
 		hoverNew = false;
 	}
 
-	//Hover over option
+	//Go to character creation screen
+	public void GoToNew() 
+	{
+		mainMenuScreen.SetActive (false);
+		createCharScreen.SetActive (true);
+		charNo = 0;
+		setCharTexture (charNo);
+	}
+
+	//Exit character creation screen
+	public void BackToMainMenu()
+	{
+		mainMenuScreen.SetActive (true);
+		createCharScreen.SetActive (false);
+	}
+
+	//Options
 	public void HoverOverOpt()
 	{
 		hoverOption = true;
@@ -89,7 +109,7 @@ public class mainMenuUI : MonoBehaviour {
 		hoverOption = false;
 	}
 
-	//Hover over exit
+	//Exit
 	public void HoverOverExit()
 	{
 		hoverExit = true;
@@ -106,4 +126,32 @@ public class mainMenuUI : MonoBehaviour {
 		Debug.Log("Game closed");
 	}
 
+	//Character creation
+	//Change character's appearance
+	public void ChangeCharacterRight()
+	{
+		if (charNo == maxChar) {
+			charNo = 0;
+			setCharTexture(charNo);
+		} else {
+			++charNo;
+			setCharTexture(charNo);
+		}
+	}
+
+	public void ChangeCharacterLeft()
+	{
+		if (charNo == 0) {
+			charNo = maxChar;
+			setCharTexture(charNo);
+		} else {
+			--charNo;
+			setCharTexture(charNo);
+		}
+	}
+	//Set character's appearance 
+	void setCharTexture(int charNumber)
+	{
+		charFace.GetComponent<Renderer> ().material = charFaceList [charNumber];
+	}
 }
