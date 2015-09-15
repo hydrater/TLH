@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class mainMenuUI : MonoBehaviour {
-	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, charFace, optionScreen;
+	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, createCharFloor, charFace, optionScreen;
+	public GameObject saveSystem, charNameInput;
 	[SerializeField] Material[] charFaceList;
 	bool hoverStart, hoverNew, hoverOption, hoverExit;
 	int charNo, maxChar;
@@ -87,6 +88,7 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		mainMenuScreen.SetActive (false);
 		createCharScreen.SetActive (true);
+		createCharFloor.SetActive (true);
 		charNo = 0;
 		setCharTexture (charNo);
 	}
@@ -96,6 +98,7 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		mainMenuScreen.SetActive (true);
 		createCharScreen.SetActive (false);
+		createCharFloor.SetActive (false);
 	}
 
 	//Options
@@ -153,5 +156,22 @@ public class mainMenuUI : MonoBehaviour {
 	void setCharTexture(int charNumber)
 	{
 		charFace.GetComponent<Renderer> ().material = charFaceList [charNumber];
+	}
+
+	//Save
+	public void save()
+	{
+		string tempName;
+		int tempChar;
+		tempName = charNameInput.GetComponent<InputField> ().text;
+		tempChar = charNo;
+		if (tempName.Length < 3) {
+			Debug.Log ("Name too short");
+		} else {
+			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [0] = tempName;
+			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [1] = tempChar.ToString();
+			saveSystem.GetComponent<AdvancedSaveSystem> ().SaveData (1);
+			Debug.Log("Save successful");
+		}
 	}
 }

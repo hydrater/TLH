@@ -12,7 +12,7 @@ public class AdvancedSaveSystem : MonoBehaviour {
     public string folderName = "TLH";
     public string[] variablesName;
     public string[] variablesValue;
-    //
+    
     static string PasswordHash;
     static string SaltKey;
     static string VIKey;
