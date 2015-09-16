@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class mainMenuUI : MonoBehaviour {
 	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, createCharFloor, charFace, optionScreen;
 	public GameObject saveSystem, charNameInput;
+	public AudioClip sound, sound2, sound3;
 	[SerializeField] Material[] charFaceList;
 	bool hoverStart, hoverNew, hoverOption, hoverExit;
 	byte charNo, maxChar;
@@ -121,6 +122,7 @@ public class mainMenuUI : MonoBehaviour {
 		createCharFloor.SetActive (true);
 		charNo = 0;
 		setCharTexture (charNo);
+		playSound (0);
 	}
 
 	//Exit character creation screen
@@ -129,6 +131,7 @@ public class mainMenuUI : MonoBehaviour {
 		mainMenuScreen.SetActive (true);
 		createCharScreen.SetActive (false);
 		createCharFloor.SetActive (false);
+		playSound (2);
 	}
 
 	//Options
@@ -194,5 +197,21 @@ public class mainMenuUI : MonoBehaviour {
 			saveSystem.GetComponent<AdvancedSaveSystem> ().SaveData (1);
 			Debug.Log("Save successful");
 		}
+	}
+
+	void playSound(byte soundNo)
+	{
+		switch (soundNo) {
+		default:
+			GetComponent<AudioSource>().clip = sound;
+			break;
+		case 2:
+			GetComponent<AudioSource>().clip = sound2;
+			break;
+		case 3:
+			GetComponent<AudioSource>().clip = sound3;
+			break;
+		}
+		GetComponent<AudioSource>().Play();
 	}
 }
