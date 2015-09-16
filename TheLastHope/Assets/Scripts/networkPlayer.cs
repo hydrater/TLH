@@ -61,9 +61,15 @@ public class networkPlayer : Photon.MonoBehaviour {
 			face.GetComponent<Renderer>().material = (Material)Resources.Load("2", typeof(Material));
 			break;
 		case 3:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("Franku", typeof(Material));
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("3", typeof(Material));
 			break;
 		case 4:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("4", typeof(Material));
+			break;
+		case 100:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("Franku", typeof(Material));
+			break;
+		case 101:
 			face.GetComponent<Renderer>().material = (Material)Resources.Load("Dal", typeof(Material));
 			break;
 		}

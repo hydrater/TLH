@@ -26,7 +26,7 @@ public class generalNetworking : MonoBehaviour {
 		else
 		{
 			RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
-			PhotonNetwork.JoinOrCreateRoom(GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
+			PhotonNetwork.JoinOrCreateRoom("@" + GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
 		}
 	}
 	

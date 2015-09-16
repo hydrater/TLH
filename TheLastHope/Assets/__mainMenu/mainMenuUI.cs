@@ -89,10 +89,10 @@ public class mainMenuUI : MonoBehaviour {
 				gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
 				break;
 			case "Hyde":
-				gameM.GetComponent<currentClientStats>().charNo = 4;
+				gameM.GetComponent<currentClientStats>().charNo = 101;
 				break;
 			case "freshcookies":
-				gameM.GetComponent<currentClientStats>().charNo = 3;
+				gameM.GetComponent<currentClientStats>().charNo = 100;
 				break;
 			}
 		}
@@ -131,7 +131,7 @@ public class mainMenuUI : MonoBehaviour {
 		mainMenuScreen.SetActive (true);
 		createCharScreen.SetActive (false);
 		createCharFloor.SetActive (false);
-		playSound (2);
+		playSound (0);
 	}
 
 	//Options
@@ -167,6 +167,7 @@ public class mainMenuUI : MonoBehaviour {
 			++charNo;
 			setCharTexture(charNo);
 		}
+		playSound (2);
 	}
 
 	public void ChangeCharacterLeft()
@@ -178,6 +179,7 @@ public class mainMenuUI : MonoBehaviour {
 			--charNo;
 			setCharTexture(charNo);
 		}
+		playSound (2);
 	}
 	//Set character's appearance 
 	void setCharTexture(byte charNumber)
@@ -197,15 +199,18 @@ public class mainMenuUI : MonoBehaviour {
 			saveSystem.GetComponent<AdvancedSaveSystem> ().SaveData (1);
 			Debug.Log("Save successful");
 		}
+		playSound (0);
 	}
 
 	void playSound(byte soundNo)
 	{
 		switch (soundNo) {
 		default:
+			GetComponent<AudioSource>().volume = 0.5f;
 			GetComponent<AudioSource>().clip = sound;
 			break;
 		case 2:
+			GetComponent<AudioSource>().volume = 0.24f;
 			GetComponent<AudioSource>().clip = sound2;
 			break;
 		case 3:
