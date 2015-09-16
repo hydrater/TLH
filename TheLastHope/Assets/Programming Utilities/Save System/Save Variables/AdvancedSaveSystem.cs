@@ -57,8 +57,6 @@ public class AdvancedSaveSystem : MonoBehaviour {
         {
             Directory.CreateDirectory(Environment.ExpandEnvironmentVariables(specialPath) + "\\" + folderName);
             Directory.CreateDirectory(Environment.ExpandEnvironmentVariables(specialPath) + "\\" + folderName + "\\Slot1");
-            Directory.CreateDirectory(Environment.ExpandEnvironmentVariables(specialPath) + "\\" + folderName + "\\Slot2");
-            Directory.CreateDirectory(Environment.ExpandEnvironmentVariables(specialPath) + "\\" + folderName + "\\Slot3");
         }
         catch 
         { 

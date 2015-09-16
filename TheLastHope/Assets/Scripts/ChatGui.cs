@@ -84,7 +84,11 @@ public class ChatGui : MonoBehaviour, IChatClientListener
             Destroy(this.gameObject);
         }
     }
-
+    
+	void OnEnable() 
+	{
+		this.UserName = GetComponent<currentClientStats>().playerName;
+	}
 
     public void Start()
     {
@@ -109,8 +113,6 @@ public class ChatGui : MonoBehaviour, IChatClientListener
             this.GuiRect.width = Screen.width;
             this.GuiRect.height = Screen.height;
         }
-
-        Debug.Log(this.UserName);
     }
 
     /// <summary>To avoid the Editor becoming unresponsive, disconnect all Photon connections in OnApplicationQuit.</summary>

@@ -627,15 +627,9 @@ namespace ExitGames.Client.Photon.Chat
             {
                 case StatusCode.Connect:
 	                if (!this.chatPeer.IsProtocolSecure) {
-#if UNITY
-						UnityEngine.Debug.Log("Establishing Encryption");
-#endif
             	        this.chatPeer.EstablishEncryption();
         	        }
 					else {
-#if UNITY
-						UnityEngine.Debug.Log("Skipping Encryption");
-#endif
                         if (!this.didAuthenticate)
 	                    {
                     	    this.didAuthenticate = this.chatPeer.AuthenticateOnNameServer(this.AppId, this.AppVersion, this.chatRegion, this.AuthValues);

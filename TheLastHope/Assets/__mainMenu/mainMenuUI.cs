@@ -7,13 +7,15 @@ public class mainMenuUI : MonoBehaviour {
 	public GameObject saveSystem, charNameInput;
 	[SerializeField] Material[] charFaceList;
 	bool hoverStart, hoverNew, hoverOption, hoverExit;
-	int charNo, maxChar;
+	byte charNo, maxChar;
+	private GameObject gameM;
 
 	void Start()
 	{
 		hoverStart = hoverNew = hoverOption = hoverExit = false;
 		charNo = 0;
-		maxChar = charFaceList.Length - 1;
+		maxChar = System.Convert.ToByte(charFaceList.Length - 1);
+		gameM = GameObject.Find("GameManager");
 	}
 
 	void Update()
@@ -71,6 +73,21 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		hoverStart = false;
 	}
+	
+	//Start game
+	public void startGame()
+	{
+		saveSystem.GetComponent<AdvancedSaveSystem>().LoadData(1);
+		string[] temp = saveSystem.GetComponent<AdvancedSaveSystem>().variablesValue[0].Split(',');
+		gameM.GetComponent<currentClientStats>().playerName = temp[0];
+		if (gameM.GetComponent<currentClientStats>().playerName == "Hyde") //change face and hidden characters
+			gameM.GetComponent<currentClientStats>().charNo = 4;
+		else if (gameM.GetComponent<currentClientStats>().playerName == "freshcookies")
+			gameM.GetComponent<currentClientStats>().charNo = 3;
+		else
+			gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
+		Application.LoadLevel(1);
+	}
 
 	//Create new
 	public void HoverOverNew()
@@ -123,12 +140,6 @@ public class mainMenuUI : MonoBehaviour {
 		hoverExit = false;
 	}
 
-	// Use this for initialization
-	void OnEnable() {
-		Application.Quit();
-		Debug.Log("Game closed");
-	}
-
 	//Character creation
 	//Change character's appearance
 	public void ChangeCharacterRight()
@@ -153,7 +164,7 @@ public class mainMenuUI : MonoBehaviour {
 		}
 	}
 	//Set character's appearance 
-	void setCharTexture(int charNumber)
+	void setCharTexture(byte charNumber)
 	{
 		charFace.GetComponent<Renderer> ().material = charFaceList [charNumber];
 	}
@@ -162,14 +173,11 @@ public class mainMenuUI : MonoBehaviour {
 	public void save()
 	{
 		string tempName;
-		int tempChar;
 		tempName = charNameInput.GetComponent<InputField> ().text;
-		tempChar = charNo;
 		if (tempName.Length < 3) {
 			Debug.Log ("Name too short");
 		} else {
-			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [0] = tempName;
-			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [1] = tempChar.ToString();
+			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [0] = tempName + "," +charNo.ToString();
 			saveSystem.GetComponent<AdvancedSaveSystem> ().SaveData (1);
 			Debug.Log("Save successful");
 		}
