@@ -80,12 +80,25 @@ public class mainMenuUI : MonoBehaviour {
 		saveSystem.GetComponent<AdvancedSaveSystem>().LoadData(1);
 		string[] temp = saveSystem.GetComponent<AdvancedSaveSystem>().variablesValue[0].Split(',');
 		gameM.GetComponent<currentClientStats>().playerName = temp[0];
-		if (gameM.GetComponent<currentClientStats>().playerName == "Hyde") //change face and hidden characters
-			gameM.GetComponent<currentClientStats>().charNo = 4;
-		else if (gameM.GetComponent<currentClientStats>().playerName == "freshcookies")
-			gameM.GetComponent<currentClientStats>().charNo = 3;
+		if (gameM.GetComponent<currentClientStats>().password == "programmers")
+		{
+			switch(gameM.GetComponent<currentClientStats>().playerName)
+			{
+			default:
+				gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
+				break;
+			case "Hyde":
+				gameM.GetComponent<currentClientStats>().charNo = 4;
+				break;
+			case "freshcookies":
+				gameM.GetComponent<currentClientStats>().charNo = 3;
+				break;
+			}
+		}
 		else
+		{
 			gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
+		}
 		Application.LoadLevel(1);
 	}
 

@@ -2,6 +2,6 @@
 using System.Collections;
 
 public class currentClientStats : MonoBehaviour {
-	public string playerName, roomName;
+	public string playerName, roomName, password;
 	public byte charNo;
 }
