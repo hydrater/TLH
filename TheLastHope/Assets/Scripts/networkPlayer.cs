@@ -14,14 +14,13 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
-			photonView.RPC("changeFace", PhotonTargets.All, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 			Destroy (face);
 		}
 		else
 		{
 			GetComponent<Rigidbody>().useGravity = false;
 		}
-		photonView.RPC("updateFace", PhotonTargets.All);
+		photonView.RPC("updateFace", PhotonTargets.AllBuffered);
 	}
 	
 	void Update()
@@ -55,10 +54,10 @@ public class networkPlayer : Photon.MonoBehaviour {
 	}
 	
 	[PunRPC]
-	void changeFace (byte faceNumber)
+	void changeFace (byte faceNo)
 	{
 		if (!photonView.isMine)
-			switch (faceNumber)
+			switch (faceNo)
 			{
 			default:
 				face.GetComponent<Renderer>().material = (Material)Resources.Load("0", typeof(Material));
