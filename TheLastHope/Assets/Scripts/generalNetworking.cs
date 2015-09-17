@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class generalNetworking : MonoBehaviour {
-	[SerializeField] 
-	
 	const string VERSION = "Prototype";
 	
 	void OnLevelWasLoaded(int level)
