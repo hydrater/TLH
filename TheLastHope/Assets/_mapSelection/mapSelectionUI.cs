@@ -5,16 +5,30 @@ using UnityEngine.UI;
 public class mapSelectionUI : Photon.MonoBehaviour {
 	byte diff, levelSelected = 0;
 	public byte maxLevelAmount;
-	public GameObject mapText, diffText;
+	public GameObject mapText, diffText, timeLeft;
 	private currentClientStats gameStat;
-	float timer;
-	bool canCountDown;
+	public bool canCountDown;
 	public mapSelectorRPCinfo mapInfo;
 	
 	void Start()
 	{
 		diff = 0;
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
+	}
+	
+	void Update()
+	{
+		if (canCountDown)
+		{
+			timeLeft.SetActive(true);
+			mapInfo.selectionTimer -= Time.deltaTime;
+			timeLeft.GetComponent<Text>().text = "Game starts in " + Mathf.Round(mapInfo.selectionTimer);
+		}
+		else
+		{
+			mapInfo.selectionTimer = 30;
+			timeLeft.SetActive(false);
+		}
 	}
 	
 	public void levelLeft()	
@@ -25,7 +39,6 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		--levelSelected;
 		
 		mapInfo.votedMap = levelSelected;
-		
 		gameStat.level = levelSelected;
 		mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
 	}
