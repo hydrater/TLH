@@ -3,14 +3,17 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class mapSelectionUI : Photon.MonoBehaviour {
-	byte diff = 0, levelSelected = 0;
+	byte diff, levelSelected = 0;
 	public byte maxLevelAmount;
 	public GameObject mapText, diffText;
 	private currentClientStats gameStat;
+	float timer;
+	bool canCountDown;
+	public mapSelectorRPCinfo mapInfo;
 	
 	void Start()
 	{
-		maxLevelAmount -= 1;
+		diff = 0;
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 	}
 	
@@ -21,7 +24,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		else
 		--levelSelected;
 		
+		mapInfo.votedMap = levelSelected;
+		
 		gameStat.level = levelSelected;
+		mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
 	}
 	
 	public void levelRight()	
@@ -31,7 +37,9 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		else
 			++levelSelected;
 			
+		mapInfo.votedMap = levelSelected;
 		gameStat.level = levelSelected;
+		mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
 	}
 	
 	public void diffLeft()	
@@ -41,7 +49,24 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		else
 		--diff;
 		
-		gameStat.lastDiff = diff;
+		mapInfo.votedDiff = diff;
+		gameStat.Diff = diff;
+		
+		switch(diff)
+		{
+		default:
+			diffText.GetComponent<Text>().text = "Normal";
+			break;
+		case 1:
+			diffText.GetComponent<Text>().text = "Hard";
+			break;
+		case 2:
+			diffText.GetComponent<Text>().text = "Critical";
+			break;
+		case 3:
+			diffText.GetComponent<Text>().text = "Dangerous";
+			break;
+		}
 	}
 	
 	public void diffRight()	
@@ -51,6 +76,23 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		else
 		++diff;
 		
-		gameStat.lastDiff = diff;
+		mapInfo.votedDiff = diff;
+		gameStat.Diff = diff;
+		
+		switch(diff)
+		{
+		default:
+			diffText.GetComponent<Text>().text = "Normal";
+			break;
+		case 1:
+			diffText.GetComponent<Text>().text = "Hard";
+			break;
+		case 2:
+			diffText.GetComponent<Text>().text = "Critical";
+			break;
+		case 3:
+			diffText.GetComponent<Text>().text = "Dangerous";
+			break;
+		}
 	}
 }

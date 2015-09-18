@@ -20,7 +20,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			GetComponent<Rigidbody>().useGravity = false;
 		}
-		photonView.RPC("updateFace", PhotonTargets.AllBuffered);
+		photonView.RPC("changeFace", PhotonTargets.All, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 	}
 	
 	void Update()
@@ -47,8 +47,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		}
 	}
 	
-	[PunRPC]
-	void updateFace ()
+	void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
 	{
 		photonView.RPC("changeFace", PhotonTargets.All, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 	}
