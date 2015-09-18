@@ -193,7 +193,7 @@ public class mainMenuUI : MonoBehaviour {
 		string tempName;
 		tempName = charNameInput.GetComponent<InputField> ().text;
 		if (tempName.Length < 3) {
-			Debug.Log ("Name too short");
+			Debug.Log ("Name is too short, has to be more than 2 characters");
 		} else {
 			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [0] = tempName + "," +charNo.ToString();
 			saveSystem.GetComponent<AdvancedSaveSystem> ().SaveData (1);
