@@ -12,6 +12,10 @@ public class generalNetworking : MonoBehaviour {
 			PhotonNetwork.playerName = PlayerPrefs.GetString("Name");
 			GetComponent<ChatGui>().enabled = true;
 		}
+		if (Application.loadedLevel > 2)
+		{
+			PhotonNetwork.Instantiate("Player", new Vector3(50, 50, 50), transform.rotation, 0);
+		}
 	}
 	
 	void OnJoinedLobby()
@@ -52,7 +56,7 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnLeftRoom()
 	{
-		Application.LoadLevel(2);
+		Application.LoadLevel(2); //go map selection
 	}
 	
 }

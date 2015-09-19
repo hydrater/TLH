@@ -5,10 +5,11 @@ using UnityEngine.UI;
 public class mapSelectionUI : Photon.MonoBehaviour {
 	byte diff, levelSelected = 0;
 	public byte maxLevelAmount;
-	public GameObject mapText, diffText, timeLeft;
+	public GameObject mapText, diffText, timeLeft, voteText, startText, canvas;
 	private currentClientStats gameStat;
-	public bool canCountDown;
+	public bool canCountDown, gameStart = false;
 	public mapSelectorRPCinfo mapInfo;
+	float timer = 3;
 	
 	void Start()
 	{
@@ -23,11 +24,32 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			timeLeft.SetActive(true);
 			mapInfo.selectionTimer -= Time.deltaTime;
 			timeLeft.GetComponent<Text>().text = "Game starts in " + Mathf.Round(mapInfo.selectionTimer);
+			if (mapInfo.selectionTimer < 0)
+			{
+				mapInfo.startGame();
+			}
 		}
 		else
 		{
-			mapInfo.selectionTimer = 30;
-			timeLeft.SetActive(false);
+			//need a latestart/try-catch/boolean to fix, since the error doesnt matter, we skip it
+			try
+			{
+				mapInfo.selectionTimer = 30;
+				timeLeft.SetActive(false);
+			}
+			catch(System.NullReferenceException)
+			{
+				
+			}
+		}
+		if(gameStart)
+		{
+			timer -= Time.deltaTime;
+			if (timer < 0)
+			{
+				//every1 load scene
+				PhotonNetwork.LoadLevel(3);
+			}
 		}
 	}
 	
@@ -40,6 +62,9 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		
 		mapInfo.votedMap = levelSelected;
 		gameStat.level = levelSelected;
+		if (levelSelected == 0)
+			mapText.GetComponent<Text>().text = "Sanctuary";
+		else
 		mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
 	}
 	
@@ -52,7 +77,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			
 		mapInfo.votedMap = levelSelected;
 		gameStat.level = levelSelected;
-		mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
+		if (levelSelected == 0)
+			mapText.GetComponent<Text>().text = "Sanctuary";
+		else
+			mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
 	}
 	
 	public void diffLeft()	
@@ -107,5 +135,20 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			diffText.GetComponent<Text>().text = "Dangerous";
 			break;
 		}
+	}
+	
+	public void vote()
+	{
+		if (mapInfo.hasVoted)
+		{
+			mapInfo.hasVoted = false;
+			voteText.GetComponent<Text>().text = "Vote";
+		}
+		else
+		{
+			mapInfo.hasVoted = true;
+			voteText.GetComponent<Text>().text = "Unvote";
+		}
+		
 	}
 }
