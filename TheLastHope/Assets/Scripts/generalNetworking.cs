@@ -7,11 +7,15 @@ public class generalNetworking : MonoBehaviour {
 	void OnLevelWasLoaded(int level)
 	{
 		if (Application.loadedLevel == 1)
-			{
-				PhotonNetwork.ConnectUsingSettings(VERSION);
-				PhotonNetwork.playerName = PlayerPrefs.GetString("Name");
-				GetComponent<ChatGui>().enabled = true;
-			}
+		{
+			PhotonNetwork.ConnectUsingSettings(VERSION);
+			PhotonNetwork.playerName = PlayerPrefs.GetString("Name");
+			GetComponent<ChatGui>().enabled = true;
+		}
+		if (Application.loadedLevel > 2)
+		{
+			PhotonNetwork.Instantiate("Player", new Vector3(50, 50, 50), transform.rotation, 0);
+		}
 	}
 	
 	void OnJoinedLobby()
@@ -30,12 +34,29 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnJoinedRoom()
 	{
-		Transform temp = GameObject.Find("Spawnpoint").transform;
-		PhotonNetwork.Instantiate("Player", temp.position, temp.rotation, 0);
+		if (PhotonNetwork.room.name == "!Sanctuary") //Spawns player if not in room Sanctuary
+		{
+			Transform temp = GameObject.Find("Spawnpoint").transform;
+			PhotonNetwork.Instantiate("Player", temp.position, temp.rotation, 0);
+		}
+		else //spawn Mapselector
+		{
+			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
+		}
 	}
 	
-	void onGUI()
+	void Update()
 	{
-		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			GetComponent<currentClientStats>().roomName = "MapSelection";
+			PhotonNetwork.LeaveRoom();
+		}
 	}
+	
+	void OnLeftRoom()
+	{
+		Application.LoadLevel(2); //go map selection
+	}
+	
 }
