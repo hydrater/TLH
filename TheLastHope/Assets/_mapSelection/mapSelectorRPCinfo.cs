@@ -79,10 +79,10 @@ public class mapSelectorRPCinfo : Photon.MonoBehaviour {
 				foreach(GameObject x in GameObject.FindGameObjectsWithTag("MapSelector"))
 				{
 					votedMapList[i] = x.GetComponent<mapSelectorRPCinfo>().votedMap;
+					votedDiffList[i] = x.GetComponent<mapSelectorRPCinfo>().votedDiff;
 					++i;
 				}
-				Debug.Log(votedMapList[0]);
-				Debug.Log(votedMapList[3]);
+				
 				mapUI.gameStart = true;
 			}
 		}
