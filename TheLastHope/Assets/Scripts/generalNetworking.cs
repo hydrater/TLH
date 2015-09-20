@@ -27,7 +27,6 @@ public class generalNetworking : MonoBehaviour {
 		if (Application.loadedLevel == 3)
 		{
 			GetComponent<ChatGui>().enabled = false;
-			return;
 		}
 		//if more levels are implemented, use switch for application.loadedlevel else switch to outside hub
 	}
@@ -51,10 +50,12 @@ public class generalNetworking : MonoBehaviour {
 		if (Application.loadedLevel == 1) //Spawns player if in Sanctuary
 		{
 			PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
+			return;
 		}
 		if (Application.loadedLevel == 2)//spawn Mapselector
 		{
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
+			return;
 		}
 	}
 	
