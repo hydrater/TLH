@@ -153,60 +153,59 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		canvas.SetActive(false);
 		startText.SetActive(true);
 		gameStart = true;
-		
 		if (PhotonNetwork.isMasterClient)
 		{	
 			byte[] votedMapList = new byte[4];
 			byte[] votedDiffList = new byte[4];
 			byte temp = 0;
-			foreach(GameObject x in GameObject.FindGameObjectsWithTag("MapSelector"))
+			foreach(GameObject j in GameObject.FindGameObjectsWithTag("MapSelector"))
 			{
-				votedMapList[temp] = x.GetComponent<mapSelectorRPCinfo>().votedMap;
-				votedDiffList[temp] = x.GetComponent<mapSelectorRPCinfo>().votedDiff;
+				votedMapList[temp] = j.GetComponent<mapSelectorRPCinfo>().votedMap;
+				votedDiffList[temp] = j.GetComponent<mapSelectorRPCinfo>().votedDiff;
 				++temp;
 			}
 			
 			byte maxCount = 0;
 			
-			for (int i=0;i<PhotonNetwork.playerList.Length;i++)
+			for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
 			{
-				byte count=1;
-				for (int j=i+1;j<PhotonNetwork.playerList.Length;j++)
-					if (votedMapList[i]== votedMapList[j])
+				byte count = 1;
+				for (int j = i+1; j < PhotonNetwork.playerList.Length; j++)
+					if (votedMapList[i] == votedMapList[j])
 						count++;
-				if (count>maxCount)
+				if (count > maxCount)
 					maxCount = count;
 			}
 			
-			for (int i=0;i<PhotonNetwork.playerList.Length;i++)
+			for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
 			{
-				byte count=1;
-				for (int j=i+1;j<PhotonNetwork.playerList.Length;j++)
-					if (votedMapList[i]== votedMapList[j])
+				byte count = 1;
+				for (int j = i+1; j < PhotonNetwork.playerList.Length; j++)
+					if (votedMapList[i] == votedMapList[j])
 						count++;
-				if (count==maxCount)
+				if (count == maxCount)
 					gameStat.level = votedMapList[i];
 			}
 			
 			maxCount = 0;
 			
-			for (int i=0;i<4;i++)
+			for (int i = 0; i < 4; i++)
 			{
-				byte count=1;
-				for (int j=i+1;j<4;j++)
-					if (votedDiffList[i]== votedDiffList[j])
+				byte count = 1;
+				for (int j = i+1; j < 4; j++)
+					if (votedDiffList[i] == votedDiffList[j])
 						count++;
-				if (count>maxCount)
+				if (count > maxCount)
 					maxCount = count;
 			}
 			
-			for (int i=0;i<4;i++)
+			for (int i = 0; i < 4; i++)
 			{
-				byte count=1;
-				for (int j=i+1;j<4;j++)
-					if (votedDiffList[i]== votedDiffList[j])
+				byte count = 1;
+				for (int j = i+1; j < 4; j++)
+					if (votedDiffList[i] == votedDiffList[j])
 						count++;
-				if (count==maxCount)
+				if (count == maxCount)
 					gameStat.Diff = votedDiffList[i];
 			}
 		}
