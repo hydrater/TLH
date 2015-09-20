@@ -40,7 +40,7 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnJoinedLobby()
 	{
-		if (Application.loadedLevel == 0)
+		if (Application.loadedLevel == 1)
 		{
 			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
 			PhotonNetwork.JoinOrCreateRoom("!Sanctuary", roomOptions, TypedLobby.Default);
