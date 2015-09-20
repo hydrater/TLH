@@ -153,6 +153,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		canvas.SetActive(false);
 		startText.SetActive(true);
 		gameStart = true;
+		PhotonNetwork.Destroy(mapInfo.gameObject);
 		if (PhotonNetwork.isMasterClient)
 		{	
 			byte[] votedMapList = new byte[4];

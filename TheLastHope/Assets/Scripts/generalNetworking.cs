@@ -12,11 +12,12 @@ public class generalNetworking : MonoBehaviour {
 		Cursor.visible = true;
 		if (Application.loadedLevel == 1)
 		{
+			if (!PhotonNetwork.connected)
+				PhotonNetwork.ConnectUsingSettings(VERSION);
 			spawnPoint = GameObject.Find("Spawnpoint").transform;
 			Cursor.lockState =  CursorLockMode.Locked;
 			Cursor.visible = false;
 			PlayerPrefs.DeleteAll(); // remove once pre alpha is over
-			PhotonNetwork.ConnectUsingSettings(VERSION);
 			PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
 			GetComponent<ChatGui>().enabled = true;
 			return;
@@ -72,6 +73,7 @@ public class generalNetworking : MonoBehaviour {
 		{
 			if (Application.loadedLevel != 0)
 			{
+				PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
 				PhotonNetwork.LeaveRoom();
 			}
 		}
