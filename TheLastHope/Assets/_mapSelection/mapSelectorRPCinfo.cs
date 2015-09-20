@@ -67,7 +67,6 @@ public class mapSelectorRPCinfo : Photon.MonoBehaviour {
 	{
 		if(photonView.isMine)
 		{
-			Debug.Log("game starto");
 			mapUI.canvas.SetActive(false);
 			mapUI.startText.SetActive(true);
 			if (PhotonNetwork.isMasterClient)

@@ -9,7 +9,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 	private currentClientStats gameStat;
 	public bool canCountDown, gameStart = false;
 	public mapSelectorRPCinfo mapInfo;
-	float timer = 3;
+	float timer = 2;
 	
 	void Start()
 	{
@@ -19,6 +19,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 	
 	void Update()
 	{
+		if (mapInfo != null)
+		{
+			GetComponent<Camera>().enabled = true;
+		}
 		if (canCountDown)
 		{
 			timeLeft.SetActive(true);
@@ -31,15 +35,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		}
 		else
 		{
-			//need a latestart/try-catch/boolean to fix, since the error doesnt matter, we skip it
-			try
+			if (mapInfo != null)
 			{
 				mapInfo.selectionTimer = 30;
 				timeLeft.SetActive(false);
-			}
-			catch(System.NullReferenceException)
-			{
-				
 			}
 		}
 		if(gameStart)
@@ -48,7 +47,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			if (timer < 0)
 			{
 				//every1 load scene
-				PhotonNetwork.LoadLevel(3);
+				PhotonNetwork.LoadLevel(4); //Change map
 			}
 		}
 	}
