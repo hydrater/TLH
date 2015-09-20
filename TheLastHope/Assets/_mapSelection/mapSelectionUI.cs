@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class mapSelectionUI : Photon.MonoBehaviour {
 	byte diff, levelSelected = 0;
-	public byte maxLevelAmount;
+	public const byte maxLevelAmount = 1;
 	public GameObject mapText, diffText, timeLeft, voteText, startText, canvas;
 	private currentClientStats gameStat;
 	public bool canCountDown, gameStart = false;
 	public mapSelectorRPCinfo mapInfo;
-	float timer = 2;
+	float timer = 1;
 	
 	void Start()
 	{
@@ -21,34 +21,32 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 	{
 		if (mapInfo != null)
 		{
-			GetComponent<Camera>().enabled = true;
+			canvas.SetActive(true);
 		}
-		if (canCountDown)
+		
+		if(gameStart)
+		{
+			timer -= Time.deltaTime;
+			if (timer < 0)
+			{
+				PhotonNetwork.automaticallySyncScene = true;
+				//every1 load scene
+				Application.LoadLevel(4); //Change map
+			}
+		}
+		else if (canCountDown)
 		{
 			timeLeft.SetActive(true);
 			mapInfo.selectionTimer -= Time.deltaTime;
 			timeLeft.GetComponent<Text>().text = "Game starts in " + Mathf.Round(mapInfo.selectionTimer);
 			if (mapInfo.selectionTimer < 0)
 			{
-				mapInfo.startGame();
+				startGame();
 			}
 		}
 		else
 		{
-			if (mapInfo != null)
-			{
-				mapInfo.selectionTimer = 30;
-				timeLeft.SetActive(false);
-			}
-		}
-		if(gameStart)
-		{
-			timer -= Time.deltaTime;
-			if (timer < 0)
-			{
-				//every1 load scene
-				PhotonNetwork.LoadLevel(4); //Change map
-			}
+			timeLeft.SetActive(false);
 		}
 	}
 	
@@ -148,6 +146,71 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			mapInfo.hasVoted = true;
 			voteText.GetComponent<Text>().text = "Unvote";
 		}
-		
 	}
+	
+	public void startGame()
+	{
+		canvas.SetActive(false);
+		startText.SetActive(true);
+		gameStart = true;
+		
+		if (PhotonNetwork.isMasterClient)
+		{	
+			byte[] votedMapList = new byte[4];
+			byte[] votedDiffList = new byte[4];
+			byte temp = 0;
+			foreach(GameObject x in GameObject.FindGameObjectsWithTag("MapSelector"))
+			{
+				votedMapList[temp] = x.GetComponent<mapSelectorRPCinfo>().votedMap;
+				votedDiffList[temp] = x.GetComponent<mapSelectorRPCinfo>().votedDiff;
+				++temp;
+			}
+			
+			byte maxCount = 0;
+			
+			for (int i=0;i<PhotonNetwork.playerList.Length;i++)
+			{
+				byte count=1;
+				for (int j=i+1;j<PhotonNetwork.playerList.Length;j++)
+					if (votedMapList[i]== votedMapList[j])
+						count++;
+				if (count>maxCount)
+					maxCount = count;
+			}
+			
+			for (int i=0;i<PhotonNetwork.playerList.Length;i++)
+			{
+				byte count=1;
+				for (int j=i+1;j<PhotonNetwork.playerList.Length;j++)
+					if (votedMapList[i]== votedMapList[j])
+						count++;
+				if (count==maxCount)
+					gameStat.level = votedMapList[i];
+			}
+			
+			maxCount = 0;
+			
+			for (int i=0;i<4;i++)
+			{
+				byte count=1;
+				for (int j=i+1;j<4;j++)
+					if (votedDiffList[i]== votedDiffList[j])
+						count++;
+				if (count>maxCount)
+					maxCount = count;
+			}
+			
+			for (int i=0;i<4;i++)
+			{
+				byte count=1;
+				for (int j=i+1;j<4;j++)
+					if (votedDiffList[i]== votedDiffList[j])
+						count++;
+				if (count==maxCount)
+					gameStat.Diff = votedDiffList[i];
+			}
+		}
+	}
+	
+	
 }

@@ -4,11 +4,14 @@ using System.Collections;
 public class generalNetworking : MonoBehaviour {
 	const string VERSION = "Prototype";
 	const int levelIndexStart = 3; //The first non hub scene
+	Transform spawnPoint;
 	
 	void OnLevelWasLoaded(int level)
 	{
 		if (Application.loadedLevel == 1)
 		{
+			spawnPoint = GameObject.Find("Spawnpoint").transform;
+			
 			PlayerPrefs.DeleteAll(); // remove once pre alpha is over
 			PhotonNetwork.ConnectUsingSettings(VERSION);
 			PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
@@ -17,8 +20,8 @@ public class generalNetworking : MonoBehaviour {
 		}
 		if (Application.loadedLevel > levelIndexStart) //Since we are already connected to a room, we don't have to reconnect to the same room
 		{
-			Transform temp = GameObject.Find("Spawnpoint").transform;
-			PhotonNetwork.Instantiate("Player", temp.position, temp.rotation, 0);
+			spawnPoint = GameObject.Find("Spawnpoint").transform;
+			PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 			return;
 		}
 		if (Application.loadedLevel == 3)
@@ -47,8 +50,7 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (Application.loadedLevel == 1) //Spawns player if in Sanctuary
 		{
-			Transform temp = GameObject.Find("Spawnpoint").transform;
-			PhotonNetwork.Instantiate("_sanctuaryPlayer", temp.position, temp.rotation, 0);
+			PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
 		}
 		if (Application.loadedLevel == 2)//spawn Mapselector
 		{

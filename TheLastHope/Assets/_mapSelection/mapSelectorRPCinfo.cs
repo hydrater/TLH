@@ -30,7 +30,7 @@ public class mapSelectorRPCinfo : Photon.MonoBehaviour {
 			if (PhotonNetwork.playerList.Length > 1) 
 			{
 				if (alreadyVoted == PhotonNetwork.playerList.Length)
-					startGame();
+					mapUI.startGame();
 				else if(alreadyVoted >= PhotonNetwork.playerList.Length/2)
 					mapUI.canCountDown = true; //start countdown
 				else
@@ -38,9 +38,10 @@ public class mapSelectorRPCinfo : Photon.MonoBehaviour {
 					mapUI.canCountDown = false; //stop countdown
 					selectionTimer = 30;
 				}
-			}else if (hasVoted)
+			}
+			else if (hasVoted)
 			{
-				startGame();
+				mapUI.startGame();
 			}
 		}
 	}
@@ -63,27 +64,5 @@ public class mapSelectorRPCinfo : Photon.MonoBehaviour {
 		}
 	}
 	
-	public void startGame()
-	{
-		if(photonView.isMine)
-		{
-			mapUI.canvas.SetActive(false);
-			mapUI.startText.SetActive(true);
-			if (PhotonNetwork.isMasterClient)
-			{	
-				byte[] votedMapList = new byte[4];
-				byte[] votedDiffList = new byte[4];
-				//voteAmount = byte[];
-				byte i = 0;
-				foreach(GameObject x in GameObject.FindGameObjectsWithTag("MapSelector"))
-				{
-					votedMapList[i] = x.GetComponent<mapSelectorRPCinfo>().votedMap;
-					votedDiffList[i] = x.GetComponent<mapSelectorRPCinfo>().votedDiff;
-					++i;
-				}
-				
-				mapUI.gameStart = true;
-			}
-		}
-	}
+	
 }
