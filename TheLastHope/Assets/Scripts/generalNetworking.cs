@@ -8,10 +8,13 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level)
 	{
+		Cursor.lockState =  CursorLockMode.Confined;
+		Cursor.visible = true;
 		if (Application.loadedLevel == 1)
 		{
 			spawnPoint = GameObject.Find("Spawnpoint").transform;
-			
+			Cursor.lockState =  CursorLockMode.Locked;
+			Cursor.visible = false;
 			PlayerPrefs.DeleteAll(); // remove once pre alpha is over
 			PhotonNetwork.ConnectUsingSettings(VERSION);
 			PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
@@ -20,12 +23,16 @@ public class generalNetworking : MonoBehaviour {
 		}
 		if (Application.loadedLevel > levelIndexStart) //Since we are already connected to a room, we don't have to reconnect to the same room
 		{
+			Cursor.lockState =  CursorLockMode.Locked;
+			Cursor.visible = false;
 			spawnPoint = GameObject.Find("Spawnpoint").transform;
 			PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 			return;
 		}
 		if (Application.loadedLevel == 3)
 		{
+			Cursor.lockState =  CursorLockMode.Confined;
+			Cursor.visible = true;
 			GetComponent<ChatGui>().enabled = false;
 		}
 		//if more levels are implemented, use switch for application.loadedlevel else switch to outside hub
