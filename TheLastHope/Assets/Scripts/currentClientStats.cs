@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class currentClientStats : MonoBehaviour {
-	public string playerName, roomName, password, time;
+	public string playerName, /*roomName ="!Sanctuary",*/ password, time;
 	public byte charNo, Diff, level;
 	
 	void Update()
