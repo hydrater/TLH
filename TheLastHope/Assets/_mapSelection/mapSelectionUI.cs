@@ -29,8 +29,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			timer -= Time.deltaTime;
 			if (timer < 0)
 			{
-				//every1 load scene
-				Application.LoadLevel(4); //Change map
+				Application.LoadLevel(3); //Change map
 			}
 		}
 		else if (canCountDown)
@@ -39,14 +38,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			mapInfo.selectionTimer -= Time.deltaTime;
 			timeLeft.GetComponent<Text>().text = "Game starts in " + Mathf.Round(mapInfo.selectionTimer);
 			if (mapInfo.selectionTimer < 0)
-			{
 				startGame();
-			}
 		}
 		else
-		{
 			timeLeft.SetActive(false);
-		}
 	}
 	
 	public void levelLeft()	
@@ -61,7 +56,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		if (levelSelected == 0)
 			mapText.GetComponent<Text>().text = "Sanctuary";
 		else
-		mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
+			mapText.GetComponent<Text>().text = "Map " + levelSelected.ToString();
 	}
 	
 	public void levelRight()	
@@ -153,7 +148,6 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		canvas.SetActive(false);
 		startText.SetActive(true);
 		gameStart = true;
-		PhotonNetwork.Destroy(mapInfo.gameObject);
 		if (PhotonNetwork.isMasterClient)
 		{	
 			byte[] votedMapList = new byte[4];

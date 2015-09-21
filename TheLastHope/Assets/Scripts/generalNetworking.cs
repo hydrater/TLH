@@ -8,9 +8,15 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level)
 	{
+		GetComponent<ChatGui>().enabled = true;
 		Cursor.lockState =  CursorLockMode.Confined;
 		Cursor.visible = true;
-		if (Application.loadedLevel == 1)
+		if (Application.loadedLevel == 0)
+		{
+			GetComponent<ChatGui>().enabled = false;
+			return;
+		}
+		if (Application.loadedLevel == 1) //Sanc and Hub
 		{
 			if (!PhotonNetwork.connected)
 				PhotonNetwork.ConnectUsingSettings(VERSION);
@@ -19,18 +25,18 @@ public class generalNetworking : MonoBehaviour {
 			Cursor.visible = false;
 			PlayerPrefs.DeleteAll(); // remove once pre alpha is over
 			PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
-			GetComponent<ChatGui>().enabled = true;
 			return;
 		}
-		if (Application.loadedLevel > levelIndexStart) //Since we are already connected to a room, we don't have to reconnect to the same room
+		if (Application.loadedLevel > levelIndexStart-1) //Since we are already connected to a room, we don't have to reconnect to the same room
 		{
+			GetComponent<ChatGui>().enabled = false;
 			Cursor.lockState =  CursorLockMode.Locked;
 			Cursor.visible = false;
 			spawnPoint = GameObject.Find("Spawnpoint").transform;
 			PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 			return;
 		}
-		if (Application.loadedLevel == 3)
+		if (Application.loadedLevel == 3) //for tutorial
 		{
 			Cursor.lockState =  CursorLockMode.Confined;
 			Cursor.visible = true;
@@ -69,14 +75,10 @@ public class generalNetworking : MonoBehaviour {
 	
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
+		if (Input.GetKeyDown(KeyCode.Escape))//temporary scene switcher
 			if (Application.loadedLevel != 0)
-			{
-				PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
-				PhotonNetwork.LeaveRoom();
-			}
-		}
+				if(PhotonNetwork.connected)
+					PhotonNetwork.LeaveRoom();
 	}
 	
 	void OnLeftRoom()
