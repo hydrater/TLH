@@ -29,8 +29,8 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			timer -= Time.deltaTime;
 			if (timer < 0)
 			{
-				//every1 load scene
-				Application.LoadLevel(4); //Change map
+				gameStat.GetComponent<generalNetworking>().switchScene();
+				PhotonNetwork.LeaveRoom(); //Change map
 			}
 		}
 		else if (canCountDown)
@@ -149,11 +149,11 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 	
 	public void startGame()
 	{
-		PhotonNetwork.automaticallySyncScene = true;
 		canvas.SetActive(false);
 		startText.SetActive(true);
 		gameStart = true;
-		PhotonNetwork.Destroy(mapInfo.gameObject);
+		PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
+		//PhotonNetwork.Destroy(mapInfo.gameObject);
 		if (PhotonNetwork.isMasterClient)
 		{	
 			byte[] votedMapList = new byte[4];
