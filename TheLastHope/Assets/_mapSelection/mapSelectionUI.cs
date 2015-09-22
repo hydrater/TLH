@@ -28,9 +28,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		{
 			timer -= Time.deltaTime;
 			if (timer < 0)
-			{
 				Application.LoadLevel(4); //Change map
-			}
 		}
 		else if (canCountDown)
 		{
