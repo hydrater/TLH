@@ -27,9 +27,9 @@ public class generalNetworking : MonoBehaviour {
 			PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
 			return;
 		}
-		if (Application.loadedLevel > levelIndexStart-1) //Since we are already connected to a room, we don't have to reconnect to the same room
+		if (Application.loadedLevel > levelIndexStart) //Since we are already connected to a room, we don't have to reconnect to the same room
 		{
-			GetComponent<ChatGui>().enabled = false;
+			GetComponent<ChatGui>().enabled = true;
 			Cursor.lockState =  CursorLockMode.Locked;
 			Cursor.visible = false;
 			spawnPoint = GameObject.Find("Spawnpoint").transform;
