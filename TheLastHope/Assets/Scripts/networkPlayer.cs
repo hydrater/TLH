@@ -18,6 +18,8 @@ public class networkPlayer : Photon.MonoBehaviour {
 		}
 		else
 		{
+			Destroy(GetComponent<FirstPersonController>());
+			Destroy(GetComponent<Rigidbody>());
 			GetComponent<Rigidbody>().useGravity = false;
 		}
 	}
