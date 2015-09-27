@@ -93,11 +93,9 @@ public class generalNetworking : MonoBehaviour {
 		}
 	}
 	
-	void OnPlayerDisconnected(NetworkPlayer otherPlayer) 
+	void OnPhotonPlayerDisconnected(PhotonPlayer target) 
 	{
-		Debug.Log(otherPlayer.ToString());
-		Network.RemoveRPCs(otherPlayer);
-		Network.DestroyPlayerObjects(otherPlayer);
+		PhotonNetwork.DestroyPlayerObjects(target);
 	}
 	
 	void OnLeftRoom()
