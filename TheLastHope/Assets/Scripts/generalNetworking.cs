@@ -41,6 +41,8 @@ public class generalNetworking : MonoBehaviour {
 			Cursor.lockState =  CursorLockMode.Confined;
 			Cursor.visible = true;
 			GetComponent<ChatGui>().enabled = false;
+			spawnPoint = GameObject.Find("Spawnpoint").transform;
+			PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 		}
 		//if more levels are implemented, use switch for application.loadedlevel else switch to outside hub
 	}
@@ -79,6 +81,16 @@ public class generalNetworking : MonoBehaviour {
 			if (Application.loadedLevel != 0)
 				if(PhotonNetwork.connected)
 					PhotonNetwork.LeaveRoom();
+		if (Input.GetKeyDown(KeyCode.Equals))
+		{
+			if (Application.loadedLevel != 0)
+			{
+				if(PhotonNetwork.connected)
+				{
+					Application.LoadLevel(3);
+				}
+			}
+		}
 	}
 	
 	void OnLeftRoom()

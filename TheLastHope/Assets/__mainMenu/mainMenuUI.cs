@@ -155,6 +155,11 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		hoverExit = false;
 	}
+	
+	public void ExitGame()
+	{
+		Application.Quit();
+	}
 
 	//Character creation
 	//Change character's appearance
