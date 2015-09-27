@@ -65,8 +65,7 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (Application.loadedLevel == 1) //Spawns player if in Sanctuary
 		{
-			GameObject temp = PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
-			
+			PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
 			return;
 		}
 		if (Application.loadedLevel == 2)//spawn Mapselector

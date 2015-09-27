@@ -14,12 +14,12 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
+			photonView.RPC("changeFace", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 		}
 		else
 		{
 			GetComponent<Rigidbody>().useGravity = false;
 		}
-		photonView.RPC("changeFace", PhotonTargets.All, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 	}
 	
 	void Update()
@@ -48,37 +48,36 @@ public class networkPlayer : Photon.MonoBehaviour {
 	
 	void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
 	{
-		photonView.RPC("changeFace", PhotonTargets.All, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
+		//photonView.RPC("changeFace", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 	}
 	
 	[PunRPC]
 	void changeFace (byte faceNo)
 	{
-		if (!photonView.isMine)
-			switch (faceNo)
-			{
-			default:
-				face.GetComponent<Renderer>().material = (Material)Resources.Load("0", typeof(Material));
-				break;
-			case 1:
-				face.GetComponent<Renderer>().material = (Material)Resources.Load("1", typeof(Material));
-				break;
-			case 2:
-				face.GetComponent<Renderer>().material = (Material)Resources.Load("2", typeof(Material));
-				break;
-			case 3:
-				face.GetComponent<Renderer>().material = (Material)Resources.Load("3", typeof(Material));
-				break;
-			case 4:
-				face.GetComponent<Renderer>().material = (Material)Resources.Load("4", typeof(Material));
-				break;
-			case 100:
-				face.GetComponent<Renderer>().material = (Material)Resources.Load("Franku", typeof(Material));
-				break;
-			case 101:
-				face.GetComponent<Renderer>().material = (Material)Resources.Load("Dal", typeof(Material));
-				break;
-			}
+		switch (faceNo)
+		{
+		default:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("0", typeof(Material));
+			break;
+		case 1:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("1", typeof(Material));
+			break;
+		case 2:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("2", typeof(Material));
+			break;
+		case 3:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("3", typeof(Material));
+			break;
+		case 4:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("4", typeof(Material));
+			break;
+		case 100:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("Franku", typeof(Material));
+			break;
+		case 101:
+			face.GetComponent<Renderer>().material = (Material)Resources.Load("Dal", typeof(Material));
+			break;
+		}
 	}
 }
 
