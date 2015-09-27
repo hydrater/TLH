@@ -65,7 +65,8 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (Application.loadedLevel == 1) //Spawns player if in Sanctuary
 		{
-			PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
+			GameObject temp = PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
+			
 			return;
 		}
 		if (Application.loadedLevel == 2)//spawn Mapselector
@@ -91,6 +92,13 @@ public class generalNetworking : MonoBehaviour {
 				}
 			}
 		}
+	}
+	
+	void OnPlayerDisconnected(NetworkPlayer otherPlayer) 
+	{
+		Debug.Log(otherPlayer.ToString());
+		Network.RemoveRPCs(otherPlayer);
+		Network.DestroyPlayerObjects(otherPlayer);
 	}
 	
 	void OnLeftRoom()
