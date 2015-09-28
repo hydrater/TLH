@@ -15,12 +15,13 @@ public class networkPlayer : Photon.MonoBehaviour {
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
 			photonView.RPC("changeFace", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
+			Destroy(face);
 		}
 		else
 		{
+			Destroy(GetComponent<combatHandler>());
 			Destroy(GetComponent<FirstPersonController>());
 			Destroy(GetComponent<Rigidbody>());
-			GetComponent<Rigidbody>().useGravity = false;
 		}
 	}
 	
@@ -46,11 +47,6 @@ public class networkPlayer : Photon.MonoBehaviour {
 			realPosition = (Vector3)stream.ReceiveNext();
 			realRotation = (Quaternion)stream.ReceiveNext();
 		}
-	}
-	
-	void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
-	{
-		//photonView.RPC("changeFace", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 	}
 	
 	[PunRPC]

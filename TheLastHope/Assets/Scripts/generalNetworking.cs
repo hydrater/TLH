@@ -44,7 +44,7 @@ public class generalNetworking : MonoBehaviour {
 				
 			case 3: //for tutorial
 				Cursor.lockState =  CursorLockMode.Confined;
-				Cursor.visible = true;
+				Cursor.visible = false;
 				GetComponent<ChatGui>().enabled = false;
 				spawnPoint = GameObject.Find("Spawnpoint").transform;
 				PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
