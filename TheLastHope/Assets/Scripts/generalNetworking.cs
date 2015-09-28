@@ -11,22 +11,7 @@ public class generalNetworking : MonoBehaviour {
 		GetComponent<ChatGui>().enabled = true;
 		Cursor.lockState =  CursorLockMode.Confined;
 		Cursor.visible = true;
-		if (Application.loadedLevel == 0)
-		{
-			GetComponent<ChatGui>().enabled = false;
-			return;
-		}
-		if (Application.loadedLevel == 1) //Sanc and Hub
-		{
-			if (!PhotonNetwork.connected)
-				PhotonNetwork.ConnectUsingSettings(VERSION);
-			spawnPoint = GameObject.Find("Spawnpoint").transform;
-			Cursor.lockState =  CursorLockMode.Locked;
-			Cursor.visible = false;
-			PlayerPrefs.DeleteAll(); // remove once pre alpha is over
-			PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
-			return;
-		}
+		
 		if (Application.loadedLevel > levelIndexStart) //Since we are already connected to a room, we don't have to reconnect to the same room
 		{
 			GetComponent<ChatGui>().enabled = true;
@@ -34,17 +19,38 @@ public class generalNetworking : MonoBehaviour {
 			Cursor.visible = false;
 			spawnPoint = GameObject.Find("Spawnpoint").transform;
 			PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
-			return;
 		}
-		if (Application.loadedLevel == 3) //for tutorial
+		else
 		{
-			Cursor.lockState =  CursorLockMode.Confined;
-			Cursor.visible = true;
-			GetComponent<ChatGui>().enabled = false;
-			spawnPoint = GameObject.Find("Spawnpoint").transform;
-			PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
+			switch(Application.loadedLevel)
+			{
+			default:
+				
+				break;
+				
+			case 0:
+				GetComponent<ChatGui>().enabled = false;
+				break;
+				
+			case 1: //Sanc and Hub
+				if (!PhotonNetwork.connected)
+					PhotonNetwork.ConnectUsingSettings(VERSION);
+				spawnPoint = GameObject.Find("Spawnpoint").transform;
+				Cursor.lockState =  CursorLockMode.Locked;
+				Cursor.visible = false;
+				PlayerPrefs.DeleteAll(); // remove once pre alpha is over
+				PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
+				break;
+				
+			case 3: //for tutorial
+				Cursor.lockState =  CursorLockMode.Confined;
+				Cursor.visible = true;
+				GetComponent<ChatGui>().enabled = false;
+				spawnPoint = GameObject.Find("Spawnpoint").transform;
+				PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
+				break;
+			}
 		}
-		//if more levels are implemented, use switch for application.loadedlevel else switch to outside hub
 	}
 	
 	void OnJoinedLobby()
@@ -82,15 +88,9 @@ public class generalNetworking : MonoBehaviour {
 				if(PhotonNetwork.connected)
 					PhotonNetwork.LeaveRoom();
 		if (Input.GetKeyDown(KeyCode.Equals))
-		{
 			if (Application.loadedLevel != 0)
-			{
 				if(PhotonNetwork.connected)
-				{
 					Application.LoadLevel(3);
-				}
-			}
-		}
 	}
 	
 	void OnPhotonPlayerDisconnected(PhotonPlayer target) 
