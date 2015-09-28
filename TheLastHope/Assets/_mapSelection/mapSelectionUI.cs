@@ -8,7 +8,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 	public GameObject mapText, diffText, timeLeft, voteText, startText, canvas;
 	private currentClientStats gameStat;
 	public bool canCountDown, gameStart = false;
-	public mapSelectorRPCinfo mapInfo;
+	public mapSelectorRPCInfo mapInfo;
 	float timer = 1;
 	
 	void Start()
@@ -28,7 +28,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 		{
 			timer -= Time.deltaTime;
 			if (timer < 0)
+			{
+				PhotonNetwork.Destroy(mapInfo.gameObject);
 				Application.LoadLevel(4); //Change map
+			}
 		}
 		else if (canCountDown)
 		{
@@ -36,7 +39,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			mapInfo.selectionTimer -= Time.deltaTime;
 			timeLeft.GetComponent<Text>().text = "Game starts in " + Mathf.Round(mapInfo.selectionTimer);
 			if (mapInfo.selectionTimer < 0)
+			{
 				startGame();
+				timeLeft.SetActive(false);
+			}
 		}
 		else
 			timeLeft.SetActive(false);
@@ -153,8 +159,8 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			byte temp = 0;
 			foreach(GameObject j in GameObject.FindGameObjectsWithTag("MapSelector"))
 			{
-				votedMapList[temp] = j.GetComponent<mapSelectorRPCinfo>().votedMap;
-				votedDiffList[temp] = j.GetComponent<mapSelectorRPCinfo>().votedDiff;
+				votedMapList[temp] = j.GetComponent<mapSelectorRPCInfo>().votedMap;
+				votedDiffList[temp] = j.GetComponent<mapSelectorRPCInfo>().votedDiff;
 				++temp;
 			}
 			

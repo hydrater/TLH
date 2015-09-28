@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class mapSelectorRPCinfo : Photon.MonoBehaviour {
+public class mapSelectorRPCInfo : Photon.MonoBehaviour {
 	public byte votedMap, votedDiff;
 	byte[] mapVotes, diffVotes;
 	public float selectionTimer;
@@ -24,7 +24,7 @@ public class mapSelectorRPCinfo : Photon.MonoBehaviour {
 			byte alreadyVoted = 0;
 			foreach(GameObject x in GameObject.FindGameObjectsWithTag("MapSelector"))
 			{
-				if (x.GetComponent<mapSelectorRPCinfo>().hasVoted)
+				if (x.GetComponent<mapSelectorRPCInfo>().hasVoted)
 					++alreadyVoted;
 			}
 			if (PhotonNetwork.playerList.Length > 1) 
@@ -45,6 +45,8 @@ public class mapSelectorRPCinfo : Photon.MonoBehaviour {
 			}
 		}
 	}
+	
+	
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
