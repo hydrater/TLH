@@ -2,14 +2,10 @@
 using System.Collections;
 
 public class EventLevel3 : MonoBehaviour {
-
+	//all objects on the levels to be manipulated should appear here
+	
 	void Update () {
 		
-	}
-	
-	void OnTriggerEnter(Collider other)
-	{
-		//Fire event in execute event
 	}
 	
 	
