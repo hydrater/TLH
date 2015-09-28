@@ -6,11 +6,8 @@ public class combatHandler : Photon.MonoBehaviour {
 	
 	void Start () {
 		if (photonView.isMine)
-		{
-			GetComponent<combatHandler>().enabled = true;
 			if(Application.loadedLevel > 2)
 				gameObject.AddComponent(System.Type.GetType ("EventLevel" + Application.loadedLevel.ToString()));
-			}
 	}
 	
 	void Update () {
