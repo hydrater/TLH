@@ -7,7 +7,7 @@ public class combatHandler : Photon.MonoBehaviour {
 	
 	void Start () 
 	{
-		gameStat = GameObject.Find("GameManager");
+		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 		if (photonView.isMine)
 			if(Application.loadedLevel > 2)
 				gameObject.AddComponent(System.Type.GetType ("InteractionLevel" + Application.loadedLevel.ToString()));
@@ -20,14 +20,14 @@ public class combatHandler : Photon.MonoBehaviour {
 		
 		if(Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			if (gameStat.weapon1ID = 0000)
+			if (gameStat.weapon1ID == 0000)
 				gameStat.hybridMode = (gameStat.hybridMode) ? false : true;
 				//else switch weap
 		}
 		
 		if(Input.GetKeyDown(KeyCode.Alpha2))
 		{
-			if (gameStat.weapon2ID = 0000)
+			if (gameStat.weapon2ID == 0000)
 				gameStat.hybridMode = (gameStat.hybridMode) ? false : true;
 			//else switch weap
 		}
