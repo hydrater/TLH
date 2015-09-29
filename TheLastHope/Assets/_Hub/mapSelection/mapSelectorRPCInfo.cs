@@ -45,9 +45,7 @@ public class mapSelectorRPCInfo : Photon.MonoBehaviour {
 			}
 		}
 	}
-	
-	
-	
+
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting)

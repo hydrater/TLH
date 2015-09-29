@@ -29,8 +29,7 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 			timer -= Time.deltaTime;
 			if (timer < 0)
 			{
-				PhotonNetwork.Destroy(mapInfo.gameObject);
-				Application.LoadLevel(4); //Change map
+				PhotonNetwork.LeaveRoom();
 			}
 		}
 		else if (canCountDown)
@@ -148,12 +147,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 	
 	public void startGame()
 	{
-		PhotonNetwork.automaticallySyncScene = true;
 		canvas.SetActive(false);
 		startText.SetActive(true);
 		gameStart = true;
-		if (PhotonNetwork.isMasterClient)
-		{	
+		
 			byte[] votedMapList = new byte[4];
 			byte[] votedDiffList = new byte[4];
 			byte temp = 0;
@@ -207,8 +204,10 @@ public class mapSelectionUI : Photon.MonoBehaviour {
 				if (count == maxCount)
 					gameStat.Diff = votedDiffList[i];
 			}
-		}
+			
+		if (gameStat.level == 0)
+			gameStat.roomName = "!Sanctuary";
+		else
+			gameStat.roomName = "#" + gameStat.roomName.Substring(1);
 	}
-	
-	
 }

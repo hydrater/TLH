@@ -3,8 +3,11 @@ using System.Collections;
 
 public class combatHandler : Photon.MonoBehaviour {
 	public GameObject _camera;
+	currentClientStats gameStat;
 	
-	void Start () {
+	void Start () 
+	{
+		gameStat = GameObject.Find("GameManager");
 		if (photonView.isMine)
 			if(Application.loadedLevel > 2)
 				gameObject.AddComponent(System.Type.GetType ("InteractionLevel" + Application.loadedLevel.ToString()));
@@ -14,16 +17,28 @@ public class combatHandler : Photon.MonoBehaviour {
 		if(Input.GetMouseButtonDown(0))
 			Shoot ();
 		Debug.DrawRay (_camera.transform.position, _camera.transform.forward*50, Color.green);
+		
+		if(Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			if (gameStat.weapon1ID = 0000)
+				gameStat.hybridMode = (gameStat.hybridMode) ? false : true;
+				//else switch weap
+		}
+		
+		if(Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			if (gameStat.weapon2ID = 0000)
+				gameStat.hybridMode = (gameStat.hybridMode) ? false : true;
+			//else switch weap
+		}
 	}
 	
 	void Shoot(){
-		//GameObject bulletInstance = Instantiate (combatStats1.AmmoType, transform.position, transform.rotation) as GameObject;
-		//bulletInstance.GetComponent<Bullet> ().direction = Player.transform.forward;//(Player.transform.rotation.x, transform.rotation.y, 0);
 		RaycastHit hit;
-		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward*50, out hit)) {
+		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward*50, out hit)) 
+		{
 			Debug.Log(hit.collider.name);
 		}
-		
 	}
 	
 	

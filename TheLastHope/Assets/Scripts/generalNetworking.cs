@@ -3,7 +3,7 @@ using System.Collections;
 
 public class generalNetworking : MonoBehaviour {
 	const string VERSION = "Prototype";
-	const int levelIndexStart = 3; //The first non hub scene
+	public const int levelIndexStart = 3; //The first non hub scene
 	Transform spawnPoint;
 	
 	void OnLevelWasLoaded(int level)
@@ -17,8 +17,6 @@ public class generalNetworking : MonoBehaviour {
 			GetComponent<ChatGui>().enabled = true;
 			Cursor.lockState =  CursorLockMode.Locked;
 			Cursor.visible = false;
-			spawnPoint = GameObject.Find("Spawnpoint").transform;
-			PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 		}
 		else
 		{
@@ -55,15 +53,20 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnJoinedLobby()
 	{
-		if (Application.loadedLevel == 1)
+		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
 		{
 			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
 			PhotonNetwork.JoinOrCreateRoom("!Sanctuary", roomOptions, TypedLobby.Default);
 		}
+		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
+		{
+			RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
+			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
+		}
 		else
 		{
 			RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
-			PhotonNetwork.JoinOrCreateRoom("@" + "MapSelection"/*TEMPORARY*/, roomOptions, TypedLobby.Default);
+			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
 		}
 	}
 	
@@ -79,14 +82,24 @@ public class generalNetworking : MonoBehaviour {
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
 			return;
 		}
+		spawnPoint = GameObject.Find("Spawnpoint").transform;
+		PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
+		
 	}
 	
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))//temporary scene switcher
-			if (Application.loadedLevel != 0)
+		{
+			if (Application.loadedLevel == 1)
+			{
 				if(PhotonNetwork.connected)
+				{
+					GetComponent<currentClientStats>().roomName = "@" + "Default"; //TEMPORARY
 					PhotonNetwork.LeaveRoom();
+				}
+			}
+		}
 		if (Input.GetKeyDown(KeyCode.Equals))
 			if (Application.loadedLevel != 0)
 				if(PhotonNetwork.connected)
@@ -100,10 +113,12 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnLeftRoom()
 	{
-		if (Application.loadedLevel == 1)
-			Application.LoadLevel(2); //go map selection/ go to desired scene outside of hub
-		else 
+		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
 			Application.LoadLevel(1);
+		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
+			Application.LoadLevel(2);
+		else
+			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}
 	
 }
