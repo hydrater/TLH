@@ -33,7 +33,7 @@ public class generalNetworking : MonoBehaviour {
 			case 1: //Sanc and Hub
 				if (!PhotonNetwork.connected)
 					PhotonNetwork.ConnectUsingSettings(VERSION);
-				spawnPoint = GameObject.Find("Spawnpoint").transform;
+				spawnPoint = GameObject.Find("LevelManager").transform;
 				Cursor.lockState =  CursorLockMode.Locked;
 				Cursor.visible = false;
 				PlayerPrefs.DeleteAll(); // remove once pre alpha is over
@@ -44,7 +44,7 @@ public class generalNetworking : MonoBehaviour {
 				Cursor.lockState =  CursorLockMode.Confined;
 				Cursor.visible = false;
 				GetComponent<ChatGui>().enabled = false;
-				spawnPoint = GameObject.Find("Spawnpoint").transform;
+				spawnPoint = GameObject.Find("LevelManager").transform;
 				PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 				break;
 			}
@@ -82,7 +82,8 @@ public class generalNetworking : MonoBehaviour {
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
 			return;
 		}
-		spawnPoint = GameObject.Find("Spawnpoint").transform;
+		//spawn player outside hub once room is joined
+		spawnPoint = GameObject.Find("LevelManager").transform;
 		PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 		
 	}
