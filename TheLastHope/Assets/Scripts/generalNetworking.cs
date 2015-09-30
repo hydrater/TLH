@@ -60,7 +60,7 @@ public class generalNetworking : MonoBehaviour {
 		}
 		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
 		{
-			RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
+			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4};
 			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
 		}
 		else
@@ -109,6 +109,13 @@ public class generalNetworking : MonoBehaviour {
 	void OnPhotonPlayerDisconnected(PhotonPlayer target) 
 	{
 		PhotonNetwork.DestroyPlayerObjects(target);
+	}
+	
+	void OnPhotonJoinRoomFailed()
+	{
+		Debug.Log("Room is full");
+		GetComponent<currentClientStats>().roomName = "!Sanctuary";
+		PhotonNetwork.LeaveRoom();
 	}
 	
 	void OnLeftRoom()
