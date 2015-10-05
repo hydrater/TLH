@@ -3,7 +3,14 @@ guid: f77ae1fafb5c04645874bc741b6e435c
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: polySurface63_polySurface62
+    100002: //RootNode
+    400000: polySurface63_polySurface62
+    400002: //RootNode
+    2300000: polySurface63_polySurface62
+    3300000: polySurface63_polySurface62
     4300000: polySurface63_polySurface62
+    11100000: //RootNode
   materials:
     importMaterials: 0
     materialName: 0
@@ -60,8 +67,10 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
