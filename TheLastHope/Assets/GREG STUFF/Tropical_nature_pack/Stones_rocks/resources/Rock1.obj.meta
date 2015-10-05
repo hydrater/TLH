@@ -3,7 +3,14 @@ guid: 3789a105757c6104e9e5a8b357be31ba
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: Rock1_LP:pCube1
+    400000: //RootNode
+    400002: Rock1_LP:pCube1
+    2300000: Rock1_LP:pCube1
+    3300000: Rock1_LP:pCube1
     4300000: Rock1_LP:pCube1
+    11100000: //RootNode
   materials:
     importMaterials: 0
     materialName: 0
@@ -60,8 +67,10 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

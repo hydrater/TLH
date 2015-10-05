@@ -90,7 +90,7 @@ public class combatHandler : Photon.MonoBehaviour {
 			
 		if (Dash /*&& m_CharacterController.isGrounded*/)
 		{
-			transform.Translate(dashDir * Time.deltaTime * 70);
+			transform.Translate(dashDir * Time.deltaTime * 70);// change to rigidbody.addforce
 			dashTimer += Time.deltaTime;
 			if (dashTimer > 0.3f)
 				Dash = false;
