@@ -139,6 +139,42 @@ public class combatHandler : Photon.MonoBehaviour {
 		}
 	}
 	
+//	private var crouchHeight : float;
+//	private var standardHeight : float;
+//	private var crouching : boolean = false;
+//	private var controller : CharacterController;
+//	private var mainCamera : GameObject;
+//	
+//	function Start () {
+//		controller = GetComponent(CharacterController);
+//		mainCamera = gameObject.FindWithTag("MainCamera&­quot;);
+//standardHeight = controller.height;
+//crouchHeight = controller.height/2;
+//crouching = false;
+//}
+//
+//function Update () {
+//if (Input.GetButtonDown ("Crouch")){
+//if(crouching){
+//controller.height = standardHeight ;
+//controller.center = Vector3 (0, 0, 0);
+//mainCamera.transform.localPosition.y += crouchHeight;
+//crouching = false;
+//return;
+//}
+//
+//if(!crouching)
+//crouch();
+//}
+//}
+//
+//function crouch() {
+//controller.height = crouchHeight;
+//controller.center = Vector3 (0, -0.5, 0);
+//mainCamera.transform.localPosition.y -= crouchHeight;
+//crouching = true;
+//}
+	
 	
 
 }
