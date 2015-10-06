@@ -19,8 +19,28 @@ public class combatHandler : Photon.MonoBehaviour {
 		m_CharacterController = GetComponent<CharacterController>();
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 		if (photonView.isMine)
-			if(Application.loadedLevel > 2)
+			if(Application.loadedLevel > 3)
 				gameObject.AddComponent(System.Type.GetType ("InteractionLevel" + Application.loadedLevel.ToString()));
+		
+		switch(Application.loadedLevel)
+		{
+		default:
+			
+			break;
+			
+		case 1: //Sanc and Hub
+			//if day, if night, if evening
+			
+			break;
+			
+		case 3: //for tutorial
+			
+			break;
+			
+		case 4: //for level 1
+			
+			break;
+		}
 	}
 	
 	void Update () {

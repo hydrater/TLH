@@ -45,7 +45,7 @@ public class generalNetworking : MonoBehaviour {
 				Cursor.visible = false;
 				GetComponent<ChatGui>().enabled = false;
 				spawnPoint = GameObject.Find("LevelManager").transform;
-				PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
+				//PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 				break;
 			}
 		}
@@ -82,6 +82,8 @@ public class generalNetworking : MonoBehaviour {
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
 			return;
 		}
+		if (Application.loadedLevel == 3)
+			return;
 		//spawn player outside hub once room is joined
 		spawnPoint = GameObject.Find("LevelManager").transform;
 		PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
@@ -102,9 +104,16 @@ public class generalNetworking : MonoBehaviour {
 			}
 		}
 		if (Input.GetKeyDown(KeyCode.Equals))
+		{
 			if (Application.loadedLevel != 0)
+			{
 				if(PhotonNetwork.connected)
-					Application.LoadLevel(3);
+				{
+					GetComponent<currentClientStats>().roomName = "!Tutorial";
+					PhotonNetwork.LeaveRoom();
+				}
+			}
+		}
 	}
 	
 	void OnPhotonPlayerDisconnected(PhotonPlayer target) 
@@ -125,6 +134,8 @@ public class generalNetworking : MonoBehaviour {
 			Application.LoadLevel(1);
 		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
 			Application.LoadLevel(2);
+		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
+			Application.LoadLevel(3);
 		else
 			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}

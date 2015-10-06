@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class InteractionLevel3 : Photon.MonoBehaviour {
 	public Text UIScreen;
@@ -49,7 +50,7 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 			UIScreen.text = "Use W,A,S,D to move";
 		}
 		
-		if(other.name == "Event2")
+		if(other.name == "event2")
 		{
 			UIScreen.text = "Hold down shift to sprint";
 		}
@@ -57,6 +58,8 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 		if(other.name == "event3")
 		{
 			transform.position = new Vector3(-20.31f,-45.7f,-38.1f);
+			//transform.rotation = Quaternion.identity;
+			//GetComponent<FirstPersonController>().m_Camera.transform.rotation = Quaternion.identity;
 		}
 	}
 	
@@ -67,9 +70,14 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 			UIScreen.text = "";
 		}
 		
-		if(other.name == "Event2")
+		if(other.name == "event2")
 		{
 			UIScreen.text = "";
+		}
+		
+		if(other.name == "event3")
+		{
+			gameObject.AddComponent<FirstPersonController>();
 		}
 	}
 
