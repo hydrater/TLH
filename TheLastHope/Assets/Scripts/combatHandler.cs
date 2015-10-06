@@ -52,10 +52,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
 			shiftTimer += Time.deltaTime;
-			Debug.Log(shiftTimer);
 			if (shiftTimer > 0.5f && !sprintExhaust)
 			{
-				Debug.Log("Sprinting");
 				if (combatStat.stam /*- Time.deltaTime*12*/ >= 0 && m_CharacterController.isGrounded)
 				{
 					m_FirstPerson.Sprint = true;
