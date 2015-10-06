@@ -119,7 +119,7 @@ public class generalNetworking : MonoBehaviour {
 		PhotonNetwork.LeaveRoom();
 	}
 	
-	void OnLeftRoom()
+	void OnLeftRoom()//Load level
 	{
 		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
 			Application.LoadLevel(1);

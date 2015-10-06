@@ -42,7 +42,7 @@ public class combatHandler : Photon.MonoBehaviour {
 			//else switch weap
 		}
 		
-		//----------------------------------
+		//---------------------------------- Running
 		
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
@@ -52,18 +52,22 @@ public class combatHandler : Photon.MonoBehaviour {
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
 			shiftTimer += Time.deltaTime;
+			Debug.Log(shiftTimer);
 			if (shiftTimer > 0.5f && !sprintExhaust)
 			{
+				Debug.Log("Sprinting");
 				if (combatStat.stam /*- Time.deltaTime*12*/ >= 0 && m_CharacterController.isGrounded)
 				{
 					m_FirstPerson.Sprint = true;
-					combatStat.stam -= Time.deltaTime*12;
+					if(Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal")!= 0)
+						combatStat.stam -= Time.deltaTime*12;
 				}
-				else
+				else if (combatStat.stam <= 0)
 				{
 					m_FirstPerson.Sprint = false;
 					sprintExhaust = true;
 				}
+
 			}
 		}
 		else
@@ -91,6 +95,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		if (Dash /*&& m_CharacterController.isGrounded*/)
 		{
 			transform.Translate(dashDir * Time.deltaTime * 70);// change to rigidbody.addforce
+			//GetComponent<Rigidbody>().AddForce(dashDir * 90, ForceMode.VelocityChange);//bug
+			Debug.Log(dashDir);
 			dashTimer += Time.deltaTime;
 			if (dashTimer > 0.3f)
 				Dash = false;
