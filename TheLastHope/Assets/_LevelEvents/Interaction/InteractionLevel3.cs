@@ -59,7 +59,7 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 		{
 			transform.position = new Vector3(-20.31f,-45.7f,-38.1f);
 			//transform.rotation = Quaternion.identity;
-			//GetComponent<FirstPersonController>().m_Camera.transform.rotation = Quaternion.identity;
+			transform.rotation = Quaternion.identity;
 		}
 	}
 	
@@ -77,7 +77,7 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 		
 		if(other.name == "event3")
 		{
-			gameObject.AddComponent<FirstPersonController>();
+			//gameObject.AddComponent<FirstPersonController>();
 		}
 	}
 

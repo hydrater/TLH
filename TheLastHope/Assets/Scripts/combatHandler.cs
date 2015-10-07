@@ -12,8 +12,13 @@ public class combatHandler : Photon.MonoBehaviour {
 	private currentClientStats gameStat;
 	private combatStats combatStat;
 	
+	private float crouchHeight = 0.9f;
+	private float standardHeight = 1.8f;
+	private bool crouching = false;
+	
 	void Start () 
 	{
+		//GENERAL
 		combatStat = GetComponent<combatStats>();
 		m_FirstPerson = GetComponent<FirstPersonController>();
 		m_CharacterController = GetComponent<CharacterController>();
@@ -112,9 +117,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			
 		if (Dash /*&& m_CharacterController.isGrounded*/)
 		{
-			transform.Translate(dashDir * Time.deltaTime * 70);// change to rigidbody.addforce
+			transform.Translate(dashDir * Time.deltaTime * 40);// change to rigidbody.addforce
 			//GetComponent<Rigidbody>().AddForce(dashDir * 90, ForceMode.VelocityChange);//bug
-			Debug.Log(dashDir);
 			dashTimer += Time.deltaTime;
 			if (dashTimer > 0.3f)
 				Dash = false;
@@ -129,51 +133,47 @@ public class combatHandler : Photon.MonoBehaviour {
 					sprintExhaust = false;
 			}
 		}
+		
+		//-------------------------------------- CROUCHING
+		if (Input.GetKey(KeyCode.LeftControl))
+		{
+			if(!crouching)
+				Crouch();
+		}else if(crouching) //Not Crouching
+		{
+			RaycastHit crouchCheck;
+			if (Physics.Raycast (transform.position, transform.up, out crouchCheck, 1.6f)) 
+			{
+			}
+			else
+			{
+				m_CharacterController.height = standardHeight ;
+				m_CharacterController.center = Vector3.zero;
+				_camera.transform.position = new Vector3 (_camera.transform.position.x, _camera.transform.position.y + crouchHeight, _camera.transform.position.z);
+				crouching = false;
+			}
+		}
 	}
 	
 	void Shoot(){
 		RaycastHit hit;
-		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward*50, out hit)) 
+		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
 		{
 			Debug.Log(hit.collider.name);
 		}
 	}
 	
-//	private var crouchHeight : float;
-//	private var standardHeight : float;
-//	private var crouching : boolean = false;
-//	private var controller : CharacterController;
-//	private var mainCamera : GameObject;
-//	
-//	function Start () {
-//		controller = GetComponent(CharacterController);
-//		mainCamera = gameObject.FindWithTag("MainCamera&­quot;);
-//standardHeight = controller.height;
-//crouchHeight = controller.height/2;
-//crouching = false;
-//}
-//
-//function Update () {
-//if (Input.GetButtonDown ("Crouch")){
-//if(crouching){
-//controller.height = standardHeight ;
-//controller.center = Vector3 (0, 0, 0);
-//mainCamera.transform.localPosition.y += crouchHeight;
-//crouching = false;
-//return;
-//}
-//
-//if(!crouching)
-//crouch();
-//}
-//}
-//
-//function crouch() {
-//controller.height = crouchHeight;
-//controller.center = Vector3 (0, -0.5, 0);
-//mainCamera.transform.localPosition.y -= crouchHeight;
-//crouching = true;
-//}
+	void Crouch() 
+	{
+		m_CharacterController.height = crouchHeight;
+		m_CharacterController.center = new Vector3 (0, 0, 0);
+		_camera.transform.position = new Vector3 (_camera.transform.position.x, _camera.transform.position.y - crouchHeight, _camera.transform.position.z);
+		crouching = true;
+	}
+
+
+
+
 	
 	
 
