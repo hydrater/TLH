@@ -5,7 +5,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class InteractionLevel3 : Photon.MonoBehaviour {
 	public Text UIScreen;
-	bool isUiOn;
+	public GameObject Door1,Door2;
+	bool isUiOn, door1Press, door2Press;
 
 	void Start () 
 	{
@@ -15,7 +16,18 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 	
 	void Update()
 	{
-		
+		if (Input.GetKeyDown (KeyCode.E)) 
+		{
+			if (door1Press)
+			{
+				Destroy(Door1);
+			}
+		}
+		if (Input.GetKeyDown (KeyCode.E)) {
+			if (door2Press) {
+				Destroy (Door2);
+			}
+		}
 	}
 	
 //	void OnTriggerEnter(Collider other)
@@ -57,12 +69,30 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 		
 		if(other.name == "event3")
 		{
-			transform.position = new Vector3(-20.31f,-45.7f,-38.1f);
-			//transform.rotation = Quaternion.identity;
-			transform.rotation = Quaternion.identity;
+			UIScreen.text = "while sprinting, press crouch to slide";
+		}
+
+		if (other.name == "event4") 
+		{
+			door1Press = true;
+			UIScreen.text = "press E to interact with objects";
+		}
+		if (other.name == "event5") 
+		{
+			door2Press = true;
+		}
+
+		if(other.name == "event6")
+		{
+			UIScreen.text = "Hold left Control to crouch";
+		}
+
+		if(other.name == "event7")
+		{
+			UIScreen.text = "press space to jump";
 		}
 	}
-	
+
 	void OnTriggerExit(Collider other)
 	{
 		if (other.name == "event1") 
@@ -77,7 +107,27 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 		
 		if(other.name == "event3")
 		{
-			//gameObject.AddComponent<FirstPersonController>();
+			UIScreen.text = "";
+		}
+		
+		if (other.name == "event4") 
+		{
+			door1Press = false;
+		}
+
+		if (other.name == "event5") 
+		{
+			door2Press = false;
+		}
+
+		if(other.name == "event6")
+		{
+			UIScreen.text = "";
+		}
+
+		if(other.name == "event7")
+		{
+			UIScreen.text = "";
 		}
 	}
 
