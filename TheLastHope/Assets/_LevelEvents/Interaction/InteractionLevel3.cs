@@ -7,7 +7,6 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 	public Text UIScreen;
 	public GameObject Door1,Door2;
 	bool isUiOn, door1Press, door2Press;
-
 	void Start () 
 	{
 		UIScreen = GameObject.Find("InstructionText").GetComponent<Text>();
@@ -28,6 +27,13 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 				Destroy (Door2);
 			}
 		}
+		
+	}
+	
+	IEnumerator Respawn()
+	{
+		yield return new WaitForSeconds(0.3f);
+		transform.position = new Vector3(-20.2f,6.45f,1.02f);
 	}
 	
 //	void OnTriggerEnter(Collider other)
@@ -91,7 +97,13 @@ public class InteractionLevel3 : Photon.MonoBehaviour {
 		{
 			UIScreen.text = "press space to jump";
 		}
+		
+		if(other.name == "event8")
+		{
+			StartCoroutine(Respawn());
+		}
 	}
+
 
 	void OnTriggerExit(Collider other)
 	{
