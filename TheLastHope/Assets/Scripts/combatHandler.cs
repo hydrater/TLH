@@ -23,7 +23,9 @@ public class combatHandler : Photon.MonoBehaviour {
 	//	1 = weapon2
 	//	2 = tool
 	//	3 = deployable
-	GameObject weapon1, weapon2;
+	public GameObject weapon;
+	public string currentWeaponID;
+	bool hybridForm;
 	
 	//Change networking to load levels via string instead of int
 	
@@ -57,6 +59,10 @@ public class combatHandler : Photon.MonoBehaviour {
 			
 			break;
 		}
+		
+		weaponHold = 0;
+		currentWeaponID = gameStat.weapon1ID;
+		switchWeapon(gameStat.weapon1ID);
 	}
 	
 	void Update () 
@@ -68,17 +74,33 @@ public class combatHandler : Photon.MonoBehaviour {
 		if(Input.GetMouseButtonDown(1))
 			Shoot ();//secondary fire
 			
-		Debug.DrawRay (_camera.transform.position, _camera.transform.forward*50, Color.green);
 		
 		if(Input.GetKeyDown(KeyCode.Alpha1))
 		{
+			Debug.Log(gameStat.weapon1ID);
+			Debug.Log(gameStat.weapon1ID[0]);
 			if (weaponHold != 0)
 			{
-				switchWeapon(0);
+				switchWeapon(gameStat.weapon1ID);
+				weaponHold = 0;
+				if (gameStat.weapon1ID[0] == '6')
+				{
+					if (hybridForm)
+					{
+						//first form
+					}
+					else
+					{
+						//second form
+					}
+				}
+				
 			}
 			else if (gameStat.weapon1ID[0] == '6')
 			{
-				//transform weapon
+				hybridTransformation(false);
+				Debug.Log("hybrid transformation");
+				
 			}
 		}
 		
@@ -86,11 +108,24 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (weaponHold != 1)
 			{
-				switchWeapon(1);
+				switchWeapon(gameStat.weapon2ID);
+				weaponHold = 1;
+				if (gameStat.weapon2ID[0] == '6')
+				{
+					if (hybridForm)
+					{
+						//first form
+					}
+					else
+					{
+						//second form
+					}
+				}
 			}
 			else if (gameStat.weapon2ID[0] == '6')
 			{
-				//transform weapon
+				hybridTransformation(true);
+				Debug.Log("hybrid transformation");
 			}
 		}
 		
@@ -98,7 +133,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (weaponHold != 2)
 			{
-				switchWeapon(2);
+				switchWeapon(gameStat.toolID);
+				weaponHold = 2;
 			}
 		}
 		
@@ -106,7 +142,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (weaponHold != 3)
 			{
-				switchWeapon(3);
+				switchWeapon(gameStat.deployableID);
+				weaponHold = 3;
 			}
 		}
 		
@@ -225,33 +262,46 @@ public class combatHandler : Photon.MonoBehaviour {
 		crouching = true;
 	}
 	
-	void switchWeapon(byte weapon)
+	void switchWeapon(string WeaponID)
 	{
 		//photon destroy weapon, photon instantiate weapon, reference weapon to memory, add child, move to view;
-		switch(weapon)
+		PhotonNetwork.Destroy(weapon);
+		Vector3 tempTransform = Vector3.zero;
+		Quaternion tempRotation = Quaternion.identity;
+		switch(WeaponID)
 		{
-		default:
+			default:
 			
-			break;
 			
-		case 1: 
+				break;
 			
-			break;
+			case "1001": 
+				tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
+				tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
+				break;
 			
-		case 2: 
-			
-			break;
-			
-		case 3: 
-			
-			break;
+			case "6001": 
+				
+				break;
+		
 		}
+		PhotonNetwork.Instantiate(WeaponID, tempTransform, tempRotation, 0);
+		
+		currentWeaponID = WeaponID;
 	}
-
-
-
-
 	
-	
+	void hybridTransformation(bool holdNumber)
+	{
+		hybridForm = !hybridForm;
+		if (hybridForm)
+		{
+			//first to 2nd form
+		}
+		else
+		{
+			//second to 1st form
+		}
+		//play transformation
+	}
 
 }
