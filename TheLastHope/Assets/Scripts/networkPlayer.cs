@@ -6,7 +6,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
-	public GameObject _camera, face;
+	public GameObject _camera, face, firstPersonCam;
 
 	void Start () 
 	{
@@ -24,6 +24,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 			Destroy(GetComponent<combatHandler>());
 			Destroy(GetComponent<FirstPersonController>());
 			Destroy(GetComponent<Rigidbody>());
+			Destroy(firstPersonCam);
 		}
 	}
 	

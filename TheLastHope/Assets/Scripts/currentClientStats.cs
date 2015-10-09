@@ -3,14 +3,16 @@ using System.Collections;
 
 public class currentClientStats : MonoBehaviour {
 	public string playerName, roomName = "!Sanctuary", password, time;
-	public byte charNo, Diff, level, deployableID;
-	public bool hybridMode;
-	public ushort weapon1ID, weapon2ID;
-	//0 resources
-	//	1 gun	0000 is hybrid
-	//	2 melee 0000 is hybrid
-	//	3 deployables
-	//	4 core mods
+	public byte charNo, Diff, level;
+	public string weapon1ID, weapon2ID, toolID, deployableID;
+	//	0 resources
+	//	1 gun
+	//	2 melee
+	//	3 tools
+	//	4 deployables
+	//	5 core mods
+	//	6 hybrid
+
 	
 	void Update()
 	{
