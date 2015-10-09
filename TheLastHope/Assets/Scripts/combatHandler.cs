@@ -12,9 +12,20 @@ public class combatHandler : Photon.MonoBehaviour {
 	private currentClientStats gameStat;
 	private combatStats combatStat;
 	
+	//Crouching
 	private float crouchHeight = 0.9f;
 	private float standardHeight = 1.8f;
 	private bool crouching = false;
+	
+	//Weapons
+	byte weaponHold = 0;
+	//	0 = weapon1
+	//	1 = weapon2
+	//	2 = tool
+	//	3 = deployable
+	GameObject weapon1, weapon2;
+	
+	//Change networking to load levels via string instead of int
 	
 	void Start () 
 	{
@@ -48,23 +59,55 @@ public class combatHandler : Photon.MonoBehaviour {
 		}
 	}
 	
-	void Update () {
+	void Update () 
+	{
+		//Weapon and combat
 		if(Input.GetMouseButtonDown(0))
 			Shoot ();
+			
+		if(Input.GetMouseButtonDown(1))
+			Shoot ();//secondary fire
+			
 		Debug.DrawRay (_camera.transform.position, _camera.transform.forward*50, Color.green);
 		
 		if(Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			if (gameStat.weapon1ID == 0000)
-				gameStat.hybridMode = !gameStat.hybridMode;
-				//else switch weap
+			if (weaponHold != 0)
+			{
+				switchWeapon(0);
+			}
+			else if (gameStat.weapon1ID[0] == '6')
+			{
+				//transform weapon
+			}
 		}
 		
 		if(Input.GetKeyDown(KeyCode.Alpha2))
 		{
-			if (gameStat.weapon2ID == 0000)
-				gameStat.hybridMode = !gameStat.hybridMode;
-			//else switch weap
+			if (weaponHold != 1)
+			{
+				switchWeapon(1);
+			}
+			else if (gameStat.weapon2ID[0] == '6')
+			{
+				//transform weapon
+			}
+		}
+		
+		if(Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			if (weaponHold != 2)
+			{
+				switchWeapon(2);
+			}
+		}
+		
+		if(Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			if (weaponHold != 3)
+			{
+				switchWeapon(3);
+			}
 		}
 		
 		//---------------------------------- Running
@@ -117,7 +160,18 @@ public class combatHandler : Photon.MonoBehaviour {
 			
 		if (Dash /*&& m_CharacterController.isGrounded*/)
 		{
-			transform.Translate(dashDir * Time.deltaTime * 40);// change to rigidbody.addforce
+			RaycastHit dashCheck;
+			if (Physics.Raycast (transform.position, transform.up, out dashCheck, 1.6f)) 
+			{
+				if (!dashCheck.collider.isTrigger && dashCheck.transform.tag != "Player")
+				{
+					transform.Translate(dashDir * Time.deltaTime * 20);
+				}
+			}
+			else
+			{
+				transform.Translate(dashDir * Time.deltaTime * 20);
+			}
 			//GetComponent<Rigidbody>().AddForce(dashDir * 90, ForceMode.VelocityChange);//bug
 			dashTimer += Time.deltaTime;
 			if (dashTimer > 0.3f)
@@ -169,6 +223,29 @@ public class combatHandler : Photon.MonoBehaviour {
 		m_CharacterController.center = new Vector3 (0, 0, 0);
 		_camera.transform.position = new Vector3 (_camera.transform.position.x, _camera.transform.position.y - crouchHeight, _camera.transform.position.z);
 		crouching = true;
+	}
+	
+	void switchWeapon(byte weapon)
+	{
+		//photon destroy weapon, photon instantiate weapon, reference weapon to memory, add child, move to view;
+		switch(weapon)
+		{
+		default:
+			
+			break;
+			
+		case 1: 
+			
+			break;
+			
+		case 2: 
+			
+			break;
+			
+		case 3: 
+			
+			break;
+		}
 	}
 
 
