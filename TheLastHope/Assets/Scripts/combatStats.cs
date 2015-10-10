@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class combatStats : MonoBehaviour {
-	public float hp = 100, hpM = 100, stam = 100, stamM = 100;
+	public float hp = 100, hpM = 100, stam = 100, stamM = 100, walkSpeed = 5, runSpeed = 10, crouchSpeed = 2.5f;
 	public float stamCD = -1;
 	
 	void Update () 
@@ -16,9 +16,6 @@ public class combatStats : MonoBehaviour {
 				
 		if (stam > stamM)
 			stam = stamM;
-		
-		
-		
 		
 	}
 	

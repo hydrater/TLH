@@ -16,8 +16,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 			_camera.SetActive(true);
 			photonView.RPC("changeFace", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 			Destroy(face);
-			if(Application.loadedLevel > 2)
-				GetComponent<combatHandler>().enabled = true;
+			GetComponent<combatHandler>().enabled = true;
 		}
 		else
 		{

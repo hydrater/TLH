@@ -10,8 +10,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonController : MonoBehaviour
     {
         [SerializeField] public bool m_IsWalking;
-        [SerializeField] private float m_WalkSpeed;
-        [SerializeField] private float m_RunSpeed;
+        [SerializeField] public float m_WalkSpeed;
+        [SerializeField] public float m_RunSpeed;
+		[SerializeField] public float m_CrouchSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -19,7 +20,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		[SerializeField] private MouseLook m_MouseLook;
         [SerializeField] private bool m_UseFovKick;
         [SerializeField] private FOVKick m_FovKick = new FOVKick();
-        [SerializeField] private bool m_UseHeadBob;
+        [SerializeField] public bool m_UseHeadBob;
         [SerializeField] private CurveControlledBob m_HeadBob = new CurveControlledBob();
         [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
         [SerializeField] private float m_StepInterval;
@@ -45,8 +46,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
-        	if (Application.loadedLevel == 1)
+        	
+        	if (Application.loadedLevelName == "Sanctuary")
+        	{
         		Sprint = true;
+        		m_WalkSpeed = 5;
+        		m_RunSpeed = 10;
+        	}
+        	else
+        	{
+				m_WalkSpeed = GetComponent<combatStats>().walkSpeed;
+				m_RunSpeed = GetComponent<combatStats>().runSpeed;
+				m_CrouchSpeed = GetComponent<combatStats>().crouchSpeed;
+        	}
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
