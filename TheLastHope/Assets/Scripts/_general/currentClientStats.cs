@@ -6,7 +6,8 @@ public class currentClientStats : MonoBehaviour {
 	public byte charNo, Diff, level;
 	public string weapon1ID = "1001", weapon2ID = "6001", toolID, deployableID;
 	//	0 resources
-	//	1 gun
+	//	1 gun 
+	//	-- 2nd 0 = semi, 1 = auto, 2 = burst
 	//	2 melee
 	//	3 tools
 	//	4 deployables

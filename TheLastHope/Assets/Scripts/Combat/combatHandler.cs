@@ -19,7 +19,7 @@ public class combatHandler : Photon.MonoBehaviour {
 	private float slideTimer = 0.9f;
 	
 	//Weapons
-	byte weaponHold = 0;
+	byte weaponHold = 0; //current weapon being held
 	//	0 = weapon1
 	//	1 = weapon2
 	//	2 = tool
@@ -27,6 +27,13 @@ public class combatHandler : Photon.MonoBehaviour {
 	public GameObject weapon;
 	public string currentWeaponID;
 	bool hybridForm;
+	
+	//Shooting
+	public Transform gunOutput;
+	public int Ammo, TotalAmmo, magazineMax = 30, totalAmmoMax = 90;
+	public int Ammo2, TotalAmmo2, magazineMax2 = 30, totalAmmoMax2 = 90;
+	public float regenTimer = 2, regenTimer2 = 2;
+	public GameObject projectile, projectile2;
 	
 	//Change networking to load levels via string instead of int
 	
@@ -61,25 +68,95 @@ public class combatHandler : Photon.MonoBehaviour {
 			break;
 		}
 		
+		
+		//Needs to be redesigned after UI and weapons
+		//Need to initialise every single equipment, transform, projectile and ammo variables
+		//Remember to add shooting speed etc
 		weaponHold = 0;
-		currentWeaponID = gameStat.weapon1ID;
+		currentWeaponID = gameStat.weapon1ID; 
 		switchWeapon(gameStat.weapon1ID);
 	}
 	
-	void Update () 
+	void Update () //change shoot() to RPC
 	{
 		//Weapon and combat
-		if(Input.GetMouseButtonDown(0))
-			Shoot ();
+		if(Input.GetMouseButtonDown(0))//semi auto
+		{
+			switch (weaponHold)
+			{
+				case 0:
+				if (gameStat.weapon1ID[0] == '1') // if it's a gun
+				{
+					if (gameStat.weapon1ID[1] == '0') 
+					{
+						Ammo --;
+						Shoot();
+					}
+				}
+				else
+				{
+					//melee slash
+				}
+				break;
+				
+				case 1:
+				if (gameStat.weapon2ID[0] == '1') // if it's a gun
+				{
+					if (gameStat.weapon2ID[1] == '0') 
+					{
+						Ammo2 --;
+						Shoot();
+					}
+				}
+				else
+				{
+					//melee slash
+				}
+				break;
+				
+				case 2:
+				
+				break;
+				
+				case 3:
+				
+				break;
+			}
+			
+		}
 			
 		if(Input.GetMouseButtonDown(1))
 			Shoot ();//secondary fire
 			
+		if(Input.GetMouseButtonDown(2))
+			Shoot ();//secondary fire
+			
+		if (Input.GetButtonDown("r") && TotalAmmo >= magazineMax) 
+		{
+			if (weaponHold == 0)
+				regenTimer = 2;
+			else
+				regenTimer2 = 2;
+			Reload();
+		}
+		
+		//Ammo regeneration
+		if (regenTimer <= 0 && TotalAmmo < totalAmmoMax) 
+		{
+			++TotalAmmo;
+			regenTimer = 2;
+		}
+		
+		if (regenTimer2 <= 0 && TotalAmmo2 < totalAmmoMax2) 
+		{
+			++TotalAmmo2;
+			regenTimer2 = 2;
+		}
+		regenTimer -= Time.deltaTime;
+		regenTimer2 -= Time.deltaTime;
 		
 		if(Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			Debug.Log(gameStat.weapon1ID);
-			Debug.Log(gameStat.weapon1ID[0]);
 			if (weaponHold != 0)
 			{
 				switchWeapon(gameStat.weapon1ID);
@@ -95,16 +172,16 @@ public class combatHandler : Photon.MonoBehaviour {
 						//second form
 					}
 				}
-				
 			}
 			else if (gameStat.weapon1ID[0] == '6')
 			{
 				hybridTransformation(false);
 				Debug.Log("hybrid transformation");
-				
 			}
 		}
 		
+		//Weapon switching
+		//REMEMBER TO SET GUNOUTPUT TRANSFORM ONCE WEAPONS ARE DONE
 		if(Input.GetKeyDown(KeyCode.Alpha2))
 		{
 			if (weaponHold != 1)
@@ -198,21 +275,14 @@ public class combatHandler : Photon.MonoBehaviour {
 			shiftTimer = 0;
 		}
 			
-		if (Dash /*&& m_CharacterController.isGrounded*/)
+		if (Dash)
 		{
 			RaycastHit dashCheck;
 			if (Physics.Raycast (transform.position, transform.up, out dashCheck, 1.6f)) 
-			{
 				if (!dashCheck.collider.isTrigger && dashCheck.transform.tag != "Player")
-				{
 					transform.Translate(dashDir * Time.deltaTime * 20);
-				}
-			}
 			else
-			{
 				transform.Translate(dashDir * Time.deltaTime * 20);
-			}
-			//GetComponent<Rigidbody>().AddForce(dashDir * 90, ForceMode.VelocityChange);//bug
 			dashTimer += Time.deltaTime;
 			if (dashTimer > 0.3f)
 				Dash = false;
@@ -250,7 +320,8 @@ public class combatHandler : Photon.MonoBehaviour {
 					Debug.Log(Time.deltaTime * 5.5f * (slideTimer * 0.5f));
 				}
 			}
-		}else if(crouching) //Not Crouching
+		}
+		else if(crouching) //Not Crouching
 		{
 			slideTimer = 0.9f;
 			RaycastHit crouchCheck;
@@ -270,14 +341,6 @@ public class combatHandler : Photon.MonoBehaviour {
 		}
 	}
 	
-	void Shoot(){
-		RaycastHit hit;
-		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
-		{
-			Debug.Log(hit.collider.name);
-		}
-	}
-	
 	void Crouch() 
 	{
 		m_CharacterController.height = crouchHeight;
@@ -291,6 +354,34 @@ public class combatHandler : Photon.MonoBehaviour {
 		}
 		crouching = true;
 		
+	}
+	
+	void Reload()
+	{
+		if (weaponHold == 0)
+		{
+			TotalAmmo -= (magazineMax - Ammo);
+			Ammo = magazineMax;
+		}
+		else
+		{
+			TotalAmmo2 -= (magazineMax2 - Ammo2);
+			Ammo2 = magazineMax2;
+		}
+	}
+	
+	void Shoot() //Change to RPC receive
+	{
+		RaycastHit hit;
+		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
+		{
+			Debug.Log(hit.collider.name);
+		}
+		
+		if (weaponHold == 0)
+			Instantiate(projectile, gunOutput.transform.position, transform.rotation);
+		else
+			Instantiate(projectile2, gunOutput.transform.position, transform.rotation);
 	}
 	
 	void switchWeapon(string WeaponID)
