@@ -12,7 +12,7 @@ using ParticlePlaygroundLanguage;
 [Serializable]
 public class PlaygroundSettingsC : ScriptableObject {
 
-	public static string settingsPath = "Particle Playground/Playground Assets/Settings/Playground Settings.asset";
+	public static string settingsPath = "Programming Utilities/Particle Playground/Playground Assets/Settings/Playground Settings.asset";
 	public static PlaygroundSettingsC reference;
 	bool isInstance = false;
 

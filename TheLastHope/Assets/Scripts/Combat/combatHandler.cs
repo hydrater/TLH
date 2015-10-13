@@ -378,6 +378,12 @@ public class combatHandler : Photon.MonoBehaviour {
 			Debug.Log(hit.collider.name);
 		}
 		
+		photonView.RPC("networkShooting", PhotonTargets.AllBuffered);
+	}
+	
+	[PunRPC]
+	void networkShooting ()
+	{
 		if (weaponHold == 0)
 			Instantiate(projectile, gunOutput.transform.position, transform.rotation);
 		else
@@ -425,5 +431,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		}
 		//play transformation
 	}
+	
+	
 
 }
