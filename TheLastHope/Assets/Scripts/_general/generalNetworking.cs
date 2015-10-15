@@ -140,7 +140,7 @@ public class generalNetworking : MonoBehaviour {
 		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
 			Application.LoadLevel(2);
 		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
-			Application.LoadLevel(5);
+			Application.LoadLevel(3);
 		else
 			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}
