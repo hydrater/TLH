@@ -68,6 +68,11 @@ public class generalNetworking : MonoBehaviour {
 			RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
 			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
 		}
+		else
+		{
+			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4};
+			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
+		}
 	}
 	
 	void OnJoinedRoom()
@@ -135,7 +140,7 @@ public class generalNetworking : MonoBehaviour {
 		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
 			Application.LoadLevel(2);
 		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
-			Application.LoadLevel(3);
+			Application.LoadLevel(5);
 		else
 			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}

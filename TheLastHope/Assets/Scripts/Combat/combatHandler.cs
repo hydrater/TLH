@@ -72,7 +72,6 @@ public class combatHandler : Photon.MonoBehaviour {
 		//Needs to be redesigned after UI and weapons
 		//Need to initialise every single equipment, transform, projectile and ammo variables
 		//Remember to add shooting speed etc
-		weaponHold = 0;
 		currentWeaponID = gameStat.weapon1ID; 
 		switchWeapon(gameStat.weapon1ID);
 	}
@@ -131,7 +130,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		if(Input.GetMouseButtonDown(2))
 			Shoot ();//secondary fire
 			
-		if (Input.GetButtonDown("r") && TotalAmmo >= magazineMax) 
+		if (Input.GetKeyDown(KeyCode.R) && TotalAmmo >= magazineMax) 
 		{
 			if (weaponHold == 0)
 				regenTimer = 2;
