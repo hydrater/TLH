@@ -255,7 +255,7 @@ namespace Pathfinding {
 		public void EndFadeArea () {
 
 			if (fadeAreaStack.Count <= 0) {
-				Debug.LogError ("You are popping more Fade Areas than you are pushing, make sure they are balanced");
+				//Debug.LogError ("You are popping more Fade Areas than you are pushing, make sure they are balanced");
 				return;
 			}
 

@@ -53,8 +53,6 @@ public class SeekerEditor : Editor {
 			AstarPathEditor.LoadStyles ();
 		}
 
-		GUIStyle helpBox = GUI.skin.GetStyle ("helpBox");
-
 		if (mods == null) {
 			mods = new List<IPathModifier>(script.GetComponents<MonoModifier>() as IPathModifier[]);
 		} else {
@@ -113,9 +111,9 @@ public class SeekerEditor : Editor {
 		modifiersOpen = EditorGUILayout.Foldout (modifiersOpen, "Modifiers Priorities"+(modifierErrors ? " - Errors in modifiers!" : ""));
 
 		if (modifiersOpen) {
-			if (GUILayout.Button ("Modifiers attached to this gameObject are listed here.\nModifiers with a higher priority (higher up in the list) will be executed first.\nClick here for more info",helpBox)) {
-				Application.OpenURL (AstarUpdateChecker.GetURL ("modifiers"));
-			}
+//			if (GUILayout.Button ("Modifiers attached to this gameObject are listed here.\nModifiers with a higher priority (higher up in the list) will be executed first.\nClick here for more info",helpBox)) {
+//				Application.OpenURL (AstarUpdateChecker.GetURL ("modifiers"));
+//			}
 
 			EditorGUILayout.HelpBox ("Original or All can be converted to anything\n" +
 			    "NodePath can be converted to VectorPath\n"+

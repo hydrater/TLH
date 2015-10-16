@@ -641,7 +641,6 @@ public class AstarPathEditor : Editor {
 	void DrawAboutArea () {
 
 		Color guiColorOrig = GUI.color;
-		EditorGUILayoutx.FadeArea fadeArea = guiLayoutx.BeginFadeArea (aboutArea,"aboutArea", 20,EditorGUILayoutx.defaultAreaStyle);
 		Color tmpColor1 = GUI.color;
 		GUI.color = guiColorOrig;
 
@@ -652,64 +651,63 @@ public class AstarPathEditor : Editor {
 			GUI.changed = true;
 		}
 
-		System.Version newVersion = AstarUpdateChecker.latestVersion;
-		bool beta = false;
+		//System.Version newVersion = AstarUpdateChecker.latestVersion;
 
 		// Check if either the latest release version or the latest beta version is newer than this version
-		if (FullyDefinedVersion(AstarUpdateChecker.latestVersion) > FullyDefinedVersion(AstarPath.Version) || FullyDefinedVersion(AstarUpdateChecker.latestBetaVersion) > FullyDefinedVersion(AstarPath.Version)) {
-			if (FullyDefinedVersion(AstarUpdateChecker.latestVersion) <= FullyDefinedVersion(AstarPath.Version)) {
-				newVersion = AstarUpdateChecker.latestBetaVersion;
-				beta = true;
-			}
-		}
+//		if (FullyDefinedVersion(AstarUpdateChecker.latestVersion) > FullyDefinedVersion(AstarPath.Version) || FullyDefinedVersion(AstarUpdateChecker.latestBetaVersion) > FullyDefinedVersion(AstarPath.Version)) {
+//			if (FullyDefinedVersion(AstarUpdateChecker.latestVersion) <= FullyDefinedVersion(AstarPath.Version)) {
+//				newVersion = AstarUpdateChecker.latestBetaVersion;
+//				beta = true;
+//			}
+//		}
 
 		// Check if the latest version is newer than this version
-		if (FullyDefinedVersion(newVersion) > FullyDefinedVersion(AstarPath.Version)) {
-			GUI.color = guiColorOrig * Color.green;
-			if (GUILayout.Button ((beta ? "Beta" : "New") + " Version Available! "+newVersion, thinHelpBox, GUILayout.Height (15))) {
-				Application.OpenURL (AstarUpdateChecker.GetURL ("download"));
-			}
-			GUILayout.Space (20);
-		}
+//		if (FullyDefinedVersion(newVersion) > FullyDefinedVersion(AstarPath.Version)) {
+//			GUI.color = guiColorOrig * Color.green;
+//			if (GUILayout.Button ((beta ? "Beta" : "New") + " Version Available! "+newVersion, thinHelpBox, GUILayout.Height (15))) {
+//				Application.OpenURL (AstarUpdateChecker.GetURL ("download"));
+//			}
+//			GUILayout.Space (20);
+//		}
 
 		GUILayout.EndHorizontal ();
 
 		GUI.color = tmpColor1;
 
-		if (fadeArea.Show ()) {
-			GUILayout.Label ("The A* Pathfinding Project was made by Aron Granberg\nYour current version is "+AstarPath.Version);
+//		if (fadeArea.Show ()) {
+//			GUILayout.Label ("The A* Pathfinding Project was made by Aron Granberg\nYour current version is "+AstarPath.Version);
 
-			if (newVersion > AstarPath.Version) {
-				EditorGUILayout.HelpBox ("A new "+(beta? "beta " : "")+"version of the A* Pathfinding Project is available, the new version is "+
-					newVersion, MessageType.Info);
-
-				if (GUILayout.Button ("What's new?")) {
-					Application.OpenURL (AstarUpdateChecker.GetURL (beta ? "beta_changelog" : "changelog"));
-				}
-
-				if (GUILayout.Button ("Click here to find out more")) {
-					Application.OpenURL (AstarUpdateChecker.GetURL ("findoutmore"));
-				}
-
-				Color tmpColor2 = GUI.color;
-				tmpColor1 *= new Color (0.3F,0.9F,0.3F);
-				GUI.color = tmpColor1;
-
-				if (GUILayout.Button ("Download new version")) {
-					Application.OpenURL (AstarUpdateChecker.GetURL ("download"));
-				}
-
-				GUI.color = tmpColor2;
-			}
-
-			if (GUILayout.Button (new GUIContent ("Documentation","Open the documentation for the A* Pathfinding Project"))) {
-				Application.OpenURL (AstarUpdateChecker.GetURL ("documentation"));
-			}
-
-			if (GUILayout.Button (new GUIContent ("Project Homepage","Open the homepage for the A* Pathfinding Project"))) {
-				Application.OpenURL (AstarUpdateChecker.GetURL ("homepage"));
-			}
-		}
+//			if (newVersion > AstarPath.Version) {
+//				EditorGUILayout.HelpBox ("A new "+(beta? "beta " : "")+"version of the A* Pathfinding Project is available, the new version is "+
+//					newVersion, MessageType.Info);
+//
+//				if (GUILayout.Button ("What's new?")) {
+//					Application.OpenURL (AstarUpdateChecker.GetURL (beta ? "beta_changelog" : "changelog"));
+//				}
+//
+//				if (GUILayout.Button ("Click here to find out more")) {
+//					Application.OpenURL (AstarUpdateChecker.GetURL ("findoutmore"));
+//				}
+//
+//				Color tmpColor2 = GUI.color;
+//				tmpColor1 *= new Color (0.3F,0.9F,0.3F);
+//				GUI.color = tmpColor1;
+//
+//				if (GUILayout.Button ("Download new version")) {
+//					Application.OpenURL (AstarUpdateChecker.GetURL ("download"));
+//				}
+//
+//				GUI.color = tmpColor2;
+//			}
+//
+//			if (GUILayout.Button (new GUIContent ("Documentation","Open the documentation for the A* Pathfinding Project"))) {
+//				Application.OpenURL (AstarUpdateChecker.GetURL ("documentation"));
+//			}
+//
+//			if (GUILayout.Button (new GUIContent ("Project Homepage","Open the homepage for the A* Pathfinding Project"))) {
+//				Application.OpenURL (AstarUpdateChecker.GetURL ("homepage"));
+//			}
+//		}
 
 		guiLayoutx.EndFadeArea ();
 	}
