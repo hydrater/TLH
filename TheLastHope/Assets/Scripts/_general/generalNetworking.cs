@@ -33,7 +33,6 @@ public class generalNetworking : MonoBehaviour {
 			case 1: //Sanc and Hub
 				if (!PhotonNetwork.connected)
 					PhotonNetwork.ConnectUsingSettings(VERSION);
-				spawnPoint = GameObject.Find("LevelManager").transform;
 				Cursor.lockState =  CursorLockMode.Locked;
 				Cursor.visible = false;
 				PlayerPrefs.DeleteAll(); // remove once pre alpha is over
@@ -44,7 +43,6 @@ public class generalNetworking : MonoBehaviour {
 				Cursor.lockState =  CursorLockMode.Confined;
 				Cursor.visible = false;
 				GetComponent<ChatGui>().enabled = false;
-				spawnPoint = GameObject.Find("LevelManager").transform;
 				//PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 				break;
 			}
@@ -65,8 +63,7 @@ public class generalNetworking : MonoBehaviour {
 		}
 		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
 		{
-			RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
-			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
+			
 		}
 		else
 		{
@@ -79,11 +76,13 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (Application.loadedLevel == 1) //Spawns player if in Sanctuary
 		{
+			spawnPoint = GameObject.Find("LevelManager").transform;
 			PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
 			return;
 		}
 		if (Application.loadedLevel == 2)//spawn Mapselector
 		{
+			spawnPoint = GameObject.Find("LevelManager").transform;
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
 			return;
 		}
@@ -140,7 +139,7 @@ public class generalNetworking : MonoBehaviour {
 		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
 			Application.LoadLevel(2);
 		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
-			Application.LoadLevel(3);
+			Application.LoadLevel(5);
 		else
 			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}

@@ -397,19 +397,22 @@ public class combatHandler : Photon.MonoBehaviour {
 		Quaternion tempRotation = Quaternion.identity;
 		switch(WeaponID)
 		{
-			default:
+		default:
 			
 			
-				break;
+			break;
 			
-			case "1001": 
-				tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
-				tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
-				break;
+		case "1001": 
+			tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
+			tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
+			gunOutput.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
+			break;
 			
-			case "6001": 
-				
-				break;
+		case "6001": 
+			tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
+			tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
+			gunOutput.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
+			break;
 		
 		}
 		PhotonNetwork.Instantiate(WeaponID, tempTransform, tempRotation, 0);
