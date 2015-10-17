@@ -248,7 +248,6 @@ public class combatHandler : Photon.MonoBehaviour {
 					m_FirstPerson.Sprint = false;
 					sprintExhaust = true;
 				}
-
 			}
 		}
 		else
@@ -273,13 +272,17 @@ public class combatHandler : Photon.MonoBehaviour {
 			}
 			shiftTimer = 0;
 		}
-			
+		
+		// ---------------------------------- Dashing
+		
 		if (Dash)
 		{
 			RaycastHit dashCheck;
 			if (Physics.Raycast (transform.position, transform.up, out dashCheck, 1.6f)) 
+			{
 				if (!dashCheck.collider.isTrigger && dashCheck.transform.tag != "Player")
 					transform.Translate(dashDir * Time.deltaTime * 20);
+			}
 			else
 				transform.Translate(dashDir * Time.deltaTime * 20);
 			dashTimer += Time.deltaTime;
@@ -316,7 +319,6 @@ public class combatHandler : Photon.MonoBehaviour {
 				else
 				{
 					transform.Translate(Vector3.forward * Time.deltaTime * 5.5f);
-					Debug.Log(Time.deltaTime * 5.5f * (slideTimer * 0.5f));
 				}
 			}
 		}
@@ -392,7 +394,8 @@ public class combatHandler : Photon.MonoBehaviour {
 	void switchWeapon(string WeaponID)
 	{
 		//photon destroy weapon, photon instantiate weapon, reference weapon to memory, add child, move to view;
-		PhotonNetwork.Destroy(weapon);
+		if (weapon != null)
+			PhotonNetwork.Destroy(weapon);
 		Vector3 tempTransform = Vector3.zero;
 		Quaternion tempRotation = Quaternion.identity;
 		switch(WeaponID)

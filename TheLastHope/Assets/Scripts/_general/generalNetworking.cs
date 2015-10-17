@@ -63,7 +63,8 @@ public class generalNetworking : MonoBehaviour {
 		}
 		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
 		{
-			
+			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4};
+			PhotonNetwork.JoinOrCreateRoom(GetComponent<currentClientStats>().roomName + PhotonNetwork.playerName, roomOptions, TypedLobby.Default);
 		}
 		else
 		{
@@ -82,7 +83,6 @@ public class generalNetworking : MonoBehaviour {
 		}
 		if (Application.loadedLevel == 2)//spawn Mapselector
 		{
-			spawnPoint = GameObject.Find("LevelManager").transform;
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
 			return;
 		}
