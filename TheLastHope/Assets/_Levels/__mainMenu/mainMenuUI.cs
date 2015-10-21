@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class mainMenuUI : MonoBehaviour {
-	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, createCharFloor, charFace, optionScreen;
+	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, createCharFloor, optionScreen;
 	public GameObject saveSystem, charNameInput;
 	public AudioClip sound, sound2, sound3;
-	[SerializeField] Material[] charFaceList;
+	public GameObject[] charList;
 	bool hoverStart, hoverNew, hoverOption, hoverExit;
 	byte charNo, maxChar;
 	private GameObject gameM;
@@ -15,13 +15,12 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		hoverStart = hoverNew = hoverOption = hoverExit = false;
 		charNo = 0;
-		maxChar = System.Convert.ToByte(charFaceList.Length - 1);
+		maxChar = System.Convert.ToByte(charList.Length - 1);
 		gameM = GameObject.Find("GameManager");
 	}
 
 	void Update()
 	{
-		Debug.Log(charNo);
 		//Update the alpha of the buttons
 		//Start
 		if (hoverStart) {
@@ -104,7 +103,7 @@ public class mainMenuUI : MonoBehaviour {
 		createCharScreen.SetActive (true);
 		createCharFloor.SetActive (true);
 		charNo = 0;
-		setCharTexture (charNo);
+		setChar (charNo);
 		playSound (0);
 	}
 
@@ -150,10 +149,10 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		if (charNo == maxChar) {
 			charNo = 0;
-			setCharTexture(charNo);
+			setChar(charNo);
 		} else {
 			++charNo;
-			setCharTexture(charNo);
+			setChar(charNo);
 		}
 		playSound (2);
 	}
@@ -162,17 +161,21 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		if (charNo == 0) {
 			charNo = maxChar;
-			setCharTexture(charNo);
+			setChar(charNo);
 		} else {
 			--charNo;
-			setCharTexture(charNo);
+			setChar(charNo);
 		}
 		playSound (2);
 	}
 	//Set character's appearance 
-	void setCharTexture(byte charNumber)
+	void setChar(byte charNumber)
 	{
-		charFace.GetComponent<Renderer> ().material = charFaceList [charNumber];
+		foreach(GameObject ele in charList)
+		{
+			ele.SetActive(false);	
+		}
+		charList[charNo].SetActive(true);
 	}
 
 	//Save
