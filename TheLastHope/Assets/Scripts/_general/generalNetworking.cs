@@ -6,7 +6,7 @@ public class generalNetworking : MonoBehaviour {
 	public const int levelIndexStart = 3; //The first non hub scene
 	Transform spawnPoint;
 	
-	void OnLevelWasLoaded(int level)
+	void OnLevelWasLoaded(int level) //General set up for each level
 	{
 		GetComponent<ChatGui>().enabled = true;
 		Cursor.lockState =  CursorLockMode.Confined;
@@ -20,26 +20,33 @@ public class generalNetworking : MonoBehaviour {
 		}
 		else
 		{
-			switch(Application.loadedLevel)
+			switch(Application.loadedLevelName)
 			{
 			default:
 				
 				break;
 				
-			case 0:
+			case "MainMenu":
 				GetComponent<ChatGui>().enabled = false;
 				break;
 				
-			case 1: //Sanc and Hub
+			case "Sanctuary":
 				if (!PhotonNetwork.connected)
 					PhotonNetwork.ConnectUsingSettings(VERSION);
 				Cursor.lockState =  CursorLockMode.Locked;
 				Cursor.visible = false;
-				PlayerPrefs.DeleteAll(); // remove once pre alpha is over
+				PlayerPrefs.DeleteAll(); // remove once pre alpha is over <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 				PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
 				break;
 				
-			case 3: //for tutorial
+			case "Tutorial":
+				Cursor.lockState =  CursorLockMode.Confined;
+				Cursor.visible = false;
+				GetComponent<ChatGui>().enabled = false;
+				//PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
+				break;
+				
+			case "Level 1":
 				Cursor.lockState =  CursorLockMode.Confined;
 				Cursor.visible = false;
 				GetComponent<ChatGui>().enabled = false;
@@ -49,8 +56,9 @@ public class generalNetworking : MonoBehaviour {
 		}
 	}
 	
-	void OnJoinedLobby()
+	void OnJoinedLobby() //Creates room isntantly
 	{
+		Debug.Log("reached lobby");
 		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
 		{
 			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
@@ -73,22 +81,18 @@ public class generalNetworking : MonoBehaviour {
 		}
 	}
 	
-	void OnJoinedRoom()
+	void OnJoinedRoom() //Player spawning information
 	{
-		if (Application.loadedLevel == 1) //Spawns player if in Sanctuary
-		{
-			spawnPoint = GameObject.Find("LevelManager").transform;
-			PhotonNetwork.Instantiate("_sanctuaryPlayer", spawnPoint.position, spawnPoint.rotation, 0);
-			return;
-		}
-		if (Application.loadedLevel == 2)//spawn Mapselector
+		Debug.Log("test");
+		
+		if (Application.loadedLevelName == "mapSelection")//spawn Mapselector
 		{
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
 			return;
 		}
-		if (Application.loadedLevel == 3)
+		if (Application.loadedLevelName == "Tutorial")
 			return;
-		//spawn player outside hub once room is joined
+		
 		spawnPoint = GameObject.Find("LevelManager").transform;
 		PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 		
@@ -98,7 +102,7 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))//temporary scene switcher
 		{
-			if (Application.loadedLevel == 1)
+			if (Application.loadedLevelName == "Sanctuary")
 			{
 				if(PhotonNetwork.connected)
 				{
@@ -132,14 +136,14 @@ public class generalNetworking : MonoBehaviour {
 		PhotonNetwork.LeaveRoom();
 	}
 	
-	void OnLeftRoom()//Load level
+	void OnLeftRoom()//Change level
 	{
 		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
-			Application.LoadLevel(1);
+			Application.LoadLevel("Sanctuary");
 		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
-			Application.LoadLevel(2);
+			Application.LoadLevel("mapSelection");
 		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
-			Application.LoadLevel(5);
+			Application.LoadLevel("Tutorial");
 		else
 			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}

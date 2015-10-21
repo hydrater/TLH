@@ -46,7 +46,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
-        	
         	if (Application.loadedLevelName == "Sanctuary")
         	{
         		Sprint = true;

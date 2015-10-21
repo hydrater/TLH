@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class currentClientStats : MonoBehaviour {
-	public string playerName, roomName = "!Sanctuary", password, time;
+	public string playerName, roomName = "!Sanctuary", time;
 	public byte charNo, Diff, level;
 	public string weapon1ID = "1001", weapon2ID = "6001", toolID, deployableID;
 	//	0 resources

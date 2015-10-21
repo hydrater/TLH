@@ -81,25 +81,7 @@ public class mainMenuUI : MonoBehaviour {
 		saveSystem.GetComponent<AdvancedSaveSystem>().LoadData(1);
 		string[] temp = saveSystem.GetComponent<AdvancedSaveSystem>().variablesValue[0].Split(',');
 		gameM.GetComponent<currentClientStats>().playerName = temp[0];
-		if (gameM.GetComponent<currentClientStats>().password == "programmers")
-		{
-			switch(gameM.GetComponent<currentClientStats>().playerName)
-			{
-			default:
-				gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
-				break;
-			case "Hyde":
-				gameM.GetComponent<currentClientStats>().charNo = 101;
-				break;
-			case "freshcookies":
-				gameM.GetComponent<currentClientStats>().charNo = 100;
-				break;
-			}
-		}
-		else
-		{
-			gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
-		}
+		gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
 		Application.LoadLevel(1);
 	}
 
@@ -197,8 +179,8 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		string tempName;
 		tempName = charNameInput.GetComponent<InputField> ().text;
-		if (tempName.Length < 3) {
-			Debug.Log ("Name is too short, has to be more than 2 characters");
+		if (tempName.Length < 3 || tempName.Length > 12) {
+			Debug.Log ("The name has to be within 3 to 12 characters long");
 		} else {
 			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [0] = tempName + "," +charNo.ToString();
 			saveSystem.GetComponent<AdvancedSaveSystem> ().SaveData (1);

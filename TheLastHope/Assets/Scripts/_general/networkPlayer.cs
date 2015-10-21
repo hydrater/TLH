@@ -14,17 +14,21 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
-			photonView.RPC("changeFace", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
+			photonView.RPC("spawnCharacter", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
 			Destroy(face);
 			if(Application.loadedLevel != 1)
 				GetComponent<combatHandler>().enabled = true;
 		}
 		else
 		{
-			Destroy(GetComponent<combatHandler>());
 			Destroy(GetComponent<FirstPersonController>());
 			Destroy(GetComponent<Rigidbody>());
 			Destroy(firstPersonCam);
+		}
+		if (Application.loadedLevelName == "Sanctuary")
+		{
+			Destroy(GetComponent<combatStats>());
+			Destroy(GetComponent<combatHandler>());
 		}
 	}
 	
@@ -53,32 +57,21 @@ public class networkPlayer : Photon.MonoBehaviour {
 	}
 	
 	[PunRPC]
-	void changeFace (byte faceNo)
+	void spawnCharacter (byte typeNo)
 	{
-		switch (faceNo)
+		GameObject temp;
+		switch (typeNo)
 		{
 		default:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("0", typeof(Material));
+			temp = Resources.Load("Male") as GameObject;
 			break;
 		case 1:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("1", typeof(Material));
-			break;
-		case 2:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("2", typeof(Material));
-			break;
-		case 3:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("3", typeof(Material));
-			break;
-		case 4:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("4", typeof(Material));
-			break;
-		case 100:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("Franku", typeof(Material));
-			break;
-		case 101:
-			face.GetComponent<Renderer>().material = (Material)Resources.Load("Dal", typeof(Material));
+			temp = Resources.Load("Female") as GameObject;
 			break;
 		}
+		gameObject.GetComponent<MeshFilter>().mesh = temp.GetComponent<MeshFilter>().mesh;
+		gameObject.GetComponent<Renderer>().material = temp.GetComponent<Renderer>().material;
+		gameObject.GetComponent<Animator>().avatar = temp.GetComponent<Animator>().avatar;
 	}
 }
 
