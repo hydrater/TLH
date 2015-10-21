@@ -58,7 +58,6 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnJoinedLobby() //Creates room isntantly
 	{
-		Debug.Log("reached lobby");
 		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
 		{
 			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
@@ -83,8 +82,6 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnJoinedRoom() //Player spawning information
 	{
-		Debug.Log("test");
-		
 		if (Application.loadedLevelName == "mapSelection")//spawn Mapselector
 		{
 			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);

@@ -21,6 +21,7 @@ public class mainMenuUI : MonoBehaviour {
 
 	void Update()
 	{
+		Debug.Log(charNo);
 		//Update the alpha of the buttons
 		//Start
 		if (hoverStart) {

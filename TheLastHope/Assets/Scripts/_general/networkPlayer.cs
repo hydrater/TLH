@@ -6,7 +6,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
-	public GameObject _camera, face, firstPersonCam;
+	public GameObject _camera, body, firstPersonCam;
 
 	void Start () 
 	{
@@ -15,7 +15,6 @@ public class networkPlayer : Photon.MonoBehaviour {
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
 			photonView.RPC("spawnCharacter", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
-			Destroy(face);
 			if(Application.loadedLevel != 1)
 				GetComponent<combatHandler>().enabled = true;
 		}
@@ -64,14 +63,17 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 		default:
 			temp = Resources.Load("Male") as GameObject;
+			body.transform.localPosition = new Vector3(0, -0.973f, 0);
 			break;
 		case 1:
 			temp = Resources.Load("Female") as GameObject;
+			body.transform.localPosition = new Vector3(0, -0.99f, 0);
 			break;
 		}
-		gameObject.GetComponent<MeshFilter>().mesh = temp.GetComponent<MeshFilter>().mesh;
-		gameObject.GetComponent<Renderer>().material = temp.GetComponent<Renderer>().material;
-		gameObject.GetComponent<Animator>().avatar = temp.GetComponent<Animator>().avatar;
+		body.GetComponent<MeshFilter>().mesh = temp.GetComponent<MeshFilter>().sharedMesh;
+		body.GetComponent<Renderer>().material = temp.GetComponent<Renderer>().sharedMaterial;
+		body.GetComponent<Animator>().avatar = temp.GetComponent<Animator>().avatar;
+		body.transform.localScale =  temp.transform.localScale;
 	}
 }
 
