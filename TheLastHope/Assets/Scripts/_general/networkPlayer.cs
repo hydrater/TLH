@@ -6,7 +6,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
-	public GameObject _camera, body, firstPersonCam;
+	public GameObject _camera, body, firstPersonCam, weapon;
 
 	void Start () 
 	{
@@ -15,14 +15,12 @@ public class networkPlayer : Photon.MonoBehaviour {
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
 			photonView.RPC("spawnCharacter", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().charNo);
-			if(Application.loadedLevel != 1)
-				GetComponent<combatHandler>().enabled = true;
 		}
 		else
 		{
 			Destroy(GetComponent<FirstPersonController>());
 			Destroy(GetComponent<Rigidbody>());
-			Destroy(firstPersonCam);
+			firstPersonCam.GetComponent<Camera>().enabled = false;
 		}
 		if (Application.loadedLevelName == "Sanctuary")
 		{

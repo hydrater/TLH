@@ -24,12 +24,11 @@ public class combatHandler : Photon.MonoBehaviour {
 	//	1 = weapon2
 	//	2 = tool
 	//	3 = deployable
-	public GameObject weapon;
-	public string currentWeaponID;
+	public GameObject weapon1, weapon2;
 	bool hybridForm;
 	
 	//Shooting
-	public Transform gunOutput;
+	public Transform gunOutput, gunOutput2;
 	public int Ammo, TotalAmmo, magazineMax = 30, totalAmmoMax = 90;
 	public int Ammo2, TotalAmmo2, magazineMax2 = 30, totalAmmoMax2 = 90;
 	public float regenTimer = 2, regenTimer2 = 2;
@@ -44,9 +43,9 @@ public class combatHandler : Photon.MonoBehaviour {
 		m_FirstPerson = GetComponent<FirstPersonController>();
 		m_CharacterController = GetComponent<CharacterController>();
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
-		if (photonView.isMine)
-			if(Application.loadedLevel > 3)
-				gameObject.AddComponent(System.Type.GetType ("InteractionLevel" + Application.loadedLevel.ToString()));
+//		if (photonView.isMine)
+//			if(Application.loadedLevel > 3)
+//				gameObject.AddComponent(System.Type.GetType ("InteractionLevel" + Application.loadedLevel.ToString()));
 		
 		switch(Application.loadedLevel)
 		{
@@ -67,13 +66,12 @@ public class combatHandler : Photon.MonoBehaviour {
 			
 			break;
 		}
-		
+		if (photonView.isMine)
+			photonView.RPC("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
 		
 		//Needs to be redesigned after UI and weapons
 		//Need to initialise every single equipment, transform, projectile and ammo variables
 		//Remember to add shooting speed etc
-		currentWeaponID = gameStat.weapon1ID; 
-		switchWeapon(gameStat.weapon1ID);
 	}
 	
 	void Update () //change shoot() to RPC
@@ -158,8 +156,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (weaponHold != 0)
 			{
-				switchWeapon(gameStat.weapon1ID);
 				weaponHold = 0;
+				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
 				if (gameStat.weapon1ID[0] == '6')
 				{
 					if (hybridForm)
@@ -185,8 +183,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (weaponHold != 1)
 			{
-				switchWeapon(gameStat.weapon2ID);
 				weaponHold = 1;
+				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
 				if (gameStat.weapon2ID[0] == '6')
 				{
 					if (hybridForm)
@@ -210,8 +208,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (weaponHold != 2)
 			{
-				switchWeapon(gameStat.toolID);
 				weaponHold = 2;
+				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
 			}
 		}
 		
@@ -219,8 +217,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (weaponHold != 3)
 			{
-				switchWeapon(gameStat.deployableID);
 				weaponHold = 3;
+				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
 			}
 		}
 		
@@ -379,48 +377,94 @@ public class combatHandler : Photon.MonoBehaviour {
 			Debug.Log(hit.collider.name);
 		}
 		
-		photonView.RPC("networkShooting", PhotonTargets.AllBuffered);
+		photonView.RPC("networkShooting", PhotonTargets.All);
 	}
 	
 	[PunRPC]
 	void networkShooting ()
 	{
+		//Needs to add proper targeting system
 		if (weaponHold == 0)
 			Instantiate(projectile, gunOutput.transform.position, transform.rotation);
 		else
-			Instantiate(projectile2, gunOutput.transform.position, transform.rotation);
+			Instantiate(projectile2, gunOutput2.transform.position, transform.rotation);
 	}
 	
-	void switchWeapon(string WeaponID)
+	[PunRPC]
+	void spawnWeapon(string WeaponID1, string WeaponID2)
 	{
-		//photon destroy weapon, photon instantiate weapon, reference weapon to memory, add child, move to view;
-		if (weapon != null)
-			PhotonNetwork.Destroy(weapon);
 		Vector3 tempTransform = Vector3.zero;
 		Quaternion tempRotation = Quaternion.identity;
-		switch(WeaponID)
+		string WeaponID;
+		
+		for (byte i = 0; i<2; ++i)
 		{
-		default:
+			if (i == 0)
+				WeaponID = WeaponID1;
+			else
+				WeaponID = WeaponID2;
+				
+			switch (WeaponID)
+			{
+			default:
 			
+				break;
 			
-			break;
+			case "1001": 
+				tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
+				tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
+				if (i==0)
+					gunOutput.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
+				else
+					gunOutput2.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
+				break;
 			
-		case "1001": 
-			tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
-			tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
-			gunOutput.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
-			break;
+			case "6001": 
+				tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
+				tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
+				gunOutput.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
+				if (i==0)
+					gunOutput.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
+				else
+					gunOutput2.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
+				break;
+			}
 			
-		case "6001": 
-			tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
-			tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
-			gunOutput.transform.position = new Vector3(0.639f, -0.205f, 1.433f);
-			break;
-		
+			GameObject weapon = Instantiate(Resources.Load(WeaponID), tempTransform, tempRotation) as GameObject;
+			weapon.transform.SetParent(GetComponent<networkPlayer>().firstPersonCam.transform, false);
+			
+			if (i == 0)
+				weapon1 = weapon;
+			else
+				weapon2 = weapon;
 		}
-		PhotonNetwork.Instantiate(WeaponID, tempTransform, tempRotation, 0);
 		
-		currentWeaponID = WeaponID;
+		if (photonView.isMine)
+		{
+			weapon1.layer = 8;
+			weapon2.layer = 8;
+		}
+		
+		weapon2.SetActive(false);
+		weaponHold = 0;
+	}
+	
+	
+	
+	[PunRPC]
+	void switchWeapon(byte weaponHoldNo)
+	{
+		if (weaponHoldNo == 0)
+		{
+			weapon1.SetActive(true);
+			weapon2.SetActive(false);
+		}
+		else
+		{
+			weapon1.SetActive(false);
+			weapon2.SetActive(true);
+		}
+		
 	}
 	
 	void hybridTransformation(bool holdNumber)
