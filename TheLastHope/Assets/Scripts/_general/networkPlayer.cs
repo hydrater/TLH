@@ -26,6 +26,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			Destroy(GetComponent<combatStats>());
 			Destroy(GetComponent<combatHandler>());
+			_camera.GetComponent<Camera>().farClipPlane = 2000;
 		}
 	}
 	
