@@ -97,6 +97,8 @@ public class generalNetworking : MonoBehaviour {
 	
 	void Update()
 	{
+		Debug.Log("time" + PhotonNetwork.time);
+		//Debug.Log("Players" + PhotonNetwork.countOfPlayersInRooms);
 		if (Input.GetKeyDown(KeyCode.Escape))//temporary scene switcher
 		{
 			if (Application.loadedLevelName == "Sanctuary")

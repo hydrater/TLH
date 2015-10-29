@@ -19,6 +19,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		else
 		{
 			_camera.GetComponent<Camera>().enabled = false;
+			_camera.GetComponent<AudioListener>().enabled = false;
 			Destroy(GetComponent<FirstPersonController>());
 			Destroy(GetComponent<Rigidbody>());
 			firstPersonCam.GetComponent<Camera>().enabled = false;
