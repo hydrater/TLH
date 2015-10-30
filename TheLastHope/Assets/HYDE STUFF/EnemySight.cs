@@ -33,6 +33,10 @@ public class EnemySight : MonoBehaviour
 	//Variables For Sight
 	public float heightMultiplier;
 	public float sightDist = 10;
+	
+	//Variables For SmallEnemyCounter
+	private float SmallEnemyCount = 0f;
+	private bool  Surrounded;
 		
 		
 	// Use this for initialization
@@ -53,12 +57,18 @@ public class EnemySight : MonoBehaviour
 		heightMultiplier = 0.5f;
 			
 		StartCoroutine ("FSM");
+		
+		Surrounded = false;
 	}
 	
-//	void Update() {
-//		Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-//		Debug.DrawRay(transform.position, forward, Color.green);
-//	}
+	
+	void Update() {
+		if(Surrounded)
+		{
+		Debug.Log ("GG");
+			state = EnemySight.State.Patrol;
+		}
+	}
 		
 	IEnumerator FSM ()
 	{
@@ -102,9 +112,9 @@ public class EnemySight : MonoBehaviour
 	{
 		timer += Time.deltaTime;
 		RaycastHit hit;
-		Debug.DrawRay (transform.position , transform.forward * sightDist, Color.green);
-		Debug.DrawRay (transform.position , (transform.forward + transform.right).normalized * sightDist, Color.green);
-		Debug.DrawRay (transform.position , (transform.forward - transform.right).normalized * sightDist, Color.green);
+		Debug.DrawRay (transform.position, transform.forward * sightDist, Color.green);
+		Debug.DrawRay (transform.position, (transform.forward + transform.right).normalized * sightDist, Color.green);
+		Debug.DrawRay (transform.position, (transform.forward - transform.right).normalized * sightDist, Color.green);
 
 		if (Physics.Raycast (transform.position + Vector3.up * heightMultiplier, transform.forward, out hit, sightDist)) {
 			if (hit.collider.gameObject.tag == "Player") {
@@ -157,12 +167,27 @@ public class EnemySight : MonoBehaviour
 			state = EnemySight.State.Investigate;
 			Debug.Log ("detected");
 		}
+		
+		if (coll.tag == "Bitch") {
+			SmallEnemyCount++;
+			Debug.Log ("Kappa123");
+		}
+		
+		if (SmallEnemyCount == 5.0f) {
+			Surrounded = true;
+		}
 	}
 
 	void OnTriggerExit (Collider coll)
 	{
 		if (coll.tag == "Player") {
 			state = EnemySight.State.Patrol;
+		}
+		
+		if(coll.tag == "Bitch")
+		{
+			SmallEnemyCount--;
+			Debug.Log("--");
 		}
 	}
 }
