@@ -9,7 +9,8 @@ public class EnemySight : MonoBehaviour
 	{
 		Patrol,
 		Chase,
-		Investigate
+		Investigate,
+		Run
 	}
 		
 	public State state;
@@ -83,6 +84,8 @@ public class EnemySight : MonoBehaviour
 			case State.Investigate:
 				Investigate ();
 				break;
+//			case State.Run:
+//				Run();
 			}
 			yield return null;
 		}	
@@ -190,4 +193,5 @@ public class EnemySight : MonoBehaviour
 			Debug.Log("--");
 		}
 	}
+	
 }

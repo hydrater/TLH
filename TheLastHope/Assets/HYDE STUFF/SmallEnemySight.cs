@@ -54,11 +54,9 @@ public class SmallEnemySight : MonoBehaviour
 			
 			StartCoroutine ("FSM");
 		}
-		
-		//	void Update() {
-		//		Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-		//		Debug.DrawRay(transform.position, forward, Color.green);
-		//	}
+//		
+//			void Update() {
+//			}
 		
 		IEnumerator FSM ()
 		{
@@ -82,9 +80,10 @@ public class SmallEnemySight : MonoBehaviour
 		void Patrol ()
 		{
 			agent.speed = patrolSpeed;
+			//If too far, move closer
 			if (Vector3.Distance (this.transform.position, waypoints [waypointIND].transform.position) >= 2) {
 				agent.SetDestination (waypoints [waypointIND].transform.position);
-				
+			//If to close , move to different index
 			} else if (Vector3.Distance (this.transform.position, waypoints [waypointIND].transform.position) <= 2) {
 				waypointIND = Random.Range (0, waypoints.Length);
 			}
@@ -142,6 +141,7 @@ public class SmallEnemySight : MonoBehaviour
 				state = SmallEnemySight.State.Investigate;
 				Debug.Log ("detected");
 			}
+			
 		}
 		
 		void OnTriggerExit (Collider coll)
