@@ -91,7 +91,11 @@ public class generalNetworking : MonoBehaviour {
 			return;
 		
 		spawnPoint = GameObject.Find("LevelManager").transform;
-		PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
+		if (GetComponent<currentClientStats>().charNo == 0)
+			PhotonNetwork.Instantiate("Male", spawnPoint.position, spawnPoint.rotation, 0);
+		else
+			PhotonNetwork.Instantiate("Female", spawnPoint.position, spawnPoint.rotation, 0);
+		
 		
 	}
 	
