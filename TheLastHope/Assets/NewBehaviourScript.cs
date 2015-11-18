@@ -10,8 +10,6 @@ public class NewBehaviourScript : MonoBehaviour {
 	
 	
 	void Update () {
-		float rotLeftRight= Input.GetAxis ("Mouse X");
-		transform.Rotate (0, rotLeftRight, 0);
 		
 		InputH = Input.GetAxis("Horizontal");
 		InputV = Input.GetAxis ("Vertical");
