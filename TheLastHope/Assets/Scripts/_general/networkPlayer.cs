@@ -7,9 +7,15 @@ public class networkPlayer : Photon.MonoBehaviour {
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
 	public GameObject _camera, firstPersonCam, weapon;
+	
+	private Animator anim;
+	
+	private float InputH;
+	private float InputV;
 
 	void Start () 
 	{
+		anim = gameObject.GetComponentInChildren<Animator>();
 		if (photonView.isMine)
 		{
 			GetComponent<FirstPersonController>().enabled = true;
@@ -33,12 +39,36 @@ public class networkPlayer : Photon.MonoBehaviour {
 	
 	void Update()
 	{
-		//Debug.Log(test.GetComponent<AudioSource>().timeSamples);
-		if (!photonView.isMine)
+		if (photonView.isMine)
+		{
+			InputH = Input.GetAxis("Horizontal");
+			InputV = Input.GetAxis ("Vertical");
+			
+			anim.SetFloat("InputH",InputH);
+			anim.SetFloat("InputV",InputV);
+			
+			if(Input.GetKeyDown(KeyCode.Space))
+				anim.SetBool ("Jump",true);
+			else
+				anim.SetBool ("Jump",false);
+			
+			if(Input.GetKey(KeyCode.LeftControl))
+				anim.SetBool("Crouch",true);
+			else
+				anim.SetBool("Crouch",false);
+			
+			if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+				anim.SetBool("Sprint", true);
+			else
+				anim.SetBool("Sprint", false);
+		}
+		else
 		{
 			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
 			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
 		}
+		
+		
 	}
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
@@ -47,11 +77,22 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
+			stream.SendNext(anim.GetBool("Jump"));
+			stream.SendNext(anim.GetBool("Crouch"));
+			stream.SendNext(anim.GetBool("Sprint"));
+			stream.SendNext(InputH);
+			stream.SendNext(InputV);
+			
 		}
 		else
 		{
 			realPosition = (Vector3)stream.ReceiveNext();
 			realRotation = (Quaternion)stream.ReceiveNext();
+			anim.SetBool("Jump", (bool)stream.ReceiveNext());
+			anim.SetBool("Crouch", (bool)stream.ReceiveNext());
+			anim.SetBool("Sprint", (bool)stream.ReceiveNext());
+			anim.SetFloat ("InputH", (float)stream.ReceiveNext());
+			anim.SetFloat ("InputV", (float)stream.ReceiveNext());
 		}
 	}
 }

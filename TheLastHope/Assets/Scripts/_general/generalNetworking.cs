@@ -101,7 +101,8 @@ public class generalNetworking : MonoBehaviour {
 	
 	void Update()
 	{
-		Debug.Log("time" + PhotonNetwork.time);
+		//Debug.Log("time" + PhotonNetwork.time);
+		//Debug.Log(test.GetComponent<AudioSource>().timeSamples);
 		//Debug.Log("Players" + PhotonNetwork.countOfPlayersInRooms);
 		if (Input.GetKeyDown(KeyCode.Escape))//temporary scene switcher
 		{
