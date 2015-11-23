@@ -8,6 +8,7 @@ public class NewBehaviourScript : MonoBehaviour {
 	private float InputH;
 	private float InputV;
 	
+	private float TimerGun = 0f;
 	
 	void Update () {
 		
@@ -33,7 +34,24 @@ public class NewBehaviourScript : MonoBehaviour {
 		else
 			anim.SetBool("Sprint", false);
 			
+		if(Input.GetKey(KeyCode.R))
+		{
+			anim.SetLayerWeight(1,1);
+			StartCoroutine("gun");
+		}
+//		else
+//		{
+//			anim.SetLayerWeight(1,0);
+//		}
+			
 			//Debug.Log(anim.GetBool("Jump"));
 	
+	}
+	
+	IEnumerator gun ()
+	{
+		yield return new WaitForSeconds(6.30f);
+		anim.SetLayerWeight(1,0);
+		
 	}
 }

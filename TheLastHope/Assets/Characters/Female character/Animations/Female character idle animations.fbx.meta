@@ -771,6 +771,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths:
     - Character1_Reference/Character1_Hips
+    - Character1_Ctrl_Reference/Character1_Ctrl_Hips/Character1_Ctrl_Spine/Character1_Ctrl_Spine1/Character1_Ctrl_Spine2/Character1_Ctrl_Spine3/Character1_Ctrl_RightShoulder/Character1_Ctrl_RightArm/Character1_Ctrl_RightForeArm
     clipAnimations:
     - serializedVersion: 16
       name: Take 001
