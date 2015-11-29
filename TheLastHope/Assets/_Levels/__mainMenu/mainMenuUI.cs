@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class mainMenuUI : MonoBehaviour {
-	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, createCharFloor, optionScreen;
+	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, optionScreen;
 	public GameObject saveSystem, charNameInput;
 	public AudioClip sound, sound2, sound3;
 	public GameObject[] charList;
@@ -101,7 +101,6 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		mainMenuScreen.SetActive (false);
 		createCharScreen.SetActive (true);
-		createCharFloor.SetActive (true);
 		charNo = 0;
 		setChar (charNo);
 		playSound (0);
@@ -112,7 +111,6 @@ public class mainMenuUI : MonoBehaviour {
 	{
 		mainMenuScreen.SetActive (true);
 		createCharScreen.SetActive (false);
-		createCharFloor.SetActive (false);
 		playSound (0);
 	}
 
