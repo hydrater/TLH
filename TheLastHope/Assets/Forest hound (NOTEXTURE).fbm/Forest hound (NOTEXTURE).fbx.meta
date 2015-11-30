@@ -78,7 +78,12 @@ ModelImporter:
     400068: hound_skeleton_test:STANDARD_WOLF_ Tail4
     400070: STANDARD_WOLF
     4300000: STANDARD_WOLF
-    7400000: Take 001
+    7400000: Idle
+    7400002: EnemySpotted
+    7400004: Walk
+    7400006: Run
+    7400008: GetHit
+    7400010: Die
     9500000: //RootNode
     13700000: STANDARD_WOLF
   materials:
@@ -100,7 +105,1087 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 9
+      lastFrame: 152
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot/hound_skeleton_test:STANDARD_WOLF_ L Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot/hound_skeleton_test:STANDARD_WOLF_ R Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand/hound_skeleton_test:STANDARD_WOLF_ L Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head/hound_skeleton_test:STANDARD_WOLF_
+          Queue de cheval 1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand/hound_skeleton_test:STANDARD_WOLF_ R Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3/hound_skeleton_test:STANDARD_WOLF_ Tail4
+        weight: 1
+      - path: STANDARD_WOLF
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: EnemySpotted
+      takeName: Take 001
+      firstFrame: 298
+      lastFrame: 367
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot/hound_skeleton_test:STANDARD_WOLF_ L Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot/hound_skeleton_test:STANDARD_WOLF_ R Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand/hound_skeleton_test:STANDARD_WOLF_ L Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head/hound_skeleton_test:STANDARD_WOLF_
+          Queue de cheval 1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand/hound_skeleton_test:STANDARD_WOLF_ R Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3/hound_skeleton_test:STANDARD_WOLF_ Tail4
+        weight: 1
+      - path: STANDARD_WOLF
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 372
+      lastFrame: 396
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot/hound_skeleton_test:STANDARD_WOLF_ L Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot/hound_skeleton_test:STANDARD_WOLF_ R Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand/hound_skeleton_test:STANDARD_WOLF_ L Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head/hound_skeleton_test:STANDARD_WOLF_
+          Queue de cheval 1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand/hound_skeleton_test:STANDARD_WOLF_ R Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3/hound_skeleton_test:STANDARD_WOLF_ Tail4
+        weight: 1
+      - path: STANDARD_WOLF
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 405
+      lastFrame: 423
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot/hound_skeleton_test:STANDARD_WOLF_ L Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot/hound_skeleton_test:STANDARD_WOLF_ R Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand/hound_skeleton_test:STANDARD_WOLF_ L Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head/hound_skeleton_test:STANDARD_WOLF_
+          Queue de cheval 1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand/hound_skeleton_test:STANDARD_WOLF_ R Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3/hound_skeleton_test:STANDARD_WOLF_ Tail4
+        weight: 1
+      - path: STANDARD_WOLF
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: GetHit
+      takeName: Take 001
+      firstFrame: 473
+      lastFrame: 495
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot/hound_skeleton_test:STANDARD_WOLF_ L Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot/hound_skeleton_test:STANDARD_WOLF_ R Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand/hound_skeleton_test:STANDARD_WOLF_ L Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head/hound_skeleton_test:STANDARD_WOLF_
+          Queue de cheval 1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand/hound_skeleton_test:STANDARD_WOLF_ R Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3/hound_skeleton_test:STANDARD_WOLF_ Tail4
+        weight: 1
+      - path: STANDARD_WOLF
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Die
+      takeName: Take 001
+      firstFrame: 494
+      lastFrame: 568
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ L Thigh/hound_skeleton_test:STANDARD_WOLF_
+          L Calf/hound_skeleton_test:STANDARD_WOLF_ L HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          L Foot/hound_skeleton_test:STANDARD_WOLF_ L Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Pelvis/hound_skeleton_test:STANDARD_WOLF_ R Thigh/hound_skeleton_test:STANDARD_WOLF_
+          R Calf/hound_skeleton_test:STANDARD_WOLF_ R HorseLink/hound_skeleton_test:STANDARD_WOLF_
+          R Foot/hound_skeleton_test:STANDARD_WOLF_ R Toe0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ L Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          L UpperArm/hound_skeleton_test:STANDARD_WOLF_ L Forearm/hound_skeleton_test:STANDARD_WOLF_
+          L Hand/hound_skeleton_test:STANDARD_WOLF_ L Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ Neck1/hound_skeleton_test:STANDARD_WOLF_
+          Neck2/hound_skeleton_test:STANDARD_WOLF_ Head/hound_skeleton_test:STANDARD_WOLF_
+          Queue de cheval 1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Spine1/hound_skeleton_test:STANDARD_WOLF_
+          Neck/hound_skeleton_test:STANDARD_WOLF_ R Clavicle/hound_skeleton_test:STANDARD_WOLF_
+          R UpperArm/hound_skeleton_test:STANDARD_WOLF_ R Forearm/hound_skeleton_test:STANDARD_WOLF_
+          R Hand/hound_skeleton_test:STANDARD_WOLF_ R Finger0
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3
+        weight: 1
+      - path: hound_skeleton_test:STANDARD_WOLF_/hound_skeleton_test:STANDARD_WOLF_
+          Spine/hound_skeleton_test:STANDARD_WOLF_ Tail/hound_skeleton_test:STANDARD_WOLF_
+          Tail1/hound_skeleton_test:STANDARD_WOLF_ Tail2/hound_skeleton_test:STANDARD_WOLF_
+          Tail3/hound_skeleton_test:STANDARD_WOLF_ Tail4
+        weight: 1
+      - path: STANDARD_WOLF
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
