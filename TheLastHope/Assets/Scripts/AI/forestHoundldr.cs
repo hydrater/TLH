@@ -6,14 +6,14 @@ public class forestHoundldr : MonoBehaviour {
 
 	List<Transform> waypoints = new List<Transform>();
 	public byte aiState;//idle, moving, attack
-	public GameObject[] houndFollowers;
+	List<GameObject> houndFollowers = new List<GameObject>();
 	private NavMeshAgent agent;
 	private float idleTimer;
 
 	void Start () 
 	{
 		agent = GetComponent<NavMeshAgent>();
-		foreach(GameObject marker in GameObject.FindGameObjectsWithTag("Markers"))
+		foreach(GameObject marker in GameObject.FindGameObjectsWithTag("Marker"))
 		{
 			if(marker.name == "forestHound")
 			{
@@ -65,9 +65,9 @@ public class forestHoundldr : MonoBehaviour {
 	
 	void OnDestroy() 
 	{
-		if (houndFollowers.Length > 0)
+		if (houndFollowers.Count > 0)
 		{
-			GameObject temp = houndFollowers[Random.Range(0, houndFollowers.Length)];
+			GameObject temp = houndFollowers[Random.Range(0, houndFollowers.Count)];
 			temp.GetComponent<forestHoundldr>().enabled = true;
 			temp.GetComponent<_forestHound>().enabled = false;
 		}
