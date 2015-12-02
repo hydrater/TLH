@@ -8,7 +8,7 @@ public class forestHoundldr : MonoBehaviour {
 	public byte aiState;//idle, moving, attack
 	List<GameObject> houndFollowers = new List<GameObject>();
 	private NavMeshAgent agent;
-	private float idleTimer;
+	private float idleTimer, idleDistance;
 
 	void Start () 
 	{
@@ -42,16 +42,10 @@ public class forestHoundldr : MonoBehaviour {
 			
 			case 1:
 			
-			if (!agent.pathPending)
+			if (idleDistance < 0)
 			{
-				if (agent.remainingDistance <= agent.stoppingDistance)
-				{
-					if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-					{
-						agent.enabled = false;
-						idleTimer = 20;
-					}
-				}
+				agent.enabled = false;
+				idleTimer = 20;
 			}
 			break;
 			
@@ -70,6 +64,14 @@ public class forestHoundldr : MonoBehaviour {
 			GameObject temp = houndFollowers[Random.Range(0, houndFollowers.Count)];
 			temp.GetComponent<forestHoundldr>().enabled = true;
 			temp.GetComponent<_forestHound>().enabled = false;
+		}
+	}
+	
+	void OnTriggerEnter(Collider other) 
+	{
+		if (other.tag == "Marker")
+		{
+			idleDistance = Random.Range(0, 6);
 		}
 	}
 }

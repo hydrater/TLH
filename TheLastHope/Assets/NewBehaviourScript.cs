@@ -39,6 +39,16 @@ public class NewBehaviourScript : MonoBehaviour {
 			anim.SetLayerWeight(1,1);
 			StartCoroutine("gun");
 		}
+		
+		if(Input.GetKey(KeyCode.I))
+		{
+			anim.SetBool("UI",true);
+			
+		}
+		else
+			{
+			anim.SetBool("UI",false);
+			}
 //		else
 //		{
 //			anim.SetLayerWeight(1,0);
