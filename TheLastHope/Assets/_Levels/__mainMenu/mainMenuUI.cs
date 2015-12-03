@@ -4,12 +4,15 @@ using UnityEngine.UI;
 
 public class mainMenuUI : MonoBehaviour {
 	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, optionScreen;
-	public GameObject saveSystem, charNameInput;
+	public GameObject saveSystem, charNameInput, cameraPan;
 	public AudioClip sound, sound2, sound3;
 	public GameObject[] charList;
 	bool hoverStart, hoverNew, hoverOption, hoverExit;
 	byte charNo, maxChar;
 	private GameObject gameM;
+	public Transform mainPer, CCPer;
+	private Transform perDestination;
+	private bool changingPer;
 
 	void Start()
 	{
@@ -40,6 +43,17 @@ public class mainMenuUI : MonoBehaviour {
 		} else {
 			if(createnew.GetComponent<Image>().color.a > 0.745){
 				createnew.GetComponent<Image> ().color = new Color (255, 255, 255, createnew.GetComponent<Image> ().color.a - Time.deltaTime);
+			}
+		}
+		
+		if (changingPer)
+		{
+			cameraPan.transform.position = Vector3.MoveTowards(cameraPan.transform.position, perDestination.transform.position, Time.deltaTime * 30);
+			cameraPan.transform.rotation =   Quaternion.Lerp(cameraPan.transform.rotation, perDestination.transform.rotation, Time.deltaTime * 5);
+			if (cameraPan.transform.position == perDestination.transform.position)
+			{
+				cameraPan.GetComponent<cameraPanning>().enabled = true;
+				changingPer = false;
 			}
 		}
 		//Option
@@ -104,6 +118,9 @@ public class mainMenuUI : MonoBehaviour {
 		charNo = 0;
 		setChar (charNo);
 		playSound (0);
+		perDestination = CCPer;
+		changingPer = true;
+		cameraPan.GetComponent<cameraPanning>().enabled = false;
 	}
 
 	//Exit character creation screen
@@ -112,6 +129,9 @@ public class mainMenuUI : MonoBehaviour {
 		mainMenuScreen.SetActive (true);
 		createCharScreen.SetActive (false);
 		playSound (0);
+		perDestination = mainPer;
+		changingPer = true;
+		cameraPan.GetComponent<cameraPanning>().enabled = false;
 	}
 
 	//Options
