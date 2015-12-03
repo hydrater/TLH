@@ -351,8 +351,8 @@ ModelImporter:
     - serializedVersion: 16
       name: MaleIdle(GUN)
       takeName: Take 001
-      firstFrame: 136
-      lastFrame: 240
+      firstFrame: 1
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -691,7 +691,7 @@ ModelImporter:
     - serializedVersion: 16
       name: MaleIdle(TwoHanded)
       takeName: Take 001
-      firstFrame: 136
+      firstFrame: 122
       lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
