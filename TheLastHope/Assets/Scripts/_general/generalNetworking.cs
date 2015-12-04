@@ -12,7 +12,7 @@ public class generalNetworking : MonoBehaviour {
 		Cursor.lockState =  CursorLockMode.Confined;
 		Cursor.visible = true;
 		
-		if (Application.loadedLevel > levelIndexStart) //Since we are already connected to a room, we don't have to reconnect to the same room
+		if (Application.loadedLevel > levelIndexStart)
 		{
 			GetComponent<ChatGui>().enabled = true;
 			Cursor.lockState =  CursorLockMode.Locked;
@@ -103,28 +103,6 @@ public class generalNetworking : MonoBehaviour {
 	{
 		//Debug.Log(test.GetComponent<AudioSource>().timeSamples);
 		//Debug.Log("Players" + PhotonNetwork.countOfPlayersInRooms);
-		if (Input.GetKeyDown(KeyCode.Escape))//temporary scene switcher
-		{
-			if (Application.loadedLevelName == "Sanctuary")
-			{
-				if(PhotonNetwork.connected)
-				{
-					GetComponent<currentClientStats>().roomName = "@" + "Default"; //TEMPORARY
-					PhotonNetwork.LeaveRoom();
-				}
-			}
-		}
-		if (Input.GetKeyDown(KeyCode.Equals))
-		{
-			if (Application.loadedLevel != 0)
-			{
-				if(PhotonNetwork.connected)
-				{
-					GetComponent<currentClientStats>().roomName = "!Tutorial";
-					PhotonNetwork.LeaveRoom();
-				}
-			}
-		}
 	}
 	
 	void OnPhotonPlayerDisconnected(PhotonPlayer target) 
