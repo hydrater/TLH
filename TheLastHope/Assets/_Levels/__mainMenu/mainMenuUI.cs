@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 public class mainMenuUI : MonoBehaviour {
 	public GameObject start, createnew, options, exit, mainMenuScreen, createCharScreen, optionScreen;
-	public GameObject saveSystem, charNameInput, cameraPan;
+	public GameObject saveSystem, charNameInput, cameraPan, popUp, popUpTxt, fadeImage, fadeParent;
 	public AudioClip sound, sound2, sound3;
 	public GameObject[] charList;
 	bool hoverStart, hoverNew, hoverOption, hoverExit;
 	byte charNo, maxChar;
 	private GameObject gameM;
-	public Transform mainPer, CCPer;
+	public Transform mainPer, CCPer, playPer;
 	private Transform perDestination;
-	private bool changingPer;
+	private bool changingPer, fadeOut;
 
 	void Start()
 	{
@@ -33,6 +33,14 @@ public class mainMenuUI : MonoBehaviour {
 		} else {
 			if(start.GetComponent<Image>().color.a > 0.745){
 				start.GetComponent<Image> ().color = new Color (255, 255, 255, start.GetComponent<Image> ().color.a - Time.deltaTime);
+			}
+		}
+		if (fadeOut)
+		{
+			fadeImage.GetComponent<RawImage>().color = new Color (255, 255, 255, fadeImage.GetComponent<RawImage> ().color.a + Time.deltaTime* 0.7f);
+			if (cameraPan.transform.position == perDestination.transform.position)
+			{
+				Application.LoadLevel(1);
 			}
 		}
 		//New
@@ -96,7 +104,11 @@ public class mainMenuUI : MonoBehaviour {
 		string[] temp = saveSystem.GetComponent<AdvancedSaveSystem>().variablesValue[0].Split(',');
 		gameM.GetComponent<currentClientStats>().playerName = temp[0];
 		gameM.GetComponent<currentClientStats>().charNo = System.Convert.ToByte(temp[1]);
-		Application.LoadLevel(1);
+		perDestination = playPer;
+		changingPer = true;
+		cameraPan.GetComponent<cameraPanning>().enabled = false;
+		fadeParent.SetActive(true);
+		fadeOut = true;
 	}
 
 	//Create new
@@ -202,13 +214,19 @@ public class mainMenuUI : MonoBehaviour {
 		string tempName;
 		tempName = charNameInput.GetComponent<InputField> ().text;
 		if (tempName.Length < 3 || tempName.Length > 12) {
-			Debug.Log ("The name has to be within 3 to 12 characters long");
+			popUpTxt.GetComponent<Text>().text = "Name has to be within 3 to 12 characters long.";
 		} else {
 			saveSystem.GetComponent<AdvancedSaveSystem> ().variablesValue [0] = tempName + "," +charNo.ToString();
 			saveSystem.GetComponent<AdvancedSaveSystem> ().SaveData (1);
-			Debug.Log("Save successful");
+			popUpTxt.GetComponent<Text>().text = "Save successful";
 		}
+		popUp.SetActive(true);
 		playSound (0);
+	}
+	
+	public void closeNotification()
+	{
+		popUp.SetActive(false);
 	}
 
 	void playSound(byte soundNo)
