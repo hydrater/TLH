@@ -42,8 +42,22 @@ public class dayNight : MonoBehaviour {
 				if (RenderSettings.ambientLight.r * 255 > 215)
 				{
 					RenderSettings.ambientLight = new Color (RenderSettings.ambientLight.r - Time.deltaTime * 0.0017f,
+					                                         RenderSettings.ambientLight.g,
+					                                         RenderSettings.ambientLight.b);
+				}
+				
+				if (RenderSettings.ambientLight.g * 255 > 215)
+				{
+					RenderSettings.ambientLight = new Color (RenderSettings.ambientLight.r,
 					                                         RenderSettings.ambientLight.g - Time.deltaTime * 0.0017f,
 					                                         RenderSettings.ambientLight.b);
+				}
+				
+				if (RenderSettings.ambientLight.b * 255 <= 250)
+				{
+					RenderSettings.ambientLight = new Color (RenderSettings.ambientLight.r,
+					                                         RenderSettings.ambientLight.g,
+					                                         RenderSettings.ambientLight.b + Time.deltaTime * 0.004f);
 				}
 				
 				if (RenderSettings.ambientIntensity > 0.31f)
@@ -54,16 +68,23 @@ public class dayNight : MonoBehaviour {
 				
 				if (Sun.GetComponent<Light>().color.r * 255 > 40)
 				{
-					Sun.GetComponent<Light>().color = new Color(Sun.GetComponent<Light>().color.r  - Time.deltaTime * 0.0017f,
+					Sun.GetComponent<Light>().color = new Color(Sun.GetComponent<Light>().color.r  - Time.deltaTime * 0.0025f,
+					                                            Sun.GetComponent<Light>().color.g,
+					                                            Sun.GetComponent<Light>().color.b);
+				}
+				
+				if (Sun.GetComponent<Light>().color.g * 255 > 40)
+				{
+					Sun.GetComponent<Light>().color = new Color(Sun.GetComponent<Light>().color.r,
 					                                            Sun.GetComponent<Light>().color.g  - Time.deltaTime * 0.0017f,
 					                                            Sun.GetComponent<Light>().color.b);
 				}
 				
-				if (Sun.GetComponent<Light>().color.b * 255 > 110)
+				if (Sun.GetComponent<Light>().color.b * 255 <= 110)
 				{
 					Sun.GetComponent<Light>().color = new Color(Sun.GetComponent<Light>().color.r,
 					                                            Sun.GetComponent<Light>().color.g,
-					                                            Sun.GetComponent<Light>().color.b - Time.deltaTime * 0.0017f);
+					                                            Sun.GetComponent<Light>().color.b + Time.deltaTime * 0.0017f);
 				}
 					
 				if (Sun.GetComponent<Light>().intensity > 0.8f)

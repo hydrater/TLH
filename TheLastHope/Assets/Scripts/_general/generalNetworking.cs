@@ -35,7 +35,7 @@ public class generalNetworking : MonoBehaviour {
 					PhotonNetwork.ConnectUsingSettings(VERSION);
 				Cursor.lockState =  CursorLockMode.Locked;
 				Cursor.visible = false;
-				PlayerPrefs.DeleteAll(); // remove once pre alpha is over <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+				PlayerPrefs.DeleteAll();
 				PhotonNetwork.playerName = GetComponent<currentClientStats>().playerName;
 				break;
 				
@@ -43,14 +43,18 @@ public class generalNetworking : MonoBehaviour {
 				Cursor.lockState =  CursorLockMode.Confined;
 				Cursor.visible = false;
 				GetComponent<ChatGui>().enabled = false;
-				//PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
 				break;
 				
 			case "Level 1":
 				Cursor.lockState =  CursorLockMode.Confined;
 				Cursor.visible = false;
 				GetComponent<ChatGui>().enabled = false;
-				//PhotonNetwork.Instantiate("Player", spawnPoint.position, spawnPoint.rotation, 0);
+				break;
+				
+			case "Presentation":
+				Cursor.lockState =  CursorLockMode.Confined;
+				Cursor.visible = false;
+				GetComponent<ChatGui>().enabled = false;
 				break;
 			}
 		}
@@ -63,14 +67,14 @@ public class generalNetworking : MonoBehaviour {
 			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
 			PhotonNetwork.JoinOrCreateRoom("!Sanctuary", roomOptions, TypedLobby.Default);
 		}
-		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
+		else if (GetComponent<currentClientStats>().roomName == "Presentation")
 		{
-			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4};
+			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
 			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
 		}
 		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
 		{
-			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4};
+			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 1};
 			PhotonNetwork.JoinOrCreateRoom(GetComponent<currentClientStats>().roomName + PhotonNetwork.playerName, roomOptions, TypedLobby.Default);
 		}
 		else
@@ -82,21 +86,15 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnJoinedRoom() //Player spawning information
 	{
-		if (Application.loadedLevelName == "mapSelection")//spawn Mapselector
-		{
-			PhotonNetwork.Instantiate("Mapselector", transform.position, Quaternion.identity, 0);
-			return;
-		}
 		if (Application.loadedLevelName == "Tutorial")
 			return;
-		
 		spawnPoint = GameObject.Find("LevelManager").transform;
 		if (GetComponent<currentClientStats>().charNo == 0)
 			PhotonNetwork.Instantiate("Male", spawnPoint.position, spawnPoint.rotation, 0);
 		else
 			PhotonNetwork.Instantiate("Female", spawnPoint.position, spawnPoint.rotation, 0);
-		
-		
+		if (Application.loadedLevelName == "Sanctuary")
+			Destroy(GameObject.Find("loadingScreen"));
 	}
 	
 	void Update()
@@ -107,7 +105,7 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnPhotonPlayerDisconnected(PhotonPlayer target) 
 	{
-		PhotonNetwork.DestroyPlayerObjects(target);
+		PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
 	}
 	
 	void OnPhotonJoinRoomFailed()
@@ -121,12 +119,23 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
 			Application.LoadLevel("Sanctuary");
-		else if (GetComponent<currentClientStats>().roomName[0].ToString() == "@")
-			Application.LoadLevel("mapSelection");
-		else if (GetComponent<currentClientStats>().roomName == "!Tutorial")
-			Application.LoadLevel("Temp");
+		else if (GetComponent<currentClientStats>().roomName == "Presentation")
+			Application.LoadLevel("Presentation");
 		else
 			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}
+	
+	public void customLoadLevel(string target)
+	{
+		GetComponent<currentClientStats>().roomName = target;
+		PhotonNetwork.LeaveRoom();
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 }

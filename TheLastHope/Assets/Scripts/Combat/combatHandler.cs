@@ -47,25 +47,6 @@ public class combatHandler : Photon.MonoBehaviour {
 //			if(Application.loadedLevel > 3)
 //				gameObject.AddComponent(System.Type.GetType ("InteractionLevel" + Application.loadedLevel.ToString()));
 		
-		switch(Application.loadedLevel)
-		{
-		default:
-			
-			break;
-			
-		case 1: //Sanc and Hub
-			//if day, if night, if evening
-			
-			break;
-			
-		case 3: //for tutorial
-			
-			break;
-			
-		case 4: //for level 1
-			
-			break;
-		}
 		if (photonView.isMine)
 			photonView.RPC("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
 		

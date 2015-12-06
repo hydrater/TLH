@@ -4,9 +4,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class UIHandler : Photon.MonoBehaviour {
 	
-	public GameObject playerUI, body;
+	public GameObject playerUI, body, levelSelectUI, inventoryUI;
 	byte buttonFocus;
-	bool canRotate = false;
+	bool canRotate = false, UIOn = false;
 	
 	void Update () 
 	{
@@ -14,8 +14,9 @@ public class UIHandler : Photon.MonoBehaviour {
 		{
 			if (photonView.isMine)
 			{
-				if (playerUI.GetActive())
+				if (UIOn)
 				{
+					UIOn = false;
 					playerUI.SetActive(false);
 					Cursor.lockState =  CursorLockMode.Locked;
 					Cursor.visible = false;
@@ -24,6 +25,7 @@ public class UIHandler : Photon.MonoBehaviour {
 				}
 				else
 				{
+					UIOn = true;
 					playerUI.SetActive(true);
 					Cursor.lockState =  CursorLockMode.Confined;
 					Cursor.visible = true;
@@ -34,17 +36,60 @@ public class UIHandler : Photon.MonoBehaviour {
 				}
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+		
+		if (UIOn)
 		{
-			if (buttonFocus!= 3)
-				++buttonFocus;
-			canRotate = true;
-		}
-		if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-		{
-			if (buttonFocus!= 0)
-				--buttonFocus;
-			canRotate = true;
+			if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				if (buttonFocus!= 3)
+					++buttonFocus;
+				canRotate = true;
+			}
+			
+			if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+			{
+				if (buttonFocus!= 0)
+					--buttonFocus;
+				canRotate = true;
+			}
+			
+			if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+			{
+				
+			}
+			
+			if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+			{
+				
+			}
+			
+			if (Input.GetKeyDown(KeyCode.Return))
+			{
+				switch(buttonFocus)
+				{
+				case 0:
+					levelSelectUI.SetActive(true);
+					playerUI.SetActive(false);
+					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Presentation");
+					break;
+					
+				case 1:
+					inventoryUI.SetActive(true);
+					playerUI.SetActive(false);
+					break;
+					
+				case 2:
+					
+					
+					break;
+					
+				case 3:
+					
+					
+					break;
+					
+				}
+			}
 		}
 		
 		if (canRotate)

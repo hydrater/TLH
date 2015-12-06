@@ -37,7 +37,7 @@ public class mainMenuUI : MonoBehaviour {
 		}
 		if (fadeOut)
 		{
-			fadeImage.GetComponent<RawImage>().color = new Color (255, 255, 255, fadeImage.GetComponent<RawImage> ().color.a + Time.deltaTime* 0.7f);
+			fadeImage.GetComponent<RawImage>().color = new Color (255, 255, 255, fadeImage.GetComponent<RawImage> ().color.a + Time.deltaTime* 0.6f);
 			if (cameraPan.transform.position == perDestination.transform.position)
 			{
 				Application.LoadLevel(1);
@@ -56,8 +56,8 @@ public class mainMenuUI : MonoBehaviour {
 		
 		if (changingPer)
 		{
-			cameraPan.transform.position = Vector3.MoveTowards(cameraPan.transform.position, perDestination.transform.position, Time.deltaTime * 30);
-			cameraPan.transform.rotation =   Quaternion.Lerp(cameraPan.transform.rotation, perDestination.transform.rotation, Time.deltaTime * 5);
+			cameraPan.transform.position = Vector3.MoveTowards(cameraPan.transform.position, perDestination.transform.position, Time.deltaTime * 24);
+			cameraPan.transform.rotation =   Quaternion.Lerp(cameraPan.transform.rotation, perDestination.transform.rotation, Time.deltaTime * 5.4f);
 			if (cameraPan.transform.position == perDestination.transform.position)
 			{
 				cameraPan.GetComponent<cameraPanning>().enabled = true;
