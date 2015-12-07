@@ -16,7 +16,6 @@ public class weapon00 : Photon.MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
 		if(Input.GetMouseButtonDown(0))
@@ -69,6 +68,7 @@ public class weapon00 : Photon.MonoBehaviour {
 	[PunRPC]
 	void networkShooting ()
 	{
+		Debug.Log("Shoot");
 		//Needs to add proper targeting system
 		Instantiate(projectile, weaponOutput.transform.position, transform.rotation);
 	}

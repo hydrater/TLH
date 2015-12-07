@@ -8,13 +8,13 @@ public class generalNetworking : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) //General set up for each level
 	{
-		GetComponent<ChatGui>().enabled = true;
+		//GetComponent<ChatGui>().enabled = true;
 		Cursor.lockState =  CursorLockMode.Confined;
 		Cursor.visible = true;
 		
 		if (Application.loadedLevel > levelIndexStart)
 		{
-			GetComponent<ChatGui>().enabled = true;
+			//GetComponent<ChatGui>().enabled = true;
 			Cursor.lockState =  CursorLockMode.Locked;
 			Cursor.visible = false;
 		}
