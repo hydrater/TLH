@@ -11,17 +11,18 @@ public class weapon00 : Photon.MonoBehaviour {
 	
 	void Start ()
 	{
-		combathandler = transform.root.GetComponent<combatHandler>();
+		combathandler = transform.root.gameObject.GetComponent<combatHandler>();
 		_camera = GameObject.Find("FirstPersonCharacter");
 		
 	}
 	
 	void Update () 
 	{
+		
 		if(Input.GetMouseButtonDown(0))
 		{
 			isShooting = true;
-			timer = 0.8f;
+			timer = 0.01f;
 		}
 		
 		if(Input.GetMouseButtonUp(0))
@@ -32,10 +33,11 @@ public class weapon00 : Photon.MonoBehaviour {
 			timer -= Time.deltaTime;
 			if (timer <= 0)
 			{
-				if (combathandler.weaponHold == 1)
+				if (combathandler.weaponHold == 0)
 				{
 					if (combathandler.Ammo > 0)
 					{
+						--combathandler.Ammo;
 						timer = 0.8f;
 						Shoot();
 					}
@@ -44,6 +46,7 @@ public class weapon00 : Photon.MonoBehaviour {
 				{
 					if (combathandler.Ammo2 > 0)
 					{
+						--combathandler.Ammo;
 						timer = 0.8f;
 						Shoot();
 					}
@@ -62,14 +65,13 @@ public class weapon00 : Photon.MonoBehaviour {
 				hit.collider.gameObject.GetComponent<mobStats>().damaged(45);
 			}
 		}
-		photonView.RPC("networkShooting", PhotonTargets.All);
+		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, transform.rotation);
 	}
 	
 	[PunRPC]
-	void networkShooting ()
+	void shootingEffect (Vector3 pos, Quaternion rot)
 	{
-		Debug.Log("Shoot");
-		//Needs to add proper targeting system
-		Instantiate(projectile, weaponOutput.transform.position, transform.rotation);
+		Instantiate(projectile, pos, rot);
+		//change to photon instantiate
 	}
 }

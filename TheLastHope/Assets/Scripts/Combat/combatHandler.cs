@@ -62,7 +62,7 @@ public class combatHandler : Photon.MonoBehaviour {
 			case "00":
 			TotalAmmo2 = 30;
 			totalAmmoMax2 = 30;
-			Ammo = 10;
+			Ammo2 = 10;
 			magazineMax2 = 10;
 			regenTimer2 = 3;
 			break;

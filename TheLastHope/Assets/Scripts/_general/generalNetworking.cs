@@ -103,11 +103,6 @@ public class generalNetworking : MonoBehaviour {
 		//Debug.Log("Players" + PhotonNetwork.countOfPlayersInRooms);
 	}
 	
-	void OnPhotonPlayerDisconnected(PhotonPlayer target) 
-	{
-		PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.player);
-	}
-	
 	void OnPhotonJoinRoomFailed()
 	{
 		Debug.Log("Room is full");
