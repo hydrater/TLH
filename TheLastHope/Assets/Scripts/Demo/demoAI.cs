@@ -3,9 +3,9 @@ using System.Collections;
 
 public class demoAI : Photon.MonoBehaviour {
 	
-	public Transform proxy;
-	public Transform model;
-	public Transform target;
+	public Transform proxy, model, target;
+	Vector3 realPosition = Vector3.zero;
+	Quaternion realRotation = Quaternion.identity;
 	Vector3 lastPosition;
 	private NavMeshAgent agent;
 	NavMeshObstacle obstacle;
@@ -55,6 +55,11 @@ public class demoAI : Photon.MonoBehaviour {
 			
 		lastPosition = model.position;
 		}
+		if (!photonView.isMine)
+		{
+			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
+			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+		}
 	}
 	
 	public void attack()
@@ -74,8 +79,8 @@ public class demoAI : Photon.MonoBehaviour {
 		else
 		{
 			hp = (float)stream.ReceiveNext();
-			transform.position = (Vector3)stream.ReceiveNext();
-			transform.rotation = (Quaternion)stream.ReceiveNext();
+			realPosition = (Vector3)stream.ReceiveNext();
+			realRotation = (Quaternion)stream.ReceiveNext();
 		}
 	}
 
