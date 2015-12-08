@@ -62,7 +62,7 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			if (hit.collider.tag == "Enemy")
 			{
-				hit.collider.gameObject.GetComponent<mobStats>().damaged(45);
+				hit.collider.transform.parent.GetComponent<demoAI>().damaged(45);
 			}
 		}
 		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, transform.rotation);

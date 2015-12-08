@@ -4,7 +4,7 @@ using System.Collections;
 public class dayNight : MonoBehaviour {
 	GameObject Sun;
 	Material Sky;
-	private bool canFade = true;
+	public bool canFade = false;
 	private byte fadeType = 0;
 	public Material[] skies;
 	

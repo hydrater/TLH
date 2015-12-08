@@ -207,7 +207,7 @@ public class combatHandler : Photon.MonoBehaviour {
 			{
 				combatStat.stam -= 30;
 				Dash = true;
-				combatStat.stamCD += 2;
+				combatStat.stamCD = 2;
 				dashTimer = 0;
 				if (Input.GetKey(KeyCode.W))
 					dashDir = Vector3.forward;
@@ -242,7 +242,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (combatStat.stam < combatStat.stamM && !m_FirstPerson.Sprint)
 			{
-				combatStat.stam += Time.deltaTime*20;
+				combatStat.stam += Time.deltaTime*50;
 				if (combatStat.stam > 10)
 					sprintExhaust = false;
 			}
@@ -322,8 +322,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			switch (WeaponID)
 			{
 			case "00": 
-				tempTransform = new Vector3(0.835f, -0.657f, 1.318f);
-				tempRotation.eulerAngles =  new Vector3(0, 8.529778f, 0);
+				tempTransform = new Vector3(-0.1099925f, -1.640004f, -0.1800082f);
+				tempRotation.eulerAngles =  new Vector3(8.391868e-07f, 10.34156f, -9.51925e-08f);
 				break;
 			
 			case "01": 
@@ -332,7 +332,7 @@ public class combatHandler : Photon.MonoBehaviour {
 				break;
 			}
 			
-			GameObject weapon = Instantiate(Resources.Load(WeaponID), tempTransform, tempRotation) as GameObject;
+			GameObject weapon = PhotonNetwork.Instantiate(WeaponID, tempTransform, tempRotation, 0) as GameObject;
 			weapon.transform.SetParent(GetComponent<networkPlayer>().firstPersonCam.transform, false);
 			
 			if (i == 0)

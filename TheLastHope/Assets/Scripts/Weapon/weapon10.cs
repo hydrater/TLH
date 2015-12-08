@@ -22,7 +22,6 @@ public class weapon10 : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0))
 		{
 			timer = 1;
-			Debug.Log(meleeState);
 			switch(meleeState)
 			{
 			case 0:

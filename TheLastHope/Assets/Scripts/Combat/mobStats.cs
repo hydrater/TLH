@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class mobStats : MonoBehaviour {
+public class mobStats : Photon.MonoBehaviour {
 	
 	public float hp = 200;
 	
@@ -11,10 +11,25 @@ public class mobStats : MonoBehaviour {
 	
 	public void damaged(float damage)
 	{
+		Debug.Log("Called");
 		hp -= damage;
 		if (hp <= 0)
 		{
-			//destroy;
+			GameObject.Find("Artifact").GetComponent<demoEvent>().highEco = true;
+			PhotonNetwork.Destroy(this.transform.root.gameObject);
+		}
+	}
+	
+	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting)
+		{
+			stream.SendNext(hp);
+		}
+		else
+		{
+			hp = (float)stream.ReceiveNext();
+			
 		}
 	}
 }
