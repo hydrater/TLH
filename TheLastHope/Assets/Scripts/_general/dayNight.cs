@@ -63,7 +63,7 @@ public class dayNight : MonoBehaviour {
 				if (RenderSettings.ambientIntensity > 0.31f)
 				{
 					
-					RenderSettings.ambientIntensity -= Time.deltaTime * 0.0008f;
+					RenderSettings.ambientIntensity -= Time.deltaTime * 0.002f;
 				}
 				
 				if (Sun.GetComponent<Light>().color.r * 255 > 40)
@@ -90,7 +90,7 @@ public class dayNight : MonoBehaviour {
 				if (Sun.GetComponent<Light>().intensity > 0.8f)
 				{
 					
-					Sun.GetComponent<Light>().intensity -= Time.deltaTime * 0.0017f;
+					Sun.GetComponent<Light>().intensity -= Time.deltaTime * 0.0021f;
 				}
 				break;
 				
