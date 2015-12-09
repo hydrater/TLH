@@ -65,13 +65,14 @@ public class weapon00 : Photon.MonoBehaviour {
 				hit.collider.transform.parent.GetComponent<demoAI>().damaged(45);
 			}
 		}
-		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, transform.rotation);
+		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, hit.point);
 	}
 	
 	[PunRPC]
-	void shootingEffect (Vector3 pos, Quaternion rot)
+	void shootingEffect (Vector3 pos, Vector3 endPoint)
 	{
-		Instantiate(projectile, pos, rot);
+		GameObject Temp = Instantiate(projectile, pos, Quaternion.identity) as GameObject;
+		Temp.transform.LookAt(endPoint);
 		//change to photon instantiate
 	}
 }

@@ -63,7 +63,8 @@ public class ProjectileCollisionBehaviour : MonoBehaviour
       Debug.Log("Prefab root or children have not script \"PrefabSettings\"");
     if (!IsRootMove) startParentPosition = transform.parent.position;
     if (GoLight != null) tLight = GoLight.transform;
-    InitializeDefault();
+	if (effectSettings.Target != null)
+   		InitializeDefault();
     isInitializedOnStart = true;
   }
 
