@@ -6,6 +6,10 @@ public class demoAIldr : MonoBehaviour {
 	public GameObject[] pack;
 	public int distance;
 	
+	void Start()
+	{
+	}
+	
 	void Update () 
 	{
 		if (PhotonNetwork.isMasterClient)

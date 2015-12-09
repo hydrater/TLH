@@ -16,6 +16,7 @@ public class mainMenuUI : MonoBehaviour {
 
 	void Start()
 	{
+		createCharScreen.SetActive(false);
 		hoverStart = hoverNew = hoverOption = hoverExit = false;
 		charNo = 0;
 		maxChar = System.Convert.ToByte(charList.Length - 1);
@@ -62,6 +63,8 @@ public class mainMenuUI : MonoBehaviour {
 			{
 				cameraPan.GetComponent<cameraPanning>().enabled = true;
 				changingPer = false;
+				if (perDestination == CCPer)
+					createCharScreen.SetActive (true);
 			}
 		}
 		//Option
@@ -126,7 +129,6 @@ public class mainMenuUI : MonoBehaviour {
 	public void GoToNew() 
 	{
 		mainMenuScreen.SetActive (false);
-		createCharScreen.SetActive (true);
 		charNo = 0;
 		setChar (charNo);
 		playSound (0);

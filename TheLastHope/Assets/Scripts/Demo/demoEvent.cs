@@ -7,7 +7,8 @@ public class demoEvent : Photon.MonoBehaviour {
 	public Transform originalSpawn, demoSpawn1, demoSpawn2;
 	float missionTimer = 180, spawnTimer = 30;
 	int waveAmount;
-	public bool highEco;
+	public bool highEco, pressOnce = false;
+	public GameObject skylight, artifect;
 	
 	void Start () {
 	
@@ -20,7 +21,8 @@ public class demoEvent : Photon.MonoBehaviour {
 			missionTimer -= Time.deltaTime;
 			if (missionTimer <= 0)
 			{
-				
+				skylight.SetActive(false);
+				artifect.SetActive(false);
 			}
 			
 		}
@@ -30,14 +32,14 @@ public class demoEvent : Photon.MonoBehaviour {
 			spawnTimer -= Time.deltaTime;
 			if (spawnTimer <= 0)
 			{
-				spawnWave();
 				spawnTimer = 30;
+				spawnWave();
 			}
 		}
 		
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			if (canRetrieve)
+			if (canRetrieve && !pressOnce)
 			{
 				GameObject.Find("Sun").GetComponent<dayNight>().canFade = true;
 				canSpawn = true;
@@ -47,6 +49,9 @@ public class demoEvent : Photon.MonoBehaviour {
 					waveAmount = 5;
 				else
 					waveAmount = 3;
+				
+				pressOnce = true;
+				skylight.SetActive(true);
 				spawnWave();
 			}
 		}
@@ -56,8 +61,9 @@ public class demoEvent : Photon.MonoBehaviour {
 	
 	void spawnWave()
 	{
-		for (int i = 0; i <= waveAmount; ++i)
+		for (int i = 0; i < waveAmount; ++i)
 		{
+			Debug.Log(i + waveAmount);
 			GameObject temp = PhotonNetwork.Instantiate("forestHound", demoSpawn1.position, demoSpawn1.rotation, 0) as GameObject;
 			GameObject temp2 = PhotonNetwork.Instantiate("forestHound", demoSpawn2.position, demoSpawn2.rotation, 0) as GameObject;
 			temp.GetComponent<demoAI>().attack();

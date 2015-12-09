@@ -10,14 +10,18 @@ public class demoAI : Photon.MonoBehaviour {
 	private NavMeshAgent agent;
 	NavMeshObstacle obstacle;
 	public float hp = 200;
+	public Animator anim;
 	
 	public void damaged(float damage)
 	{
+		
+		transform.root.gameObject.GetComponent<demoAIldr>().distance = 800;
 		hp -= damage;
 		if (hp <= 0)
 		{
+			
 			GameObject.Find("Artifact").GetComponent<demoEvent>().highEco = true;
-			PhotonNetwork.Destroy(this.transform.parent.gameObject);
+			PhotonNetwork.Destroy(this.gameObject);
 		}
 	}
 	
@@ -25,6 +29,7 @@ public class demoAI : Photon.MonoBehaviour {
 	{
 		agent = proxy.GetComponent<NavMeshAgent>();
 		obstacle = proxy.GetComponent<NavMeshObstacle>();
+		anim = model.GetComponent<Animator>();
 	}
 	
 	void Update () 
@@ -35,12 +40,14 @@ public class demoAI : Photon.MonoBehaviour {
 		{
 			obstacle.enabled = true;
 			agent.enabled = false;
+//			anim.SetBool("ratAttack",true);
 		} 
 		else 
 		{
 			obstacle.enabled = false;
 			agent.enabled = true;
 			agent.destination = target.position;
+//			anim.SetBool("ratAttack",false);
 		}
 		
 		model.position = Vector3.Lerp(model.position, proxy.position, Time.deltaTime * 2);
@@ -55,17 +62,22 @@ public class demoAI : Photon.MonoBehaviour {
 			
 		lastPosition = model.position;
 		}
-		if (!photonView.isMine)
-		{
-			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
-			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
-		}
+//		if (!photonView.isMine)
+//		{
+//			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
+//			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+//		}
 	}
 	
 	public void attack()
 	{
 		if (PhotonNetwork.isMasterClient)
-			target = GameObject.FindGameObjectsWithTag("Player")[Random.Range(0, GameObject.FindGameObjectsWithTag("Player").Length)].transform; 
+			target = GameObject.FindGameObjectsWithTag("Player")[Random.Range(0, GameObject.FindGameObjectsWithTag("Player").Length)].transform;
+			
+		if (anim == null)
+			anim = model.GetComponent<Animator>();
+		anim.Play("Run");
+			
 	}
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
