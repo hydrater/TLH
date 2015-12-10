@@ -43,7 +43,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 		
 		if (photonView.isMine)
-			spawnWeapon(gameStat.weapon1ID, gameStat.weapon2ID);
+			photonView.RPC("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
 		
 		//Ammo info
 		switch(gameStat.weapon1ID)

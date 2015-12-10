@@ -62,11 +62,11 @@ public class demoAI : Photon.MonoBehaviour {
 			
 		lastPosition = model.position;
 		}
-//		if (!photonView.isMine)
-//		{
-//			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
-//			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
-//		}
+		if (!photonView.isMine)
+		{
+			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
+			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+		}
 	}
 	
 	public void attack()
@@ -76,7 +76,7 @@ public class demoAI : Photon.MonoBehaviour {
 			
 		if (anim == null)
 			anim = model.GetComponent<Animator>();
-		anim.Play("Run");
+			anim.Play("Run");
 			
 	}
 	

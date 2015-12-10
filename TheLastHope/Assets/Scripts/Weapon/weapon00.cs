@@ -4,7 +4,7 @@ using System.Collections;
 public class weapon00 : Photon.MonoBehaviour {
 
 	public Transform weaponOutput;
-	public GameObject projectile, _camera;
+	public GameObject projectile, _camera, hands;
 	combatHandler combathandler;
 	float timer = 0.8f;
 	bool isShooting = false;
@@ -15,7 +15,7 @@ public class weapon00 : Photon.MonoBehaviour {
 		_camera = GameObject.Find("FirstPersonCharacter");
 		if (!photonView.isMine)
 		{
-			transform.GetChild(1).gameObject.SetActive(false);
+			hands.SetActive(false);
 		}
 		
 	}
