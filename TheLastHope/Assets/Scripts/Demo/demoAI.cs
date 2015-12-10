@@ -14,8 +14,8 @@ public class demoAI : Photon.MonoBehaviour {
 	
 	public void damaged(float damage)
 	{
-		
-		transform.root.gameObject.GetComponent<demoAIldr>().distance = 800;
+		if (transform.root.gameObject.GetComponent<demoAIldr>() != null)
+			transform.root.gameObject.GetComponent<demoAIldr>().distance = 800;
 		hp -= damage;
 		if (hp <= 0)
 		{
