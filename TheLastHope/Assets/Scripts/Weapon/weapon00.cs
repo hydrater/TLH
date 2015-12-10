@@ -12,8 +12,11 @@ public class weapon00 : Photon.MonoBehaviour {
 	void Start ()
 	{
 		combathandler = transform.root.gameObject.GetComponent<combatHandler>();
-		_camera = transform.parent.parent.gameObject;
-		if (!photonView.isMine)
+		if (photonView.isMine)
+		{
+			_camera = transform.parent.parent.gameObject;
+		}
+		else
 		{
 			hands.SetActive(false);
 		}
@@ -22,6 +25,8 @@ public class weapon00 : Photon.MonoBehaviour {
 	
 	void Update () 
 	{
+		if(photonView.isMine)
+		{
 		if(Input.GetMouseButtonDown(0))
 		{
 			isShooting = true;
@@ -56,6 +61,7 @@ public class weapon00 : Photon.MonoBehaviour {
 				}
 			}
 		}
+	}
 	}
 	
 	void Shoot()
