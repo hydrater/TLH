@@ -89,11 +89,9 @@ public class weapon00 : Photon.MonoBehaviour {
 	[PunRPC]
 	void shootingEffect (Vector3 pos, Vector3 endPoint)
 	{
-		if (!photonView.isMine)
-		{
-			GameObject Temp = Instantiate(projectile, pos, Quaternion.identity) as GameObject;
-			Temp.transform.LookAt(endPoint);
-		}
+		
+		GameObject Temp = Instantiate(projectile, pos, Quaternion.identity) as GameObject;
+		Temp.transform.LookAt(endPoint);
 	}
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
