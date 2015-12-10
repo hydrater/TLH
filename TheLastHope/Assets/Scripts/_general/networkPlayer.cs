@@ -20,6 +20,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
+			
 		}
 		else
 		{

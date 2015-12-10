@@ -13,6 +13,10 @@ public class weapon00 : Photon.MonoBehaviour {
 	{
 		combathandler = transform.root.gameObject.GetComponent<combatHandler>();
 		_camera = GameObject.Find("FirstPersonCharacter");
+		if (!photonView.isMine)
+		{
+			transform.GetChild(1).gameObject.SetActive(false);
+		}
 		
 	}
 	
@@ -65,7 +69,8 @@ public class weapon00 : Photon.MonoBehaviour {
 				hit.collider.transform.parent.GetComponent<demoAI>().damaged(45);
 			}
 		}
-		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, hit.point);
+		if (photonView.isMine)
+			photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, hit.point);
 	}
 	
 	[PunRPC]
