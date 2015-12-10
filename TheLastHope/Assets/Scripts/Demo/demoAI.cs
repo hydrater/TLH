@@ -64,8 +64,10 @@ public class demoAI : Photon.MonoBehaviour {
 		}
 		if (!photonView.isMine)
 		{
-			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
-			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+			if(realPosition != Vector3.zero)
+				transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
+			if(realRotation != Quaternion.identity)
+				transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
 		}
 	}
 	
