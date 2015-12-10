@@ -6,7 +6,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
-	public GameObject _camera, firstPersonCam, weapon;
+	public GameObject _camera, firstPersonCam, body;
 	
 	private Animator anim;
 	
@@ -34,6 +34,11 @@ public class networkPlayer : Photon.MonoBehaviour {
 			Destroy(GetComponent<combatStats>());
 			Destroy(GetComponent<combatHandler>());
 			_camera.GetComponent<Camera>().farClipPlane = 2000;
+		}
+		if (photonView.isMine)
+		{
+			if (Application.loadedLevelName != "Sanctuary")
+				body.SetActive(false);
 		}
 	}
 	

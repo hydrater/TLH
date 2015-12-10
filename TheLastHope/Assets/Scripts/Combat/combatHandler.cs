@@ -322,8 +322,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			switch (WeaponID)
 			{
 			case "00": 
-				tempTransform = new Vector3(0.3806082f, -1.840715f, -0.05326253f);
-				tempRotation.eulerAngles =  new Vector3(0, 345, 0);
+				tempTransform = new Vector3(-0.00470034f, -1.924615f, 0.02843827f);
+				tempRotation.eulerAngles =  new Vector3(355.5891f, 7.871859f, 354.9338f);
 				break;
 			
 			case "01": 
