@@ -43,7 +43,10 @@ public class combatHandler : Photon.MonoBehaviour {
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 		
 		if (photonView.isMine)
+		{
 			photonView.RPC("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
+			Debug.Log("called");
+		}
 		
 		//Ammo info
 		switch(gameStat.weapon1ID)
@@ -305,8 +308,10 @@ public class combatHandler : Photon.MonoBehaviour {
 		
 	}
 	
+	[PunRPC]
 	void spawnWeapon(string WeaponID1, string WeaponID2)
 	{
+		Debug.Log("Executed");
 		Vector3 tempTransform = Vector3.zero;
 		Quaternion tempRotation = Quaternion.identity;
 		string WeaponID;
