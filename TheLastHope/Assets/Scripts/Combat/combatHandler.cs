@@ -52,8 +52,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		switch(gameStat.weapon1ID)
 		{
 			case "00":
-			TotalAmmo = 200;
-			totalAmmoMax = 200;
+			TotalAmmo = 99999;
+			totalAmmoMax = 99999;
 			Ammo = 10;
 			magazineMax = 10;
 			regenTimer = 3;
@@ -63,8 +63,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		switch(gameStat.weapon2ID)
 		{
 			case "00":
-			TotalAmmo2 = 200;
-			totalAmmoMax2 = 200;//30
+			TotalAmmo2 = 99999;
+			totalAmmoMax2 = 99999;//30
 			Ammo2 = 10;
 			magazineMax2 = 10;
 			regenTimer2 = 3;

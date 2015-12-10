@@ -5,14 +5,10 @@ public class demoEvent : Photon.MonoBehaviour {
 	
 	bool canArtifact, canSpawn, canRetrieve;
 	public Transform originalSpawn, demoSpawn1, demoSpawn2;
-	float missionTimer = 180, spawnTimer = 30;
+	float missionTimer = 120, spawnTimer = 30;
 	int waveAmount;
 	public bool highEco, pressOnce = false;
 	public GameObject skylight, artifect;
-	
-	void Start () {
-	
-	}
 	
 	void Update () 
 	{

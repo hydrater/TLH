@@ -78,7 +78,7 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			if (hit.collider.tag == "Enemy")
 			{
-				hit.collider.transform.parent.GetComponent<demoAI>().damaged(45);
+				hit.collider.transform.parent.GetComponent<demoAI>().damaged(100);
 			}
 		}
 		
