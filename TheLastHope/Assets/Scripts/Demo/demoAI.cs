@@ -63,8 +63,8 @@ public class demoAI : Photon.MonoBehaviour {
 		}
 		if (!photonView.isMine)
 		{
-			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
-			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+//			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
+//			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
 		}
 	}
 	
@@ -90,8 +90,8 @@ public class demoAI : Photon.MonoBehaviour {
 		else
 		{
 			hp = (float)stream.ReceiveNext();
-			realPosition = (Vector3)stream.ReceiveNext();
-			realRotation = (Quaternion)stream.ReceiveNext();
+			transform.position = (Vector3)stream.ReceiveNext();
+			transform.rotation = (Quaternion)stream.ReceiveNext();
 		}
 	}
 
