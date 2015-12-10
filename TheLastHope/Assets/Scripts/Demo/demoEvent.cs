@@ -24,7 +24,6 @@ public class demoEvent : Photon.MonoBehaviour {
 				skylight.SetActive(false);
 				artifect.SetActive(false);
 			}
-			
 		}
 		
 		if (canSpawn)

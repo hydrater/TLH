@@ -89,9 +89,10 @@ public class dayNight : MonoBehaviour {
 					
 				if (Sun.GetComponent<Light>().intensity > 0.8f)
 				{
-					
 					Sun.GetComponent<Light>().intensity -= Time.deltaTime * 0.0021f;
 				}
+				
+				transform.Translate(Vector3.down * Time.deltaTime * 0.01f);
 				break;
 				
 			case 1:

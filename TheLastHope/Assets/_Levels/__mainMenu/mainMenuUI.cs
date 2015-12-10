@@ -58,7 +58,7 @@ public class mainMenuUI : MonoBehaviour {
 		if (changingPer)
 		{
 			cameraPan.transform.position = Vector3.MoveTowards(cameraPan.transform.position, perDestination.transform.position, Time.deltaTime * 24);
-			cameraPan.transform.rotation =   Quaternion.Lerp(cameraPan.transform.rotation, perDestination.transform.rotation, Time.deltaTime * 5.4f);
+			cameraPan.transform.rotation = Quaternion.Lerp(cameraPan.transform.rotation, perDestination.transform.rotation, Time.deltaTime * 5.4f);
 			if (cameraPan.transform.position == perDestination.transform.position)
 			{
 				cameraPan.GetComponent<cameraPanning>().enabled = true;
