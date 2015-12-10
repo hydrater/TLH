@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class weapon00 : Photon.MonoBehaviour {
-
+	
+	Vector3 realPosition = Vector3.zero;
+	Quaternion realRotation = Quaternion.identity;
 	public Transform weaponOutput;
 	public GameObject projectile, _camera, hands;
 	private combatHandler combathandler;
@@ -61,7 +63,12 @@ public class weapon00 : Photon.MonoBehaviour {
 				}
 			}
 		}
-	}
+		}
+		else
+		{
+			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
+			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+		}
 	}
 	
 	void Shoot()
@@ -82,11 +89,10 @@ public class weapon00 : Photon.MonoBehaviour {
 	[PunRPC]
 	void shootingEffect (Vector3 pos, Vector3 endPoint)
 	{
-		if (photonView.isMine)
+		if (!photonView.isMine)
 		{
 			GameObject Temp = Instantiate(projectile, pos, Quaternion.identity) as GameObject;
 			Temp.transform.LookAt(endPoint);
-			//change to photon instantiate
 		}
 	}
 	
@@ -100,7 +106,8 @@ public class weapon00 : Photon.MonoBehaviour {
 		}
 		else
 		{
-			transform.position = (Vector3)stream.ReceiveNext();
-			transform.rotation = (Quaternion)stream.ReceiveNext();
+			realPosition = (Vector3)stream.ReceiveNext();
+			realRotation = (Quaternion)stream.ReceiveNext();
 		}
+	}
 }
