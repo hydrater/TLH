@@ -11,10 +11,7 @@ public class seeWatcher : MonoBehaviour {
 	{
 		if (canRotate)
 		{
-			Vector3 vectorToTarget = watcher.transform.position - transform.position;
-			float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-			currentPlayer.transform.rotation = Quaternion.Lerp(currentPlayer.transform.rotation, q, Time.deltaTime * 20);
+			currentPlayer.transform.rotation = Quaternion.Lerp(currentPlayer.transform.rotation, currentPlayer.transform.parent.GetChild(2).rotation, Time.deltaTime * 10);
 			timer -= Time.deltaTime;
 			if (timer <= 0)
 				Application.Quit();
