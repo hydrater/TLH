@@ -5,7 +5,7 @@ public class demoEvent : Photon.MonoBehaviour {
 	
 	bool canArtifact, canSpawn, canRetrieve;
 	public Transform originalSpawn, demoSpawn1, demoSpawn2;
-	float missionTimer = 120, spawnTimer = 30;
+	float missionTimer = 120, spawnTimer = 45;
 	int waveAmount;
 	public bool highEco, pressOnce = false;
 	public GameObject skylight, artifect;
@@ -27,7 +27,7 @@ public class demoEvent : Photon.MonoBehaviour {
 			spawnTimer -= Time.deltaTime;
 			if (spawnTimer <= 0)
 			{
-				spawnTimer = 30;
+				spawnTimer = 45;
 				spawnWave();
 			}
 		}
@@ -41,9 +41,9 @@ public class demoEvent : Photon.MonoBehaviour {
 				canArtifact = true;
 				Destroy(originalSpawn.gameObject);
 				if (highEco)
-					waveAmount = 5;
-				else
 					waveAmount = 3;
+				else
+					waveAmount = 2;
 				
 				pressOnce = true;
 				skylight.SetActive(true);
