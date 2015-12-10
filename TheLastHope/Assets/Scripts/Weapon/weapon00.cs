@@ -5,15 +5,15 @@ public class weapon00 : Photon.MonoBehaviour {
 
 	public Transform weaponOutput;
 	public GameObject projectile, _camera, hands;
-	public combatHandler combathandler;
+	private combatHandler combathandler;
 	float timer = 0.8f;
 	bool isShooting = false;
 	
 	void Start ()
 	{
-		combathandler = transform.root.gameObject.GetComponent<combatHandler>();
 		if (photonView.isMine)
 		{
+			combathandler = transform.root.gameObject.GetComponent<combatHandler>();
 			_camera = transform.parent.parent.gameObject;
 		}
 		else
@@ -89,4 +89,18 @@ public class weapon00 : Photon.MonoBehaviour {
 			//change to photon instantiate
 		}
 	}
+	
+	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting)
+		{
+			stream.SendNext(transform.position);
+			stream.SendNext(transform.rotation);
+			
+		}
+		else
+		{
+			transform.position = (Vector3)stream.ReceiveNext();
+			transform.rotation = (Quaternion)stream.ReceiveNext();
+		}
 }
