@@ -84,14 +84,14 @@ public class demoAI : Photon.MonoBehaviour {
 		if (stream.isWriting)
 		{
 			stream.SendNext(hp);
-			stream.SendNext(transform.position);
-			stream.SendNext(transform.rotation);
+			stream.SendNext(model.transform.position);
+			stream.SendNext(model.transform.rotation);
 		}
 		else
 		{
 			hp = (float)stream.ReceiveNext();
-			transform.position = (Vector3)stream.ReceiveNext();
-			transform.rotation = (Quaternion)stream.ReceiveNext();
+			model.transform.position = (Vector3)stream.ReceiveNext();
+			model.transform.rotation = (Quaternion)stream.ReceiveNext();
 		}
 	}
 
