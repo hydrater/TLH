@@ -6,7 +6,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
-	public GameObject _camera, firstPersonCam, body;
+	public GameObject _camera, firstPersonCam, body, hands;
 	
 	private Animator anim;
 	
@@ -20,10 +20,15 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
-			
+			hands.SetActive(true);
+			body.SetActive(false);
+			hands.layer = 8;
 		}
 		else
 		{
+			hands.layer = 0;
+			hands.SetActive(false);
+			body.SetActive(true);
 			_camera.GetComponent<Camera>().enabled = false;
 			_camera.GetComponent<AudioListener>().enabled = false;
 			Destroy(GetComponent<FirstPersonController>());
