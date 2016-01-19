@@ -11,6 +11,7 @@ public class combatHandler : Photon.MonoBehaviour {
 	private FirstPersonController m_FirstPerson;
 	private currentClientStats gameStat;
 	private combatStats combatStat;
+	private Animator gunAnim;
 	
 	//Crouching
 	private float crouchHeight = 0.9f;
@@ -41,6 +42,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		m_FirstPerson = GetComponent<FirstPersonController>();
 		m_CharacterController = GetComponent<CharacterController>();
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
+		gunAnim = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
 		
 		if (photonView.isMine)
 		{	
@@ -74,7 +76,7 @@ public class combatHandler : Photon.MonoBehaviour {
 	
 	void Update ()
 	{
-			
+		Debug.Log(transform.GetChild(0).GetChild(1).GetChild(2).name);
 		if (Input.GetKeyDown(KeyCode.R)) 
 		{
 			if (TotalAmmo >= magazineMax - Ammo)
@@ -83,6 +85,7 @@ public class combatHandler : Photon.MonoBehaviour {
 				{
 					TotalAmmo -= (magazineMax - Ammo);
 					Ammo = magazineMax;
+					gunAnim.SetBool("reload",true);
 				}
 				else
 				{
