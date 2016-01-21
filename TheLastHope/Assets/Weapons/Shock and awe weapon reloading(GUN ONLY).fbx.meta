@@ -44,7 +44,8 @@ ModelImporter:
     4300000: SHOCK_AND_AWE_V7:polySurface31
     4300002: SHOCK_AND_AWE_V7:polySurface29
     4300004: SHOCK_AND_AWE_MAGAZINE:polySurface29
-    7400000: Take 001
+    7400000: reload
+    7400002: idle
     9500000: //RootNode
     13700000: SHOCK_AND_AWE_MAGAZINE:polySurface29
     13700002: SHOCK_AND_AWE_V7:polySurface29
@@ -68,7 +69,133 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: reload
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rig
+        weight: 1
+      - path: SHOCK_AND_AWE_MAGAZINE:joint1
+        weight: 1
+      - path: SHOCK_AND_AWE_MAGAZINE:polySurface29
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint17
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint18
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint18/SHOCK_AND_AWE_V7:joint19
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint20
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint20/SHOCK_AND_AWE_V7:joint19
+          1
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface29 1
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface29 1/SHOCK_AND_AWE_V7:transform49
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface30
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface30/SHOCK_AND_AWE_V7:transform48
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface31
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:transform47
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:polySurface29
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Rig
+        weight: 1
+      - path: SHOCK_AND_AWE_MAGAZINE:joint1
+        weight: 1
+      - path: SHOCK_AND_AWE_MAGAZINE:polySurface29
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint17
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint18
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint18/SHOCK_AND_AWE_V7:joint19
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint20
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:joint16/SHOCK_AND_AWE_V7:joint20/SHOCK_AND_AWE_V7:joint19
+          1
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface29 1
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface29 1/SHOCK_AND_AWE_V7:transform49
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface30
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface30/SHOCK_AND_AWE_V7:transform48
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:polySurface31
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:pCylinder17/SHOCK_AND_AWE_V7:transform47
+        weight: 1
+      - path: SHOCK_AND_AWE_V7:polySurface29
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
