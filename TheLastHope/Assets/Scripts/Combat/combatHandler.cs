@@ -45,14 +45,16 @@ public class combatHandler : Photon.MonoBehaviour {
 		m_FirstPerson = GetComponent<FirstPersonController>();
 		m_CharacterController = GetComponent<CharacterController>();
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
-		handAnim = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
-		gunAnim = transform.GetChild(0).GetChild(1).GetChild(2).GetComponent<Animator>();
+		
 		
 		if (photonView.isMine)
 		{	
-			Debug.Log("IsMine");
 			photonView.RPC("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
+			gunAnim = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<Animator>();
+			handAnim = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<Animator>();
+			
 		}
+		
 		
 		//Ammo info
 		switch(gameStat.weapon1ID)
@@ -91,7 +93,7 @@ public class combatHandler : Photon.MonoBehaviour {
 			reloadTimer = false;
 			animTimer = 3;	
 		}
-		Debug.Log(transform.GetChild(0).GetChild(1).GetChild(2).name);
+		//Debug.Log(transform.GetChild(0).GetChild(1).GetChild(2).name);
 		if (Input.GetKeyDown(KeyCode.R)) 
 		{
 			if (TotalAmmo >= magazineMax - Ammo)

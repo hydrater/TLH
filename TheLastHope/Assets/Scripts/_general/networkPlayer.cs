@@ -23,6 +23,10 @@ public class networkPlayer : Photon.MonoBehaviour {
 			hands.SetActive(true);
 			body.SetActive(false);
 			hands.layer = 8;
+			if (Application.loadedLevelName != "Sanctuary")
+			{
+				hands.SetActive(false);
+			}
 		}
 		else
 		{
