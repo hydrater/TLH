@@ -10,6 +10,7 @@ public class weapon00 : Photon.MonoBehaviour {
 	private combatHandler combathandler;
 	float timer = 0.8f;
 	bool isShooting = false;
+	public GameObject endPoint;
 	
 	void Start ()
 	{
@@ -82,14 +83,13 @@ public class weapon00 : Photon.MonoBehaviour {
 			}
 		}
 		
-		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, hit.point);
+		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, endPoint.transform.position);
 		
 	}
 	
 	[PunRPC]
 	void shootingEffect (Vector3 pos, Vector3 endPoint)
 	{
-		
 		GameObject Temp = Instantiate(projectile, pos, Quaternion.identity) as GameObject;
 		Temp.transform.LookAt(endPoint);
 	}
