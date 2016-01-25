@@ -4,13 +4,13 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class UIHandler : Photon.MonoBehaviour {
 	
-	public GameObject playerUI, body, levelSelectUI, inventoryUI;
+	public GameObject playerUI, body, levelSelectUI, inventoryUI, UILight;
 	byte buttonFocus;
 	bool canRotate = false, UIOn = false;
 	
 	void Update () 
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Escape) && Application.loadedLevelName == "Sanctuary")
 		{
 			if (photonView.isMine)
 			{
@@ -18,6 +18,7 @@ public class UIHandler : Photon.MonoBehaviour {
 				{
 					UIOn = false;
 					playerUI.SetActive(false);
+					UILight.SetActive(false);
 					Cursor.lockState =  CursorLockMode.Locked;
 					Cursor.visible = false;
 					GetComponent<FirstPersonController>().enabled = true;
@@ -27,10 +28,11 @@ public class UIHandler : Photon.MonoBehaviour {
 				{
 					UIOn = true;
 					playerUI.SetActive(true);
+					UILight.SetActive(true);
 					Cursor.lockState =  CursorLockMode.Confined;
 					Cursor.visible = true;
 					buttonFocus = 0;
-					playerUI.transform.localRotation = Quaternion.Euler(-78, 106, 60);
+					playerUI.transform.localRotation = Quaternion.Euler(-44.64258f, 0, 0);
 					GetComponent<FirstPersonController>().enabled = false;
 					body.GetComponent<Animator>().enabled = false;
 				}
@@ -42,14 +44,14 @@ public class UIHandler : Photon.MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				if (buttonFocus!= 3)
-					++buttonFocus;
+					--buttonFocus;
 				canRotate = true;
 			}
 			
 			if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
 			{
 				if (buttonFocus!= 0)
-					--buttonFocus;
+					++buttonFocus;
 				canRotate = true;
 			}
 			
@@ -70,7 +72,7 @@ public class UIHandler : Photon.MonoBehaviour {
 				case 0:
 //					levelSelectUI.SetActive(true);
 //					playerUI.SetActive(false);
-					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Presentation");
+					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Level 1");
 					break;
 					
 				case 1:
@@ -97,25 +99,25 @@ public class UIHandler : Photon.MonoBehaviour {
 			switch(buttonFocus)
 			{
 			case 0:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(-78, 106, 60), Time.deltaTime * 200);
+				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(-44.64258f, 0, 0), Time.deltaTime * 200);
 				if (playerUI.transform.localRotation.eulerAngles.x == -78)
 					canRotate = false;
 				break;
 				
 			case 1:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(-37, 157, 13), Time.deltaTime * 200);
+				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(1.813126f, 0, 0), Time.deltaTime * 200);
 				if (playerUI.transform.localRotation.eulerAngles.x == -37)
 					canRotate = false;
 				break;
 				
 			case 2:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(13, 168, 11), Time.deltaTime * 200);
+				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(52.17723f, 0, 0), Time.deltaTime * 200);
 				if (playerUI.transform.localRotation.eulerAngles.x == 13)
 					canRotate = false;
 				break;
 				
 			case 3:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(54, 180, 18), Time.deltaTime * 200);
+				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(77.51575f, -180, -180), Time.deltaTime * 200);
 				if (playerUI.transform.localRotation.eulerAngles.x == 54)
 					canRotate = false;
 				break;
