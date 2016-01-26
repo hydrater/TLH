@@ -47,12 +47,16 @@ public class combatHandler : Photon.MonoBehaviour {
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 		
 		
-		if (photonView.isMine)
+		if (photonView.isMine) 
 		{	
-			photonView.RPC("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
-			gunAnim = transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<Animator>();
-			handAnim = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetComponent<Animator>();
-			
+			photonView.RPC ("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
+			gunAnim = transform.GetChild (0).GetChild (0).GetChild (1).GetComponent<Animator> ();
+			handAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild (1).GetComponent<Animator> ();
+		} 
+		else 
+		{
+			weapon1.transform.position = Vector3.zero;
+			weapon2.transform.position = Vector3.zero;
 		}
 		
 		
@@ -134,6 +138,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			{
 				weaponHold = 0;
 				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
+				weapon1.SetActive(true);
+				weapon2.SetActive(false);
 //				if (gameStat.weapon1ID[0] == '6')
 //				{
 //					if (hybridForm)
@@ -160,6 +166,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			{
 				weaponHold = 1;
 				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
+				weapon1.SetActive(false);
+				weapon2.SetActive(true);
 //				if (gameStat.weapon2ID[0] == '6')
 //				{
 //					if (hybridForm)
@@ -274,45 +282,45 @@ public class combatHandler : Photon.MonoBehaviour {
 		}
 		
 		//-------------------------------------- CROUCHING
-		if (Input.GetKey(KeyCode.LeftControl))
-		{
-			if(!crouching)
-				Crouch();
-			if (shiftTimer > 0.5f && slideTimer >= 0) // Sliding
-			{
-				slideTimer -= Time.deltaTime;
-				RaycastHit sliding;
-				if (Physics.Raycast (transform.position, transform.up, out sliding, 1.6f)) 
-				{
-					if (!sliding.collider.isTrigger && sliding.transform.tag != "Player")
-					{
-						transform.Translate(dashDir * Time.deltaTime * 5.5f);
-					}
-				}
-				else
-				{
-					transform.Translate(Vector3.forward * Time.deltaTime * 5.5f);
-				}
-			}
-		}
-		else if(crouching) //Not Crouching
-		{
-			slideTimer = 0.9f;
-			RaycastHit crouchCheck;
-			if (Physics.Raycast (transform.position, transform.up, out crouchCheck, 1.6f)) 
-			{
-			}
-			else
-			{
-				m_CharacterController.height = standardHeight ;
-				m_CharacterController.center = Vector3.zero;
-				_camera.transform.position = new Vector3 (_camera.transform.position.x, _camera.transform.position.y + crouchHeight, _camera.transform.position.z);
-				crouching = false;
-				m_FirstPerson.m_WalkSpeed = 5f;
-				m_FirstPerson.m_RunSpeed = 10;
-				m_FirstPerson.m_UseHeadBob = true;
-			}
-		}
+//		if (Input.GetKey(KeyCode.LeftControl))
+//		{
+//			if(!crouching)
+//				Crouch();
+//			if (shiftTimer > 0.5f && slideTimer >= 0) // Sliding
+//			{
+//				slideTimer -= Time.deltaTime;
+//				RaycastHit sliding;
+//				if (Physics.Raycast (transform.position, transform.up, out sliding, 1.6f)) 
+//				{
+//					if (!sliding.collider.isTrigger && sliding.transform.tag != "Player")
+//					{
+//						transform.Translate(dashDir * Time.deltaTime * 5.5f);
+//					}
+//				}
+//				else
+//				{
+//					transform.Translate(Vector3.forward * Time.deltaTime * 5.5f);
+//				}
+//			}
+//		}
+//		else if(crouching) //Not Crouching
+//		{
+//			slideTimer = 0.9f;
+//			RaycastHit crouchCheck;
+//			if (Physics.Raycast (transform.position, transform.up, out crouchCheck, 1.6f)) 
+//			{
+//			}
+//			else
+//			{
+//				m_CharacterController.height = standardHeight ;
+//				m_CharacterController.center = Vector3.zero;
+//				_camera.transform.position = new Vector3 (_camera.transform.position.x, _camera.transform.position.y + crouchHeight, _camera.transform.position.z);
+//				crouching = false;
+//				m_FirstPerson.m_WalkSpeed = 5f;
+//				m_FirstPerson.m_RunSpeed = 10;
+//				m_FirstPerson.m_UseHeadBob = true;
+//			}
+//		}
 	}
 	
 	void Crouch() 
@@ -374,9 +382,10 @@ public class combatHandler : Photon.MonoBehaviour {
 			weapon2.layer = 8;
 		}
 		
-		weapon2.SetActive(false);
 		weaponHold = 0;
 		}
+
+		weapon2.SetActive(false);
 	}
 	
 	[PunRPC]
