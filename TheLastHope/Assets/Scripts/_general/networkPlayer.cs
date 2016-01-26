@@ -15,7 +15,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 
 	void Start () 
 	{
-		anim = gameObject.GetComponentInChildren<Animator>();
+		anim = transform.GetChild(1).GetComponent<Animator>();
 		if (photonView.isMine)
 		{
 			GetComponent<FirstPersonController>().enabled = true;
@@ -92,7 +92,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
-			//stream.SendNext(anim.GetBool("Jump"));
+			stream.SendNext(anim.GetBool("Jump"));
 			stream.SendNext(anim.GetBool("Sprint"));
 			stream.SendNext(InputH);
 			stream.SendNext(InputV);
@@ -102,7 +102,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			realPosition = (Vector3)stream.ReceiveNext();
 			realRotation = (Quaternion)stream.ReceiveNext();
-			//anim.SetBool("Jump", (bool)stream.ReceiveNext());
+			anim.SetBool("Jump", (bool)stream.ReceiveNext());
 			anim.SetBool("Sprint", (bool)stream.ReceiveNext());
 			anim.SetFloat ("InputH", (float)stream.ReceiveNext());
 			anim.SetFloat ("InputV", (float)stream.ReceiveNext());
