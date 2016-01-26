@@ -105,7 +105,8 @@ public class weapon00 : Photon.MonoBehaviour {
 		else
 		{
 			realPosition = (Vector3)stream.ReceiveNext();
-			realRotation = (Quaternion)stream.ReceiveNext();
+			Quaternion temp = (Quaternion)stream.ReceiveNext();
+			realRotation = Quaternion.Euler(temp.x, 0, temp.z);
 		}
 	}
 }
