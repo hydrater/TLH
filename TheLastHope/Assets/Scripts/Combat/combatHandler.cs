@@ -52,13 +52,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			photonView.RPC ("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
 			gunAnim = transform.GetChild (0).GetChild (0).GetChild (1).GetComponent<Animator> ();
 			handAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild (1).GetComponent<Animator> ();
+			weapon2.SetActive(false);
 		} 
-		else 
-		{
-			weapon1.transform.position = Vector3.zero;
-			weapon2.transform.position = Vector3.zero;
-		}
-		
 		
 		//Ammo info
 		switch(gameStat.weapon1ID)
@@ -375,17 +370,10 @@ public class combatHandler : Photon.MonoBehaviour {
 			else
 				weapon2 = weapon;
 		}
-		
-		if (photonView.isMine)
-		{
 			weapon1.layer = 8;
 			weapon2.layer = 8;
+			weaponHold = 0;
 		}
-		
-		weaponHold = 0;
-		}
-
-		weapon2.SetActive(false);
 	}
 	
 	[PunRPC]
