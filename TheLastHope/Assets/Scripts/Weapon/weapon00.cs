@@ -106,7 +106,6 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			realPosition = (Vector3)stream.ReceiveNext();
 			realRotation = (Quaternion)stream.ReceiveNext();
-			transform.rotation.x = 0;
 		}
 	}
 }

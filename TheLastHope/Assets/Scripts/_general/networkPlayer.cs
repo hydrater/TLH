@@ -96,7 +96,6 @@ public class networkPlayer : Photon.MonoBehaviour {
 			stream.SendNext(anim.GetBool("Sprint"));
 			stream.SendNext(InputH);
 			stream.SendNext(InputV);
-			
 		}
 		else
 		{
