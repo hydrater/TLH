@@ -10,7 +10,7 @@ public class weapon00 : Photon.MonoBehaviour {
 	private combatHandler combathandler;
 	float timer = 0.8f;
 	bool isShooting = false;
-	public GameObject endPoint;
+	Transform endPoint;
 	
 	void Start ()
 	{
@@ -18,6 +18,7 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			combathandler = transform.root.gameObject.GetComponent<combatHandler>();
 			_camera = transform.parent.parent.gameObject;
+			endPoint = transform.root.GetChild(0).GetChild(2);
 		}
 		else
 		{
@@ -83,7 +84,7 @@ public class weapon00 : Photon.MonoBehaviour {
 			}
 		}
 		
-		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, endPoint.transform.position);
+		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, endPoint.position);
 		
 	}
 	
