@@ -15,7 +15,6 @@ public class mobStats : Photon.MonoBehaviour {
 		hp -= damage;
 		if (hp <= 0)
 		{
-			GameObject.Find("Artifact").GetComponent<demoEvent>().highEco = true;
 			PhotonNetwork.Destroy(this.transform.root.gameObject);
 		}
 	}
