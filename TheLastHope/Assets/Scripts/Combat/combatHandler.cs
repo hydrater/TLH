@@ -50,8 +50,8 @@ public class combatHandler : Photon.MonoBehaviour {
 		if (photonView.isMine) 
 		{	
 			photonView.RPC ("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
-			gunAnim = transform.GetChild (0).GetChild (0).GetChild (1).GetComponent<Animator> ();
-			handAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild (1).GetComponent<Animator> ();
+			gunAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild(1).GetChild(2).GetComponent<Animator> ();
+			handAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild(1).GetComponent<Animator> ();
 			weapon2.SetActive(false);
 		} 
 		
@@ -81,16 +81,16 @@ public class combatHandler : Photon.MonoBehaviour {
 	
 	void Update ()
 	{
-	 if(reloadTimer == true)
+	 if(reloadTimer)
 		{
-		animTimer -= Time.deltaTime;
+			animTimer -= Time.deltaTime;
 		}
 		if(animTimer <= 0)
 		{
 			handAnim.SetBool("reload",false);
 			gunAnim.SetBool("reload",false);
 			reloadTimer = false;
-			animTimer = 3;	
+			animTimer = 1;	
 		}
 		//Debug.Log(transform.GetChild(0).GetChild(1).GetChild(2).name);
 		if (Input.GetKeyDown(KeyCode.R)) 
