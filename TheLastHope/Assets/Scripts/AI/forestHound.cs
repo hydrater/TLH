@@ -13,6 +13,14 @@ public class forestHound : Photon.MonoBehaviour {
 	[HideInInspector] public Animator anim;
 	byte AIState = 0;
 	
+	
+	void Start () 
+	{
+		agent = proxy.GetComponent<NavMeshAgent>();
+		obstacle = proxy.GetComponent<NavMeshObstacle>();
+		anim = model.GetComponent<Animator>();
+	}
+	
 	public void damaged(float damage)
 	{
 		hp -= damage;
@@ -22,13 +30,6 @@ public class forestHound : Photon.MonoBehaviour {
 		}
 		if (AIState !=3)
 			AIState = 2;
-	}
-	
-	void Start () 
-	{
-		agent = proxy.GetComponent<NavMeshAgent>();
-		obstacle = proxy.GetComponent<NavMeshObstacle>();
-		anim = model.GetComponent<Animator>();
 	}
 	
 	void Update () 

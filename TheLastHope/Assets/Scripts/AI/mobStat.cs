@@ -7,7 +7,10 @@ public class mobStat : MonoBehaviour {
 	{
 		switch(gameObject.transform.name)
 		{
-			case "forestHound":
+		case "forestHound":
+			GetComponent<forestHound>().damaged(damage);
+			break;
+		case "Stalker":
 			GetComponent<forestHound>().damaged(damage);
 			break;
 		}
