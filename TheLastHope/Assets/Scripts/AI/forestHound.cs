@@ -9,27 +9,32 @@ public class forestHound : Photon.MonoBehaviour {
 	[HideInInspector]Vector3 lastPosition;
 	private NavMeshAgent agent;
 	NavMeshObstacle obstacle;
-	[HideInInspector] public float hp = 200, idleTimer = 10, moveTimer = 20;
+	[HideInInspector] public float hp = 200, idleTimer = 10;
 	[HideInInspector] public Animator anim;
 	byte AIState = 0;
-	
+	GameObject waypoints;
 	
 	void Start () 
 	{
+		waypoints = GameObject.Find("Hound waypoints");
 		agent = proxy.GetComponent<NavMeshAgent>();
 		obstacle = proxy.GetComponent<NavMeshObstacle>();
 		anim = model.GetComponent<Animator>();
+		target = waypoints.transform.GetChild(2);
 	}
 	
-	public void damaged(float damage)
+	public void damaged(float damage, Transform user)
 	{
 		hp -= damage;
 		if (hp <= 0)
 		{
 			PhotonNetwork.Destroy(this.gameObject);
 		}
-		if (AIState !=3)
-			AIState = 2;
+		if (AIState != 4)
+		{
+			target = user;
+			AIState = 3;
+		}
 	}
 	
 	void Update () 
@@ -37,6 +42,7 @@ public class forestHound : Photon.MonoBehaviour {
 		switch(AIState)
 		{
 			case 0://idle
+			anim.Play("Idle");
 			idleTimer -= Time.deltaTime;
 			if (idleTimer <= 0)
 			{
@@ -45,18 +51,35 @@ public class forestHound : Photon.MonoBehaviour {
 			}
 			break;
 			
-			case 1://move
-			moveTimer -= Time.deltaTime;
-			if (moveTimer <= 0)
-			{
-				moveTimer = 20;
-				AIState = 0;
-			}
-			if (anim == null)
-				anim.Play("Run");
+			case 1://Select waypoint
+			int waypointCalcuated;
+			if (Random.Range(0,2) == 0)
+				waypointCalcuated = target.GetSiblingIndex()+1 > waypoints.transform.childCount ? 0 : target.GetSiblingIndex()+1;
+			else
+				waypointCalcuated = target.GetSiblingIndex()-1 < 0 ? waypoints.transform.childCount - 1 :  target.GetSiblingIndex()-1;
+			target = waypoints.transform.GetChild(waypointCalcuated);
+			AIState = 2;
 			break;
 			
-			case 2://target selection
+			case 2://move
+			anim.Play("Run");
+			if ((target.position - proxy.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
+			{
+				obstacle.enabled = true;
+				agent.enabled = false;
+				anim.SetBool("Idle",true);
+				AIState = 0;
+			} 
+			else 
+			{
+				obstacle.enabled = false;
+				agent.enabled = true;
+				agent.destination = target.position;
+				anim.SetBool("Idle",false);
+			}
+			break;
+			
+			case 3://target selection
 			Transform tMin = null;
 			float minDist = Mathf.Infinity;
 			Vector3 currentPos = transform.position;
@@ -74,45 +97,46 @@ public class forestHound : Photon.MonoBehaviour {
 			AIState = 3;
 			break;
 			
-			case 3://Attacking
+			case 4://Attacking
 			
 			break;
 		}
 	
-		if (target != null)
-			{
-			if ((target.position - proxy.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
-			{
-				obstacle.enabled = true;
-				agent.enabled = false;
-				anim.SetBool("ratAttack",true);
-			} 
-			else 
-			{
-				obstacle.enabled = false;
-				agent.enabled = true;
-				agent.destination = target.position;
-				anim.SetBool("ratAttack",false);
-			}
-		
-			model.position = Vector3.Lerp(model.position, proxy.position, Time.deltaTime * 2);
-			Vector3 orientation = model.position - lastPosition;
-			if (orientation.sqrMagnitude > 0.1f) 
-			{
-				orientation.y = 0;
-				model.rotation = Quaternion.Lerp(model.rotation, Quaternion.LookRotation(model.position - lastPosition), Time.deltaTime * 8);
-			} 
-			else 
-				model.rotation = Quaternion.Lerp(model.rotation, Quaternion.LookRotation(proxy.forward), Time.deltaTime * 8);
-			
-			lastPosition = model.position;
-		}
-		
 		if (photonView.isMine)
+		{
+				if (target.tag == "Player")
+				{
+					if ((target.position - proxy.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
+					{
+						obstacle.enabled = true;
+						agent.enabled = false;
+						anim.SetBool("ratAttack",true);
+					} 
+					else 
+					{
+						obstacle.enabled = false;
+						agent.enabled = true;
+						agent.destination = target.position;
+						anim.SetBool("ratAttack",false);
+					}
+				}
+		}
+		else
 		{
 			model.transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
 			model.transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
 		}
+		model.position = Vector3.Lerp(model.position, proxy.position, Time.deltaTime * 2);
+		Vector3 orientation = model.position - lastPosition;
+		if (orientation.sqrMagnitude > 0.1f) 
+		{
+			orientation.y = 0;
+			model.rotation = Quaternion.Lerp(model.rotation, Quaternion.LookRotation(model.position - lastPosition), Time.deltaTime * 8);
+		} 
+		else 
+			model.rotation = Quaternion.Lerp(model.rotation, Quaternion.LookRotation(proxy.forward), Time.deltaTime * 8);
+		
+		lastPosition = model.position;
 	}
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)

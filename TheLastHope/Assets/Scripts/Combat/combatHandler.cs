@@ -46,13 +46,14 @@ public class combatHandler : Photon.MonoBehaviour {
 		m_CharacterController = GetComponent<CharacterController>();
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 		
-		
 		if (photonView.isMine) 
 		{	
 			photonView.RPC ("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
 			gunAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild(1).GetChild(2).GetComponent<Animator> ();
 			handAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild(1).GetComponent<Animator> ();
 			weapon2.SetActive(false);
+//			gunAnim.GetComponent<Animation>()["reload"].wrapMode = WrapMode.Once;
+//			handAnim.GetComponent<Animation>()["reload"].wrapMode = WrapMode.Once;
 		} 
 		
 		//Ammo info
@@ -77,6 +78,7 @@ public class combatHandler : Photon.MonoBehaviour {
 			regenTimer2 = 3;
 			break;
 		}
+		
 	}
 	
 	void Update ()
@@ -90,9 +92,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			handAnim.SetBool("reload",false);
 			gunAnim.SetBool("reload",false);
 			reloadTimer = false;
-			animTimer = 1;	
+			animTimer = 2;	
 		}
-		//Debug.Log(transform.GetChild(0).GetChild(1).GetChild(2).name);
 		if (Input.GetKeyDown(KeyCode.R)) 
 		{
 			if (TotalAmmo >= magazineMax - Ammo)
@@ -254,7 +255,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		if (Dash)
 		{
 			RaycastHit dashCheck;
-			if (Physics.Raycast (transform.position, transform.up, out dashCheck, 1.6f)) 
+			if (Physics.Raycast (transform.position, transform.up, out dashCheck, 2)) 
 			{
 				if (!dashCheck.collider.isTrigger && dashCheck.transform.tag != "Player")
 					transform.Translate(dashDir * Time.deltaTime * 20);

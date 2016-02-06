@@ -72,7 +72,7 @@ public class UIHandler : Photon.MonoBehaviour {
 				case 0:
 //					levelSelectUI.SetActive(true);
 //					playerUI.SetActive(false);
-					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Presentation");
+					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Level 1");
 					break;
 					
 				case 1:

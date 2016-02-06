@@ -67,7 +67,7 @@ public class generalNetworking : MonoBehaviour {
 			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
 			PhotonNetwork.JoinOrCreateRoom("!Sanctuary", roomOptions, TypedLobby.Default);
 		}
-		else if (GetComponent<currentClientStats>().roomName == "Presentation")
+		else if (GetComponent<currentClientStats>().roomName == "Level 1")
 		{
 			RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 20};
 			PhotonNetwork.JoinOrCreateRoom( GetComponent<currentClientStats>().roomName, roomOptions, TypedLobby.Default);
@@ -114,8 +114,8 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (GetComponent<currentClientStats>().roomName == "!Sanctuary")
 			Application.LoadLevel("Sanctuary");
-		else if (GetComponent<currentClientStats>().roomName == "Presentation")
-			Application.LoadLevel("Presentation");
+		else if (GetComponent<currentClientStats>().roomName == "Level 1")
+			Application.LoadLevel("Level 1");
 		else
 			Application.LoadLevel(GetComponent<currentClientStats>().level + levelIndexStart);
 	}

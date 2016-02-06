@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 
 public class networkPlayer : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
-	public GameObject _camera, firstPersonCam, body, hands;
+	public GameObject _camera, firstPersonCam, body, hands, nameText;
 	
 	private Animator anim;
 	
@@ -18,10 +19,12 @@ public class networkPlayer : Photon.MonoBehaviour {
 		anim = transform.GetChild(1).GetComponent<Animator>();
 		if (photonView.isMine)
 		{
+			photonView.RPC ("displayName", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().playerName);
+			nameText.transform.parent.gameObject.SetActive(false);
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
 			hands.SetActive(true);
-			body.SetActive(false);
+			body.transform.GetChild(1).gameObject.SetActive(false);
 			hands.layer = 8;
 			if (Application.loadedLevelName != "Sanctuary")
 			{
@@ -32,7 +35,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		{
 			hands.layer = 0;
 			hands.SetActive(false);
-			body.SetActive(true);
+			body.transform.GetChild(1).gameObject.SetActive(true);
 			_camera.GetComponent<Camera>().enabled = false;
 			_camera.GetComponent<AudioListener>().enabled = false;
 			Destroy(GetComponent<FirstPersonController>());
@@ -48,12 +51,13 @@ public class networkPlayer : Photon.MonoBehaviour {
 		if (photonView.isMine)
 		{
 			if (Application.loadedLevelName != "Sanctuary")
-				body.SetActive(false);
+				body.transform.GetChild(1).gameObject.SetActive(false);
 		}
 	}
 	
 	void Update()
 	{
+		nameText.transform.LookAt(Camera.main.transform);
 		if (photonView.isMine)
 		{
 			InputH = Input.GetAxis("Horizontal");
@@ -84,6 +88,13 @@ public class networkPlayer : Photon.MonoBehaviour {
 		}
 		
 		
+	}
+	
+	[PunRPC]
+	void displayName(string playerName)
+	{
+		if (!photonView.isMine)
+		nameText.GetComponent<Text>().text = playerName;
 	}
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
