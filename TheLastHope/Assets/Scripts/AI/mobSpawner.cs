@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class mobSpawner : MonoBehaviour {
+public class mobSpawner : Photon.MonoBehaviour {
 	
 	public byte mobNo;
 	public float spawnFrequency;
@@ -19,16 +19,27 @@ public class mobSpawner : MonoBehaviour {
 	
 	void OnTriggerStay(Collider other)
 	{
-		if (other.gameObject.tag == "Player" && timer < 0)
+		if ( timer < 0)
 		{
-			switch(mobNo)
+			if (other.gameObject.tag == "Player")
 			{
-				case 0:
-				PhotonNetwork.Instantiate("forestHound", transform.position, transform.rotation, 0);
-				break;
+				if (other.gameObject.GetPhotonView().isMine)
+				{
+					switch(mobNo)
+					{
+					case 0:
+						PhotonNetwork.Instantiate("forestHound", transform.position, transform.rotation, 0);
+						break;
+					case 1:
+						PhotonNetwork.Instantiate("Stalker", transform.position, transform.rotation, 0);
+						break;
+					case 2:
+						PhotonNetwork.Instantiate("forestHound", transform.position, transform.rotation, 0);
+						break;
+					}
+					timer = spawnFrequency;
+				}
 			}
-			
-			timer = spawnFrequency;
 		}
 	}
 }
