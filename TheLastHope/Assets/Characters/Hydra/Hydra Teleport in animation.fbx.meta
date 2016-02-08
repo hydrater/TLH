@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 54d13c3a72c8dbf42b1eb40555d5255a
+timeCreated: 1454922246
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Character1_Head
+    100002: Character1_Head1
+    100004: Character1_Head2
+    100006: Character1_Head2 1
+    100008: Character1_Head3
+    100010: Character1_Head3 1
+    100012: Character1_Head4
+    100014: Character1_Head5
+    100016: Character1_Head9
+    100018: Character1_Hips
+    100020: Character1_LeftLeg
+    100022: Character1_LeftUpLeg
+    100024: Character1_Neck
+    100026: Character1_Reference
+    100028: Character1_RightArm
+    100030: Character1_RightArm 1
+    100032: Character1_RightArm1
+    100034: Character1_RightArm2
+    100036: Character1_RightForeArm
+    100038: Character1_RightForeArm 1
+    100040: Character1_RightForeArm 2
+    100042: Character1_RightForeArm 3
+    100044: Character1_RightHand
+    100046: Character1_RightHand 1
+    100048: Character1_RightHand 2
+    100050: Character1_RightHand 3
+    100052: Character1_RightHand1
+    100054: Character1_RightHand1 1
+    100056: Character1_RightHandPinky1
+    100058: Character1_RightHandPinky1 1
+    100060: Character1_RightHandPinky2
+    100062: Character1_RightHandPinky2 1
+    100064: Character1_RightHandPinky2 2
+    100066: Character1_RightHandPinky2 3
+    100068: Character1_RightHandPinky2 4
+    100070: Character1_RightHandPinky2 5
+    100072: Character1_RightHandPinky2 6
+    100074: Character1_RightHandPinky2 7
+    100076: Character1_RightHandPinky3
+    100078: Character1_RightHandPinky3 1
+    100080: Character1_RightHandPinky3 2
+    100082: Character1_RightHandPinky3 3
+    100084: Character1_RightHandPinky3 4
+    100086: Character1_RightHandPinky3 5
+    100088: Character1_RightHandPinky4
+    100090: Character1_RightHandPinky4 1
+    100092: Character1_RightHandPinky5
+    100094: Character1_RightHandPinky5 1
+    100096: Character1_RightHandPinky6
+    100098: Character1_RightHandPinky6 1
+    100100: Character1_RightHandPinky7
+    100102: Character1_RightHandPinky7 1
+    100104: Character1_RightShoulder
+    100106: Character1_RightShoulder1
+    100108: Character1_Spine
+    100110: Character1_Spine1
+    100112: Character1_Spine2
+    100114: //RootNode
+    100116: polySurface4
+    100118: polySurface4_MeshPart0
+    100120: polySurface4_MeshPart1
+    400000: Character1_Head
+    400002: Character1_Head1
+    400004: Character1_Head2
+    400006: Character1_Head2 1
+    400008: Character1_Head3
+    400010: Character1_Head3 1
+    400012: Character1_Head4
+    400014: Character1_Head5
+    400016: Character1_Head9
+    400018: Character1_Hips
+    400020: Character1_LeftLeg
+    400022: Character1_LeftUpLeg
+    400024: Character1_Neck
+    400026: Character1_Reference
+    400028: Character1_RightArm
+    400030: Character1_RightArm 1
+    400032: Character1_RightArm1
+    400034: Character1_RightArm2
+    400036: Character1_RightForeArm
+    400038: Character1_RightForeArm 1
+    400040: Character1_RightForeArm 2
+    400042: Character1_RightForeArm 3
+    400044: Character1_RightHand
+    400046: Character1_RightHand 1
+    400048: Character1_RightHand 2
+    400050: Character1_RightHand 3
+    400052: Character1_RightHand1
+    400054: Character1_RightHand1 1
+    400056: Character1_RightHandPinky1
+    400058: Character1_RightHandPinky1 1
+    400060: Character1_RightHandPinky2
+    400062: Character1_RightHandPinky2 1
+    400064: Character1_RightHandPinky2 2
+    400066: Character1_RightHandPinky2 3
+    400068: Character1_RightHandPinky2 4
+    400070: Character1_RightHandPinky2 5
+    400072: Character1_RightHandPinky2 6
+    400074: Character1_RightHandPinky2 7
+    400076: Character1_RightHandPinky3
+    400078: Character1_RightHandPinky3 1
+    400080: Character1_RightHandPinky3 2
+    400082: Character1_RightHandPinky3 3
+    400084: Character1_RightHandPinky3 4
+    400086: Character1_RightHandPinky3 5
+    400088: Character1_RightHandPinky4
+    400090: Character1_RightHandPinky4 1
+    400092: Character1_RightHandPinky5
+    400094: Character1_RightHandPinky5 1
+    400096: Character1_RightHandPinky6
+    400098: Character1_RightHandPinky6 1
+    400100: Character1_RightHandPinky7
+    400102: Character1_RightHandPinky7 1
+    400104: Character1_RightShoulder
+    400106: Character1_RightShoulder1
+    400108: Character1_Spine
+    400110: Character1_Spine1
+    400112: Character1_Spine2
+    400114: //RootNode
+    400116: polySurface4
+    400118: polySurface4_MeshPart0
+    400120: polySurface4_MeshPart1
+    4300000: polySurface4_MeshPart0
+    4300002: polySurface4_MeshPart1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: polySurface4_MeshPart0
+    13700002: polySurface4_MeshPart1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
