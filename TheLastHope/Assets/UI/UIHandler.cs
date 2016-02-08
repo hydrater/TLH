@@ -32,7 +32,6 @@ public class UIHandler : Photon.MonoBehaviour {
 					Cursor.lockState =  CursorLockMode.Confined;
 					Cursor.visible = true;
 					buttonFocus = 0;
-					playerUI.transform.localRotation = Quaternion.Euler(-44.64258f, 0, 0);
 					GetComponent<FirstPersonController>().enabled = false;
 					body.GetComponent<Animator>().enabled = false;
 				}
@@ -94,35 +93,35 @@ public class UIHandler : Photon.MonoBehaviour {
 			}
 		}
 		
-		if (canRotate)
-		{
-			switch(buttonFocus)
-			{
-			case 0:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(-44.64258f, 0, 0), Time.deltaTime * 200);
-				if (playerUI.transform.localRotation.eulerAngles.x == -78)
-					canRotate = false;
-				break;
-				
-			case 1:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(1.813126f, 0, 0), Time.deltaTime * 200);
-				if (playerUI.transform.localRotation.eulerAngles.x == -37)
-					canRotate = false;
-				break;
-				
-			case 2:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(52.17723f, 0, 0), Time.deltaTime * 200);
-				if (playerUI.transform.localRotation.eulerAngles.x == 13)
-					canRotate = false;
-				break;
-				
-			case 3:
-				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(77.51575f, -180, -180), Time.deltaTime * 200);
-				if (playerUI.transform.localRotation.eulerAngles.x == 54)
-					canRotate = false;
-				break;
-			}
-		}
+//		if (canRotate)
+//		{
+//			switch(buttonFocus)
+//			{
+//			case 0:
+//				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(-44.64258f, 0, 0), Time.deltaTime * 200);
+//				if (playerUI.transform.localRotation.eulerAngles.x == -78)
+//					canRotate = false;
+//				break;
+//				
+//			case 1:
+//				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(1.813126f, 0, 0), Time.deltaTime * 200);
+//				if (playerUI.transform.localRotation.eulerAngles.x == -37)
+//					canRotate = false;
+//				break;
+//				
+//			case 2:
+//				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(52.17723f, 0, 0), Time.deltaTime * 200);
+//				if (playerUI.transform.localRotation.eulerAngles.x == 13)
+//					canRotate = false;
+//				break;
+//				
+//			case 3:
+//				playerUI.transform.localRotation = Quaternion.RotateTowards(playerUI.transform.localRotation, Quaternion.Euler(77.51575f, -180, -180), Time.deltaTime * 200);
+//				if (playerUI.transform.localRotation.eulerAngles.x == 54)
+//					canRotate = false;
+//				break;
+//			}
+//		}
 		
 		
 	}
