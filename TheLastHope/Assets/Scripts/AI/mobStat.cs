@@ -13,6 +13,9 @@ public class mobStat : MonoBehaviour {
 		case "Stalker":
 			GetComponent<forestHound>().damaged(damage, user);
 			break;
+		case "Hydra":
+			GetComponent<forestHound>().damaged(damage, user);
+			break;
 		}
 	}
 }
