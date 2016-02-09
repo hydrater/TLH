@@ -1,0 +1,101 @@
+fileFormatVersion: 2
+guid: 75e38ce2fe71584449ab5525f406aa26
+timeCreated: 1455031784
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Turret_Revised_Animation:joint1
+    100004: Turret_Revised_Animation:joint10
+    100006: Turret_Revised_Animation:joint11
+    100008: Turret_Revised_Animation:joint12
+    100010: Turret_Revised_Animation:joint2
+    100012: Turret_Revised_Animation:joint3
+    100014: Turret_Revised_Animation:joint4
+    100016: Turret_Revised_Animation:joint6
+    100018: Turret_Revised_Animation:joint7
+    100020: Turret_Revised_Animation:joint8
+    100022: Turret_Revised_Animation:joint9
+    100024: Turret_Revised_Animation:polySurface85
+    400000: //RootNode
+    400002: Turret_Revised_Animation:joint1
+    400004: Turret_Revised_Animation:joint10
+    400006: Turret_Revised_Animation:joint11
+    400008: Turret_Revised_Animation:joint12
+    400010: Turret_Revised_Animation:joint2
+    400012: Turret_Revised_Animation:joint3
+    400014: Turret_Revised_Animation:joint4
+    400016: Turret_Revised_Animation:joint6
+    400018: Turret_Revised_Animation:joint7
+    400020: Turret_Revised_Animation:joint8
+    400022: Turret_Revised_Animation:joint9
+    400024: Turret_Revised_Animation:polySurface85
+    4300000: Turret_Revised_Animation:polySurface85
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Turret_Revised_Animation:polySurface85
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

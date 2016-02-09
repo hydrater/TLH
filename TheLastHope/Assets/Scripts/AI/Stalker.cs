@@ -12,10 +12,15 @@ public class Stalker : Photon.MonoBehaviour {
 	[HideInInspector] public float hp = 200;
 	private Animator anim;
 	byte AIState = 0;
+	public Material normalMat, cloakMat;
+	GameObject waypoints;
 	
 	void Start () 
 	{
-		anim = transform.GetComponent<Animator>();
+		waypoints = GameObject.Find("Stalker waypoints");
+		agent = proxy.GetComponent<NavMeshAgent>();
+		obstacle = proxy.GetComponent<NavMeshObstacle>();
+		anim = model.GetComponent<Animator>();
 	}
 	
 	public void damaged(float damage)
