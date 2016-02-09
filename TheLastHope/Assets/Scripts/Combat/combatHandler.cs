@@ -239,13 +239,13 @@ public class combatHandler : Photon.MonoBehaviour {
 				combatStat.stamCD = 2;
 				dashTimer = 0;
 				if (Input.GetKey(KeyCode.W))
-					dashDir = Vector3.forward;
+					dashDir = transform.forward;
 				else if (Input.GetKey(KeyCode.A))
-					dashDir = Vector3.left;
+					dashDir = transform.right * -1;
 				else if (Input.GetKey(KeyCode.D))
-					dashDir = Vector3.right;
+					dashDir = transform.right;
 				else
-					dashDir = Vector3.back;
+					dashDir = transform.forward * -1;
 			}
 			shiftTimer = 0;
 		}
@@ -254,18 +254,11 @@ public class combatHandler : Photon.MonoBehaviour {
 		
 		if (Dash)
 		{
-			RaycastHit dashCheck;
-			if (Physics.Raycast (transform.position, transform.up, out dashCheck, 2)) 
-			{
-				if (!dashCheck.collider.isTrigger && dashCheck.transform.tag != "Player")
-					transform.Translate(dashDir * Time.deltaTime * 20);
-			}
-			else
-				transform.Translate(dashDir * Time.deltaTime * 20);
+			GetComponent<CharacterController>().Move(dashDir * 20 * Time.deltaTime);
 			dashTimer += Time.deltaTime;
 			if (dashTimer > 0.3f)
 				Dash = false;
-		}
+			}
 		
 		if (combatStat.stamCD <= 0)
 		{
