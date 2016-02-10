@@ -4,9 +4,9 @@ using System.Collections;
 public class Hydra : Photon.MonoBehaviour {
 	private NavMeshAgent agent;
 	private Animator anim;
-	private byte AIState = 1;
+	private byte AIState = 0;
 	private Transform target;
-	private float attackTimer, hp = 2000;
+	public float attackTimer, hp = 2000;
 
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -24,12 +24,13 @@ public class Hydra : Photon.MonoBehaviour {
 	
 	void Update () 
 	{
+		Debug.Log (AIState);
 		if (PhotonNetwork.isMasterClient)
 		{
 			switch(AIState)
 			{
 			case 0://idle
-				
+				animate(0);
 				break;
 				
 			case 1://Select target
@@ -149,7 +150,7 @@ public class Hydra : Photon.MonoBehaviour {
 		anim.SetBool("TeleportIn",false);
 		anim.SetBool("TeleportOut",false);
 		anim.SetBool("Ascension",false);
-		anim.SetBool("Flying",false);
+		//anim.SetBool("Flying",false);
 		
 		switch(caseNo)
 		{

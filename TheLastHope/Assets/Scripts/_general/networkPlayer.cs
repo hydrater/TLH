@@ -9,7 +9,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	float lastUpdateTime;
 	public GameObject _camera, firstPersonCam, body, hands, nameText;
 	
-	private Animator anim;
+	public Animator anim;
 	
 	private float InputH;
 	private float InputV;
