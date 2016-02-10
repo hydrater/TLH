@@ -34,6 +34,13 @@ public class combatHandler : Photon.MonoBehaviour {
 	//Shooting
 	public int Ammo, TotalAmmo, magazineMax, totalAmmoMax;
 	public int Ammo2, TotalAmmo2, magazineMax2, totalAmmoMax2;
+
+	// To Do: Add grenade object and initialize number of grenades in inspector
+	public int Grenades;
+	private float grenadeTimer;
+	private float grenadeCooldown = 1f;
+	[SerializeField] GameObject grenadeObject; 
+
 	float regenTimer, regenTimer2;
 	
 	//Change networking to load levels via string instead of int
@@ -269,7 +276,15 @@ public class combatHandler : Photon.MonoBehaviour {
 					sprintExhaust = false;
 			}
 		}
-		
+
+		grenadeTimer += Time.deltaTime;
+
+		//-------------------------------------- GRENADE
+		if (Input.GetKeyDown (KeyCode.G)) 
+		{
+			Grenade();
+		}
+
 		//-------------------------------------- CROUCHING
 //		if (Input.GetKey(KeyCode.LeftControl))
 //		{
@@ -311,7 +326,32 @@ public class combatHandler : Photon.MonoBehaviour {
 //			}
 //		}
 	}
-	
+
+	void Grenade()
+	{
+		if(grenadeTimer < grenadeCooldown || Grenades == 0)
+		{
+			return;
+		}
+
+		// Reset grenade timer
+		grenadeTimer = 0;
+
+		// 
+		--Grenades;
+
+		// To Do: get camera transform forward
+		//Vector3 cameraDirection = 
+
+		// Prefab will contain a rigidbody and box collider to 
+		GameObject tempGrenade = (GameObject)Instantiate (grenadeObject, m_CharacterController.transform.position, Quaternion.identity);
+		tempGrenade.AddComponent<Rigidbody> ();
+		tempGrenade.AddComponent<BoxCollider> ();
+		//tempGrenade.GetComponent<Rigidbody> ().AddForce (cameraDirection);
+
+		// To Do: Grenade gravity values
+	}
+
 	void Crouch() 
 	{
 		m_CharacterController.height = crouchHeight;
