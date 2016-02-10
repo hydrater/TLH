@@ -39,6 +39,7 @@ public class forestHound : Photon.MonoBehaviour {
 	
 	void Update ()
 	{
+		Debug.Log(AIState);
 		if (photonView.isMine)
 		{
 			switch(AIState)
@@ -82,7 +83,7 @@ public class forestHound : Photon.MonoBehaviour {
 				{
 					obstacle.enabled = false;
 					agent.enabled = true;
-//					agent.destination = target.position;
+					agent.destination = target.position;
 				}
 				break;
 				

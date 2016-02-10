@@ -24,7 +24,7 @@ public class Hydra : Photon.MonoBehaviour {
 	
 	void Update () 
 	{
-		Debug.Log (AIState);
+		//Debug.Log (AIState);
 		if (PhotonNetwork.isMasterClient)
 		{
 			switch(AIState)
