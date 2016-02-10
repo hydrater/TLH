@@ -49,7 +49,7 @@ public class Hydra : Photon.MonoBehaviour {
 				}
 				target = tMin;
 				
-				if (2 > 3)
+				if (Random.Range(0, 20) > 3)
 				{
 					animate(8);
 					agent.enabled = true;
@@ -65,7 +65,7 @@ public class Hydra : Photon.MonoBehaviour {
 				break;
 				
 			case 2://chasing
-				if (Vector3.Distance(target.position, transform.position) < 1)
+				if (Vector3.Distance(target.position, transform.position) < 10)
 				{
 					if(Random.Range(0, 17) < 13)
 					{
@@ -133,7 +133,6 @@ public class Hydra : Photon.MonoBehaviour {
 				attackTimer -= Time.deltaTime;
 				if (attackTimer < 0)
 				{
-					Debug.Log(Vector3.Distance(target.position, transform.position));
 					if (Vector3.Distance(target.position, transform.position) < 2)
 						target.GetComponent<combatStats>().hp -= 20;
 					AIState = 1;

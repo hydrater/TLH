@@ -20,7 +20,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		if (photonView.isMine)
 		{
 			photonView.RPC ("displayName", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().playerName);
-			nameText.transform.parent.gameObject.SetActive(false);
+			nameText.SetActive(false);
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
 			hands.SetActive(true);
