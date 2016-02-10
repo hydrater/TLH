@@ -4,7 +4,7 @@ using System.Collections;
 public class forestHound : Photon.MonoBehaviour {
 	
 	public Transform proxy, model, target;
-	Vector3 realPosition = Vector3.zero;
+	[HideInInspector]Vector3 realPosition = Vector3.zero;
 	[HideInInspector]Quaternion realRotation = Quaternion.identity;
 	[HideInInspector]Vector3 lastPosition;
 	private NavMeshAgent agent;

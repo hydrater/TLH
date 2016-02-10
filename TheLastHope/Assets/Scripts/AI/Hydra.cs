@@ -7,6 +7,8 @@ public class Hydra : Photon.MonoBehaviour {
 	private byte AIState = 1;
 	private Transform target;
 	public float attackTimer, hp = 2000;
+	[HideInInspector]Vector3 realPosition = Vector3.zero;
+	[HideInInspector]Quaternion realRotation = Quaternion.identity;
 
 	void Start () {
 		anim = transform.GetChild(0).GetComponent<Animator> ();
@@ -139,6 +141,29 @@ public class Hydra : Photon.MonoBehaviour {
 				}
 				break;
 			}
+		}
+		else
+		{
+			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
+			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+		}
+	}
+
+	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting)
+		{
+			stream.SendNext(hp);
+			stream.SendNext(transform.position);
+			stream.SendNext(transform.rotation);
+			stream.SendNext(AIState);
+		}
+		else
+		{
+			hp = (float)stream.ReceiveNext();
+			realPosition = (Vector3)stream.ReceiveNext();
+			realRotation = (Quaternion)stream.ReceiveNext();
+			AIState = (byte)stream.ReceiveNext();
 		}
 	}
 
