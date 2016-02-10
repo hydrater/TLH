@@ -94,7 +94,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	void displayName(string playerName)
 	{
 		if (!photonView.isMine)
-		nameText.GetComponent<Text>().text = playerName;
+		nameText.transform.GetChild(1).GetComponent<Text>().text = playerName;
 	}
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)

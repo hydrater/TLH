@@ -16,7 +16,7 @@ public class forestHound : Photon.MonoBehaviour {
 	
 	void Start () 
 	{
-		waypoints = GameObject.Find("Hound waypoints");
+		waypoints = GameObject.Find("Hound and watcher waypoints");
 		agent = proxy.GetComponent<NavMeshAgent>();
 		obstacle = proxy.GetComponent<NavMeshObstacle>();
 		anim = model.GetComponent<Animator>();

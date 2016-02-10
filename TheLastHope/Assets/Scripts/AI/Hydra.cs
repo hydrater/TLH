@@ -4,12 +4,12 @@ using System.Collections;
 public class Hydra : Photon.MonoBehaviour {
 	private NavMeshAgent agent;
 	private Animator anim;
-	private byte AIState = 0;
+	private byte AIState = 1;
 	private Transform target;
 	public float attackTimer, hp = 2000;
 
 	void Start () {
-		anim = GetComponent<Animator> ();
+		anim = transform.GetChild(0).GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent>();
 	}
 	
@@ -49,7 +49,7 @@ public class Hydra : Photon.MonoBehaviour {
 				}
 				target = tMin;
 				
-				if (Random.Range(0, 20) > 3)
+				if (2 > 3)
 				{
 					animate(8);
 					agent.enabled = true;
@@ -107,10 +107,8 @@ public class Hydra : Photon.MonoBehaviour {
 				attackTimer -= Time.deltaTime;
 				if (attackTimer <= 0)
 				{ 
-					transform.GetChild(1).gameObject.SetActive(false);
-					transform.SetParent(target);
-					transform.localPosition = Vector3.zero;
-					transform.GetChild(2).gameObject.SetActive(true);
+					transform.GetChild(0).gameObject.SetActive(false);
+					transform.GetChild(1).gameObject.SetActive(true);
 					attackTimer = 4;
 					AIState = 6;
 				}
@@ -118,9 +116,14 @@ public class Hydra : Photon.MonoBehaviour {
 				break;
 			case 6: //teleporting back into the game
 				attackTimer -= Time.deltaTime;
+				transform.position = target.transform.position - transform.forward * 5;
+				transform.position = target.transform.position - transform.up * 5;
+				transform.GetChild(1).gameObject.transform.rotation = Quaternion.Euler(90, 0, 0);
+				transform.GetChild(1).gameObject.transform.position = target.transform.position;
 				if (attackTimer < 0)
 				{
-					transform.GetChild(2).gameObject.SetActive(false);
+					transform.GetChild(0).gameObject.SetActive(true);
+					transform.GetChild(1).gameObject.SetActive(false);
 					attackTimer = 1;
 					animate (6);
 					AIState = 7;
@@ -130,7 +133,7 @@ public class Hydra : Photon.MonoBehaviour {
 				attackTimer -= Time.deltaTime;
 				if (attackTimer < 0)
 				{
-					transform.parent = null;
+					Debug.Log(Vector3.Distance(target.position, transform.position));
 					if (Vector3.Distance(target.position, transform.position) < 2)
 						target.GetComponent<combatStats>().hp -= 20;
 					AIState = 1;

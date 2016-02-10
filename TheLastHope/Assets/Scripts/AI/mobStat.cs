@@ -11,10 +11,10 @@ public class mobStat : MonoBehaviour {
 			GetComponent<forestHound>().damaged(damage, user);
 			break;
 		case "Stalker":
-			GetComponent<forestHound>().damaged(damage, user);
+			GetComponent<Stalker>().damaged(damage);
 			break;
 		case "Hydra":
-			GetComponent<forestHound>().damaged(damage, user);
+			GetComponent<Hydra>().damaged(damage, user);
 			break;
 		}
 	}

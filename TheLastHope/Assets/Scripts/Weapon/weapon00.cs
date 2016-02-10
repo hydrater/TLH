@@ -80,8 +80,7 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			if (hit.collider.tag == "Enemy")
 			{
-				hit.collider.transform.parent.GetComponent<mobStat>().damaged(100, transform.root);
-				Debug.Log(hit.collider.transform.parent.GetComponent<Hydra>().hp);
+				hit.collider.transform.root.GetComponent<mobStat>().damaged(30, transform.root);
 			}
 		}
 		
