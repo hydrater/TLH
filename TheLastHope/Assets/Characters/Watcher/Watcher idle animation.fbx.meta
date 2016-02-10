@@ -265,7 +265,7 @@ ModelImporter:
     3300000: Watcher_Done_detection_animation:polySurface38
     4300000: Watcher_Done_detection_animation:polySurface37
     4300002: Watcher_Done_detection_animation:polySurface38
-    7400000: Take 001
+    7400000: Watcher Idle
     9500000: //RootNode
     13700000: Watcher_Done_detection_animation:polySurface37
   materials:
@@ -287,7 +287,289 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Watcher Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface36
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_LeftUpLeg/Watcher_Done_detection_animation:Character1_Ctrl_LeftLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_LeftUpLeg/Watcher_Done_detection_animation:Character1_Ctrl_LeftLeg/Watcher_Done_detection_animation:Character1_Ctrl_LeftFoot
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_RightUpLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_RightUpLeg/Watcher_Done_detection_animation:Character1_Ctrl_RightLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_RightUpLeg/Watcher_Done_detection_animation:Character1_Ctrl_RightLeg/Watcher_Done_detection_animation:Character1_Ctrl_RightFoot
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex3/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndex4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle3/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing3/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_LeftArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftForeArm/Watcher_Done_detection_animation:Character1_Ctrl_LeftHand/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb1/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb2/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb3/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumb4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_Neck
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex3/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndex4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle3/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing3/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRing4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_Hips/Watcher_Done_detection_animation:Character1_Ctrl_Spine/Watcher_Done_detection_animation:Character1_Ctrl_RightArm/Watcher_Done_detection_animation:Character1_Ctrl_RightForeArm/Watcher_Done_detection_animation:Character1_Ctrl_RightHand/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb1/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb2/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb3/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumb4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_HipsEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandIndexEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftHandThumbEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightHandIndexEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightHandThumbEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightHipEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Ctrl_Reference/Watcher_Done_detection_animation:Character1_Ctrl_RightWristEffector
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_LeftUpLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_LeftUpLeg/Watcher_Done_detection_animation:Character1_LeftLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_LeftUpLeg/Watcher_Done_detection_animation:Character1_LeftLeg/Watcher_Done_detection_animation:Character1_LeftFoot
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_RightUpLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_RightUpLeg/Watcher_Done_detection_animation:Character1_RightLeg
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_RightUpLeg/Watcher_Done_detection_animation:Character1_RightLeg/Watcher_Done_detection_animation:Character1_RightFoot
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandIndex1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandIndex1/Watcher_Done_detection_animation:Character1_LeftHandIndex2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandIndex1/Watcher_Done_detection_animation:Character1_LeftHandIndex2/Watcher_Done_detection_animation:Character1_LeftHandIndex3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandIndex1/Watcher_Done_detection_animation:Character1_LeftHandIndex2/Watcher_Done_detection_animation:Character1_LeftHandIndex3/Watcher_Done_detection_animation:Character1_LeftHandIndex4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandMiddle1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandMiddle1/Watcher_Done_detection_animation:Character1_LeftHandMiddle2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandMiddle1/Watcher_Done_detection_animation:Character1_LeftHandMiddle2/Watcher_Done_detection_animation:Character1_LeftHandMiddle3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandMiddle1/Watcher_Done_detection_animation:Character1_LeftHandMiddle2/Watcher_Done_detection_animation:Character1_LeftHandMiddle3/Watcher_Done_detection_animation:Character1_LeftHandMiddle4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandRing1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandRing1/Watcher_Done_detection_animation:Character1_LeftHandRing2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandRing1/Watcher_Done_detection_animation:Character1_LeftHandRing2/Watcher_Done_detection_animation:Character1_LeftHandRing3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandRing1/Watcher_Done_detection_animation:Character1_LeftHandRing2/Watcher_Done_detection_animation:Character1_LeftHandRing3/Watcher_Done_detection_animation:Character1_LeftHandRing4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandThumb1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandThumb1/Watcher_Done_detection_animation:Character1_LeftHandThumb2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandThumb1/Watcher_Done_detection_animation:Character1_LeftHandThumb2/Watcher_Done_detection_animation:Character1_LeftHandThumb3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_LeftArm/Watcher_Done_detection_animation:Character1_LeftForeArm/Watcher_Done_detection_animation:Character1_LeftHand/Watcher_Done_detection_animation:Character1_LeftHandThumb1/Watcher_Done_detection_animation:Character1_LeftHandThumb2/Watcher_Done_detection_animation:Character1_LeftHandThumb3/Watcher_Done_detection_animation:Character1_LeftHandThumb4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_Neck
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_Neck/Watcher_Done_detection_animation:Character1_Head
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandIndex1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandIndex1/Watcher_Done_detection_animation:Character1_RightHandIndex2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandIndex1/Watcher_Done_detection_animation:Character1_RightHandIndex2/Watcher_Done_detection_animation:Character1_RightHandIndex3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandIndex1/Watcher_Done_detection_animation:Character1_RightHandIndex2/Watcher_Done_detection_animation:Character1_RightHandIndex3/Watcher_Done_detection_animation:Character1_RightHandIndex4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandMiddle1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandMiddle1/Watcher_Done_detection_animation:Character1_RightHandMiddle2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandMiddle1/Watcher_Done_detection_animation:Character1_RightHandMiddle2/Watcher_Done_detection_animation:Character1_RightHandMiddle3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandMiddle1/Watcher_Done_detection_animation:Character1_RightHandMiddle2/Watcher_Done_detection_animation:Character1_RightHandMiddle3/Watcher_Done_detection_animation:Character1_RightHandMiddle4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandRing1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandRing1/Watcher_Done_detection_animation:Character1_RightHandRing2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandRing1/Watcher_Done_detection_animation:Character1_RightHandRing2/Watcher_Done_detection_animation:Character1_RightHandRing3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandRing1/Watcher_Done_detection_animation:Character1_RightHandRing2/Watcher_Done_detection_animation:Character1_RightHandRing3/Watcher_Done_detection_animation:Character1_RightHandRing4
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandThumb1
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandThumb1/Watcher_Done_detection_animation:Character1_RightHandThumb2
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandThumb1/Watcher_Done_detection_animation:Character1_RightHandThumb2/Watcher_Done_detection_animation:Character1_RightHandThumb3
+        weight: 1
+      - path: Watcher_Done_detection_animation:Character1_Reference/Watcher_Done_detection_animation:Character1_Hips/Watcher_Done_detection_animation:Character1_Spine/Watcher_Done_detection_animation:Character1_RightArm/Watcher_Done_detection_animation:Character1_RightForeArm/Watcher_Done_detection_animation:Character1_RightHand/Watcher_Done_detection_animation:Character1_RightHandThumb1/Watcher_Done_detection_animation:Character1_RightHandThumb2/Watcher_Done_detection_animation:Character1_RightHandThumb3/Watcher_Done_detection_animation:Character1_RightHandThumb4
+        weight: 1
+      - path: Watcher_Done_detection_animation:polySurface35
+        weight: 1
+      - path: Watcher_Done_detection_animation:polySurface35/Watcher_Done_detection_animation:transform2
+        weight: 1
+      - path: Watcher_Done_detection_animation:polySurface36
+        weight: 1
+      - path: Watcher_Done_detection_animation:polySurface36/Watcher_Done_detection_animation:polySurface37
+        weight: 1
+      - path: Watcher_Done_detection_animation:polySurface36/Watcher_Done_detection_animation:polySurface38
+        weight: 1
+      - path: Watcher_Done_detection_animation:polySurface36/Watcher_Done_detection_animation:transform3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

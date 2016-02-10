@@ -172,7 +172,7 @@ ModelImporter:
     400162: Tail_joint_5
     400164: Upper_jaw
     4300000: Swamp_Stalker
-    7400000: Take 001
+    7400000: 'Stalker Walking '
     9500000: //RootNode
     13700000: Swamp_Stalker
   materials:
@@ -194,7 +194,199 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: 'Stalker Walking '
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root_joint
+        weight: 1
+      - path: Root_joint/Lower_back_Joint
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_foot_joint
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_foot_joint/Left_leg_Toe_1_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_foot_joint/Left_leg_Toe_1_1/Left_leg_Toe_1_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_foot_joint/Left_leg_Toe_2_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_foot_joint/Left_leg_Toe_2_1/Left_leg_Toe_2_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_foot_joint/Left_leg_Toe_3_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_foot_joint/Left_leg_Toe_3_1/Left_leg_Toe_3_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_leg_wing_root
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_leg_wing_root/Left_leg_wing_guide_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_leg_wing_root/Left_leg_wing_guide_1/Left_leg_wing_guide_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_leg_wing_root/Left_leg_wing_guide_1/Left_leg_wing_guide_2/Left_leg_wing_guide_3
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_leg_wing_root/Left_leg_wing_stretch_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_leg_wing_root/Left_leg_wing_stretch_1/Left_leg_wing_stretch_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Left_leg_joint_2/Left_leg_knee/Left_leg_wing_root/Left_leg_wing_stretch_1/Left_leg_wing_stretch_2/Left_leg_wing_stretch_3
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_foot_joint
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_foot_joint/Right_leg_Toe_1_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_foot_joint/Right_leg_Toe_1_1/Right_leg_Toe_1_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_foot_joint/Right_leg_Toe_2_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_foot_joint/Right_leg_Toe_2_1/Right_leg_Toe_2_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_foot_joint/Right_leg_Toe_3_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_foot_joint/Right_leg_Toe_3_1/Right_leg_Toe_3_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_leg_wing_root
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_leg_wing_root/Right_leg_wing_guide_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_leg_wing_root/Right_leg_wing_guide_1/Right_leg_wing_guide_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_leg_wing_root/Right_leg_wing_guide_1/Right_leg_wing_guide_2/Right_leg_wing_guide_3
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_leg_wing_root/Right_leg_wing_stretch_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_leg_wing_root/Right_leg_wing_stretch_1/Right_leg_wing_stretch_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Right_leg_joint_1/Right_leg_knee/Right_leg_wing_root/Right_leg_wing_stretch_1/Right_leg_wing_stretch_2/Right_leg_wing_stretch_3
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Tail_joint_1
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Tail_joint_1/Tail_Joint_2
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Tail_joint_1/Tail_Joint_2/Tail_joint_3
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Tail_joint_1/Tail_Joint_2/Tail_joint_3/Tail_joint_4
+        weight: 1
+      - path: Root_joint/Lower_back_Joint/Hind_legs_joint/Tail_joint_1/Tail_Joint_2/Tail_joint_3/Tail_joint_4/Tail_joint_5
+        weight: 1
+      - path: Root_joint/Shoulder_joint
+        weight: 1
+      - path: Root_joint/Shoulder_joint/head_joint
+        weight: 1
+      - path: Root_joint/Shoulder_joint/head_joint/Eye_socket_left
+        weight: 1
+      - path: Root_joint/Shoulder_joint/head_joint/Eye_socket_right
+        weight: 1
+      - path: Root_joint/Shoulder_joint/head_joint/Mouth_pivot
+        weight: 1
+      - path: Root_joint/Shoulder_joint/head_joint/Mouth_pivot/Lower_jaw
+        weight: 1
+      - path: Root_joint/Shoulder_joint/head_joint/Mouth_pivot/Upper_jaw
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root/Left_arm_wing_guide_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root/Left_arm_wing_guide_1/Left_arm_wing_guide_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root/Left_arm_wing_guide_1/Left_arm_wing_guide_2/Left_arm_wing_guide_3
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root/Left_arm_wing_stretch_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root/Left_arm_wing_stretch_1/Left_arm_wing_stretch_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root/Left_arm_wing_stretch_1/Left_arm_wing_stretch_2/Left_arm_wing_stretch_3
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_arm_wing_root/Left_arm_wing_stretch_1/Left_arm_wing_stretch_2/Left_arm_wing_stretch_3/Left_arm_wing_stretch_4
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_hand_joint
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_hand_joint/Left_arm_Toe_1_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_hand_joint/Left_arm_Toe_1_1/Left_arm_Toe_1_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_hand_joint/Left_arm_Toe_2_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_hand_joint/Left_arm_Toe_2_1/Left_arm_Toe_2_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_hand_joint/Left_arm_Toe_3_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Left_arm_2/Left_arm_elbow/Left_hand_joint/Left_arm_Toe_3_1/Left_arm_Toe_3_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root/Right_arm_wing_guide_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root/Right_arm_wing_guide_1/Right_arm_wing_guide_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root/Right_arm_wing_guide_1/Right_arm_wing_guide_2/Right_arm_wing_guide_3
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root/Right_arm_wing_stretch_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root/Right_arm_wing_stretch_1/Right_arm_wing_stretch_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root/Right_arm_wing_stretch_1/Right_arm_wing_stretch_2/Right_arm_wing_stretch_3
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_arm_wing_root/Right_arm_wing_stretch_1/Right_arm_wing_stretch_2/Right_arm_wing_stretch_3/Right_arm_wing_stretch_4
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_hand_joint
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_hand_joint/Right_arm_Toe_1_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_hand_joint/Right_arm_Toe_1_1/Right_arm_Toe_1_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_hand_joint/Right_arm_Toe_2_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_hand_joint/Right_arm_Toe_2_1/Right_arm_Toe_2_2
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_hand_joint/Right_arm_Toe_3_1
+        weight: 1
+      - path: Root_joint/Shoulder_joint/Right_arm_1/Right_arm_elbow/Right_hand_joint/Right_arm_Toe_3_1/Right_arm_Toe_3_2
+        weight: 1
+      - path: Swamp_Stalker
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

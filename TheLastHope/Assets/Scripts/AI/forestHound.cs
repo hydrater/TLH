@@ -44,7 +44,14 @@ public class forestHound : Photon.MonoBehaviour {
 			switch(AIState)
 			{
 			case 0://idle
-				anim.Play("Idle");
+				if(Random.Range(1,4) == 3)
+				{
+					anim.SetBool("HoundHowl", true);
+				}
+				else
+				{
+					anim.SetBool("HoundHowl", false);
+				}
 				idleTimer -= Time.deltaTime;
 				if (idleTimer <= 0)
 				{
@@ -69,7 +76,6 @@ public class forestHound : Photon.MonoBehaviour {
 				{
 					obstacle.enabled = true;
 					agent.enabled = false;
-					anim.SetBool("Idle",true);
 					AIState = 0;
 				} 
 				else 
@@ -77,7 +83,6 @@ public class forestHound : Photon.MonoBehaviour {
 					obstacle.enabled = false;
 					agent.enabled = true;
 					agent.destination = target.position;
-					anim.SetBool("Idle",false);
 				}
 				break;
 				
@@ -116,7 +121,7 @@ public class forestHound : Photon.MonoBehaviour {
 					{
 						obstacle.enabled = true;
 						agent.enabled = false;
-						anim.SetBool("ratAttack",true);
+						anim.SetBool("HoundAttack",true);
 						AIState = 4;
 					} 
 					else 
@@ -124,7 +129,7 @@ public class forestHound : Photon.MonoBehaviour {
 						obstacle.enabled = false;
 						agent.enabled = true;
 						agent.destination = target.position;
-						anim.SetBool("ratAttack",false);
+						anim.SetBool("HoundAttack",false);
 					}
 				}
 			break;
@@ -155,14 +160,14 @@ public class forestHound : Photon.MonoBehaviour {
 			stream.SendNext(hp);
 			stream.SendNext(model.transform.position);
 			stream.SendNext(model.transform.rotation);
-			stream.SendNext(anim.GetBool("ratAttack"));
+			stream.SendNext(anim.GetBool("HoundAttack"));
 		}
 		else
 		{
 			hp = (float)stream.ReceiveNext();
 			realPosition = (Vector3)stream.ReceiveNext();
 			realRotation = (Quaternion)stream.ReceiveNext();
-			anim.SetBool("ratAttack", (bool)stream.ReceiveNext());
+			anim.SetBool("HoundAttack", (bool)stream.ReceiveNext());
 		}
 	}
 
