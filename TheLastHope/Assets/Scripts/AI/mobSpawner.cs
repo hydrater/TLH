@@ -6,6 +6,7 @@ public class mobSpawner : Photon.MonoBehaviour {
 	public byte mobNo;
 	public float spawnFrequency;
 	private float timer;
+	public byte amount;
 	
 	void Start () 
 	{
@@ -25,19 +26,23 @@ public class mobSpawner : Photon.MonoBehaviour {
 			{
 				if (other.gameObject.GetPhotonView().isMine)
 				{
-					switch(mobNo)
+					for (byte i = 0; i < amount; i++)
 					{
-					case 0:
-						PhotonNetwork.Instantiate("forestHound", transform.position, transform.rotation, 0);
-						break;
-					case 1:
-						PhotonNetwork.Instantiate("Stalker", transform.position, transform.rotation, 0);
-						break;
-					case 2:
-						PhotonNetwork.Instantiate("forestHound", transform.position, transform.rotation, 0);
-						break;
+						switch(mobNo)
+						{
+						case 0:
+							PhotonNetwork.Instantiate("forestHound", transform.position, transform.rotation, 0);
+							break;
+						case 1:
+							PhotonNetwork.Instantiate("Stalker", transform.position, transform.rotation, 0);
+							break;
+						case 2:
+							PhotonNetwork.Instantiate("forestHound", transform.position, transform.rotation, 0);
+							break;
+						}
 					}
 					timer = spawnFrequency;
+							
 				}
 			}
 		}
