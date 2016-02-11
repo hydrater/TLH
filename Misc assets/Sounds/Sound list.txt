@@ -1,0 +1,24 @@
+CHARACTER SOUNDS:
+1)Footsteps (2 different steps)
+2)Heavy breathing for sprinting (BOTH MALE AND FEMALE)
+3)light Groan (taking damage) (BOTH MALE AND FEMALE)
+4)Dirt sliding
+5)jumping (BOTH MALE AND FEMALE)
+6)Heavy groan (Incapacitated) (BOTH MALE AND FEMALE)
+7)Light dash sound (Strafing)
+
+UI SOUNDS: (REFERENCE FROM DEAD SPACE)
+1)UI popup (opening and closing)
+2)UI popup menu hum
+
+DEPLOYABLES AND GRENADES:
+1)Grenade click and toss (Universal)
+2)Frag explosion
+3)Mini explosions
+4)gas grenade eruption
+5)seeker grenade hiss
+6)Energy build-up charge (Singularity and gravity mine)
+7)Deployable throw (2 sounds)
+8)Deployable clicks (For medical and charge packs)
+9)Turret beeps for sentry turret
+10)Bubble shield build-up
