@@ -29,7 +29,6 @@ public class combatHandler : Photon.MonoBehaviour {
 	//	2 = tool
 	//	3 = deployable
 	public GameObject weapon1, weapon2;
-	bool hybridForm;
 	
 	//Shooting
 	public int Ammo, TotalAmmo, magazineMax, totalAmmoMax;
@@ -143,22 +142,6 @@ public class combatHandler : Photon.MonoBehaviour {
 				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
 				weapon1.SetActive(true);
 				weapon2.SetActive(false);
-//				if (gameStat.weapon1ID[0] == '6')
-//				{
-//					if (hybridForm)
-//					{
-//						//first form
-//					}
-//					else
-//					{
-//						//second form
-//					}
-//				}
-			}
-			else if (gameStat.weapon1ID[0] == '6')
-			{
-				hybridTransformation(false);
-				Debug.Log("hybrid transformation");
 			}
 		}
 		
@@ -171,22 +154,6 @@ public class combatHandler : Photon.MonoBehaviour {
 				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
 				weapon1.SetActive(false);
 				weapon2.SetActive(true);
-//				if (gameStat.weapon2ID[0] == '6')
-//				{
-//					if (hybridForm)
-//					{
-//						//first form
-//					}
-//					else
-//					{
-//						//second form
-//					}
-//				}
-			}
-			else if (gameStat.weapon2ID[0] == '6')
-			{
-				hybridTransformation(true);
-				Debug.Log("hybrid transformation");
 			}
 		}
 		
@@ -284,50 +251,9 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			Grenade();
 		}
-
-		//-------------------------------------- CROUCHING
-//		if (Input.GetKey(KeyCode.LeftControl))
-//		{
-//			if(!crouching)
-//				Crouch();
-//			if (shiftTimer > 0.5f && slideTimer >= 0) // Sliding
-//			{
-//				slideTimer -= Time.deltaTime;
-//				RaycastHit sliding;
-//				if (Physics.Raycast (transform.position, transform.up, out sliding, 1.6f)) 
-//				{
-//					if (!sliding.collider.isTrigger && sliding.transform.tag != "Player")
-//					{
-//						transform.Translate(dashDir * Time.deltaTime * 5.5f);
-//					}
-//				}
-//				else
-//				{
-//					transform.Translate(Vector3.forward * Time.deltaTime * 5.5f);
-//				}
-//			}
-//		}
-//		else if(crouching) //Not Crouching
-//		{
-//			slideTimer = 0.9f;
-//			RaycastHit crouchCheck;
-//			if (Physics.Raycast (transform.position, transform.up, out crouchCheck, 1.6f)) 
-//			{
-//			}
-//			else
-//			{
-//				m_CharacterController.height = standardHeight ;
-//				m_CharacterController.center = Vector3.zero;
-//				_camera.transform.position = new Vector3 (_camera.transform.position.x, _camera.transform.position.y + crouchHeight, _camera.transform.position.z);
-//				crouching = false;
-//				m_FirstPerson.m_WalkSpeed = 5f;
-//				m_FirstPerson.m_RunSpeed = 10;
-//				m_FirstPerson.m_UseHeadBob = true;
-//			}
-//		}
 	}
 
-	void Grenade()
+	private void Grenade()
 	{
 		if(grenadeTimer < grenadeCooldown || Grenades == 0)
 		{
@@ -386,13 +312,20 @@ public class combatHandler : Photon.MonoBehaviour {
 			switch (WeaponID)
 			{
 			case "00": 
-					tempTransform = new Vector3(-0.203f, -1.907f, 0.054f);
+				tempTransform = new Vector3(-0.203f, -1.907f, 0.054f);
 				tempRotation.eulerAngles =  new Vector3(355.5891f, 7.871859f, 354.9338f);
 				break;
-			
 			case "01": 
-				tempTransform = new Vector3(0.6005627f, -0.254f, 0.934866f);
-				tempRotation.eulerAngles =  new Vector3(0, 95.39325f, 0);
+				tempTransform = new Vector3(-0.203f, -1.907f, 0.054f);
+				tempRotation.eulerAngles =  new Vector3(355.5891f, 7.871859f, 354.9338f);
+				break;
+			case "02": 
+				tempTransform = new Vector3(-0.203f, -1.907f, 0.054f);
+				tempRotation.eulerAngles =  new Vector3(355.5891f, 7.871859f, 354.9338f);
+				break;
+			case "03": 
+				tempTransform = new Vector3(-0.203f, -1.907f, 0.054f);
+				tempRotation.eulerAngles =  new Vector3(355.5891f, 7.871859f, 354.9338f);
 				break;
 			}
 			
@@ -415,31 +348,14 @@ public class combatHandler : Photon.MonoBehaviour {
 	{
 		if (weaponHoldNo == 0)
 		{
-			weapon1.SetActive(true);
-			weapon2.SetActive(false);
+			weapon1.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
+			weapon2.transform.GetChild(1).GetChild(2).gameObject.SetActive(false);
 		}
 		else
 		{
-			weapon1.SetActive(false);
-			weapon2.SetActive(true);
+			weapon1.transform.GetChild(1).GetChild(2).gameObject.SetActive(false);
+			weapon2.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
 		}
 		
 	}
-	
-	void hybridTransformation(bool holdNumber)
-	{
-		hybridForm = !hybridForm;
-		if (hybridForm)
-		{
-			//first to 2nd form
-		}
-		else
-		{
-			//second to 1st form
-		}
-		//play transformation
-	}
-	
-	
-
 }
