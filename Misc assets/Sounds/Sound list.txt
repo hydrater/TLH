@@ -1,11 +1,17 @@
+FOREWORD:
+What i have given you are raw sound files that need editing, i'd have the art team do this but unfortunately none of us
+know how. All the instructions are listed below for each individual sound file. Files that say (2 different variations each)
+require 2 different output files to give a blend different sounds. e.g 2 files for 2 different footsteps. You make tweak the
+volumes and speed of certain files as you see fit, but try your best to balance them to the best of your ability.
+Keep the sound effects short and sweet.
+
 CHARACTER SOUNDS:
-1)Footsteps (2 different steps)
-2)Heavy breathing for sprinting (BOTH MALE AND FEMALE)
-3)light Groan (taking damage) (BOTH MALE AND FEMALE)
+1)Footsteps (2 different variations each)
+2)Heavy breathing for sprinting (2 different variations each) (BOTH MALE AND FEMALE)
+3)light Groan (taking damage) (2 different variations each) (BOTH MALE AND FEMALE)
 4)Dirt sliding
-5)jumping (BOTH MALE AND FEMALE)
+5)jumping and landing
 6)Heavy groan (Incapacitated) (BOTH MALE AND FEMALE)
-7)Light dash sound (Strafing)
 
 UI SOUNDS: (REFERENCE FROM DEAD SPACE)
 1)UI popup (opening and closing)
@@ -14,11 +20,12 @@ UI SOUNDS: (REFERENCE FROM DEAD SPACE)
 DEPLOYABLES AND GRENADES:
 1)Grenade click and toss (Universal)
 2)Frag explosion
-3)Mini explosions
-4)gas grenade eruption
+3)Mini explosions (Reduce volume)
+4)Viper grenade explosion
 5)seeker grenade hiss
 6)Energy build-up charge (Singularity and gravity mine)
-7)Deployable throw (2 sounds)
-8)Deployable clicks (For medical and charge packs)
-9)Turret beeps for sentry turret
-10)Bubble shield build-up
+7)Deployable throw
+8)Deployable usage
+9)Turret beeps for sentry turret (2 successive beeps)
+10)Aegis shield build-up
+11)Aegis shield sustained (30 seconds)
