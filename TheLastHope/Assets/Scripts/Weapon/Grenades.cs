@@ -4,7 +4,7 @@ using System.Collections;
 public class Grenades : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
-	float timer = 3;
+	public float timer;
 	public string explosion;
 	
 	// Use this for initialization
@@ -24,7 +24,7 @@ public class Grenades : Photon.MonoBehaviour {
 			timer -= Time.deltaTime;
 			if (timer <= 0)
 			{
-				PhotonNetwork.Instantiate(explosion, transform.position, Quaternion.identity, 0);
+				Instantiate(Resources.Load(explosion), transform.position, Quaternion.identity);
 			}
 		}
 		else

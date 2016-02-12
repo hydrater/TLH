@@ -35,12 +35,12 @@ public class combatHandler : Photon.MonoBehaviour {
 	public int Ammo2, TotalAmmo2, magazineMax2, totalAmmoMax2;
 
 	// To Do: Add grenade object and initialize number of grenades in inspector
-	public int Grenades;
+	public int Grenades = 5;
 	private float grenadeTimer;
 	private float grenadeCooldown = 1f;
-	[SerializeField] GameObject grenadeObject; 
+	string grenadeObject; 
 
-	float regenTimer, regenTimer2;
+	float regenTimer, regenTimer2, grenadeRegen = 120;
 	
 	//Change networking to load levels via string instead of int
 	
@@ -51,6 +51,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		m_FirstPerson = GetComponent<FirstPersonController>();
 		m_CharacterController = GetComponent<CharacterController>();
 		gameStat = GameObject.Find("GameManager").GetComponent<currentClientStats>();
+		grenadeObject = gameStat.toolID;
 		
 		if (photonView.isMine) 
 		{	
@@ -118,6 +119,16 @@ public class combatHandler : Photon.MonoBehaviour {
 					Ammo2 = magazineMax2;
 				}
 			}
+		}
+		
+		grenadeRegen -= Time.deltaTime;
+		if (grenadeRegen <= 0)
+		{
+			if (Grenades <5)
+			{
+				++Grenades;
+			}
+			grenadeRegen = 120;
 		}
 		
 		regenTimer -= Time.deltaTime;
@@ -270,9 +281,7 @@ public class combatHandler : Photon.MonoBehaviour {
 		//Vector3 cameraDirection = 
 
 		// Prefab will contain a rigidbody and box collider to 
-		GameObject tempGrenade = (GameObject)Instantiate (grenadeObject, m_CharacterController.transform.position, Quaternion.identity);
-		tempGrenade.AddComponent<Rigidbody> ();
-		tempGrenade.AddComponent<BoxCollider> ();
+		PhotonNetwork.Instantiate(grenadeObject, m_CharacterController.transform.position, Quaternion.identity, 0);
 		//tempGrenade.GetComponent<Rigidbody> ().AddForce (cameraDirection);
 
 		// To Do: Grenade gravity values

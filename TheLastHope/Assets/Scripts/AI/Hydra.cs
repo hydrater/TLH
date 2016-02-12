@@ -71,13 +71,13 @@ public class Hydra : Photon.MonoBehaviour {
 				{
 					if(Random.Range(0, 17) < 13)
 					{
-						attackTimer = 0.5f;
+						attackTimer = 1f;
 						animate(2);
 						AIState = 3;
 					}
 					else
 					{
-						attackTimer = 2;
+						attackTimer = 1.5f;
 						animate(3);
 						AIState = 4;
 					}
