@@ -45,14 +45,7 @@ public class forestHound : Photon.MonoBehaviour {
 			switch(AIState)
 			{
 			case 0://idle
-				if(Random.Range(1,4) == 3)
-				{
-					anim.SetBool("HoundHowl", true);
-				}
-				else
-				{
-					anim.SetBool("HoundHowl", false);
-				}
+				anim.SetBool("HoundHowl", true);
 				idleTimer -= Time.deltaTime;
 				if (idleTimer <= 0)
 				{

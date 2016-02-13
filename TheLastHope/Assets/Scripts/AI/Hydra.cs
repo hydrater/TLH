@@ -157,6 +157,7 @@ public class Hydra : Photon.MonoBehaviour {
 			stream.SendNext(transform.position);
 			stream.SendNext(transform.rotation);
 			stream.SendNext(AIState);
+			stream.SendNext(attackTimer);
 		}
 		else
 		{
@@ -164,6 +165,7 @@ public class Hydra : Photon.MonoBehaviour {
 			realPosition = (Vector3)stream.ReceiveNext();
 			realRotation = (Quaternion)stream.ReceiveNext();
 			AIState = (byte)stream.ReceiveNext();
+			attackTimer = (float)stream.ReceiveNext();
 		}
 	}
 
