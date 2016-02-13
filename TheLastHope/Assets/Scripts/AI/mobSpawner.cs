@@ -56,9 +56,9 @@ public class mobSpawner : Photon.MonoBehaviour {
 			case 1:
 				PhotonNetwork.Instantiate("Stalker", transform.position, transform.rotation, 0);
 				break;
-//			case 2:
-//				PhotonNetwork.Instantiate("Watcher", transform.position, transform.rotation, 0);
-//				break;
+			case 2:
+				PhotonNetwork.Instantiate("Watcher", transform.position, transform.rotation, 0);
+				break;
 //			case 3:
 //				PhotonNetwork.Instantiate("Hydra", transform.position, transform.rotation, 0);
 //				break;
