@@ -1,0 +1,39 @@
+WEAPON SOUND EFFECTS:
+1)Arctic hunter gunshot (Sniper shot with echo)
+2)Eregen rifle gunshots (Automatic gunfire)
+3)Shock and awe shot (Energy/electrical blast)
+4)Prism scattershot (Lazer shotgun blast)
+5)Magazine eject and insert (Arctic hunter, eregen rifle and shock and awe) (2 sounds)
+6)Cartridge eject and closing (Prism) (2 sounds)
+7)Empty weapon sound
+8)Impact sound for weapons
+
+MONSTER SOUND EFFECTS:
+
+-FOREST HOUNDS
+1)Hound barking (When moving)(2 barking sounds)
+2)Hound bite attack (for stalker too)
+3)Hound death howl
+
+-STALKERS
+1)Stalker roar (on player detection)
+2)Stalker ranged attack
+3)Stalker bite attack (for hound too)
+4)Stalker death growl
+
+-WATCHERS
+1)Watcher Awakening
+2)Watcher player detection roar
+3)Watcher growl (Looping)
+4)Watcher footsteps (2 variations)
+5)Watcher Stomp attack
+6)Watcher death howl
+
+-HYDRA
+1)Hydra area trigger (will trigger when players are outside the hydra 'arena'
+2)Hydra warcry
+3)Hydra slash attacks (All)
+4)Hydra Teleport in and out (For ascension too)
+5)Hydra ranged attack(Cut sound shorter)
+6)Hydra energy shield (looping)
+7)Hydra death
