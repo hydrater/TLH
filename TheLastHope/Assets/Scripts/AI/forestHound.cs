@@ -33,7 +33,7 @@ public class forestHound : Photon.MonoBehaviour {
 		if (AIState != 4)
 		{
 			target = user;
-			AIState = 4;
+			AIState = 5;
 		}
 	}
 	

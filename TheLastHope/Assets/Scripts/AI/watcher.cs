@@ -30,7 +30,7 @@ public class watcher : Photon.MonoBehaviour {
 		if (AIState != 4)
 		{
 			target = user;
-			AIState = 3;
+			AIState = 5;
 		}
 	}
 	

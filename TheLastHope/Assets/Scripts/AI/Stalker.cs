@@ -102,11 +102,10 @@ public class Stalker : Photon.MonoBehaviour {
 				
 			case 4://Attacking
 				attackTimer -= Time.deltaTime;
-				transform.LookAt(target);
-				
+				Instantiate(Bullet, transform.position, transform.rotation);
 				if (attackTimer <= 0.5f)
 				{
-					if (Vector3.Distance(target.position, transform.position) < 1)
+					if (Vector3.Distance(target.position, transform.position) < 20)
 						target.GetComponent<combatStats>().hp -= 15;
 					AIState = 5;
 				}
@@ -120,6 +119,7 @@ public class Stalker : Photon.MonoBehaviour {
 						obstacle.enabled = true;
 						agent.enabled = false;
 						anim.SetBool("Stalker Ranged Attack",true);
+						transform.LookAt(target);
 						AIState = 4;
 					} 
 					else 
