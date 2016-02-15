@@ -7,7 +7,7 @@ public class watcher : Photon.MonoBehaviour {
 	[HideInInspector]Quaternion realRotation = Quaternion.identity;
 	[HideInInspector]Vector3 lastPosition;
 	private NavMeshAgent agent;
-	[HideInInspector] public float hp = 200, idleTimer = 10, attackerTimer = 1;
+	[HideInInspector] public float hp = 700, idleTimer = 10, attackerTimer = 1;
 	[HideInInspector] public Animator anim;
 	byte AIState = 0;
 	GameObject waypoints;
