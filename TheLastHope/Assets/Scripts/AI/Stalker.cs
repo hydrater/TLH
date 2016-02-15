@@ -4,6 +4,7 @@ using System.Collections;
 public class Stalker : Photon.MonoBehaviour {
 
 	public Transform target;
+	public GameObject bullet;
 	Vector3 realPosition = Vector3.zero;
 	[HideInInspector]Quaternion realRotation = Quaternion.identity;
 	[HideInInspector]Vector3 lastPosition;
@@ -101,6 +102,8 @@ public class Stalker : Photon.MonoBehaviour {
 				
 			case 4://Attacking
 				attackTimer -= Time.deltaTime;
+				transform.LookAt(target);
+				
 				if (attackTimer <= 0.5f)
 				{
 					if (Vector3.Distance(target.position, transform.position) < 1)
@@ -112,7 +115,7 @@ public class Stalker : Photon.MonoBehaviour {
 			case 5: // chasing
 				if (target.tag == "Player")
 				{
-					if ((target.position - transform.position).sqrMagnitude < 0.1f) 
+					if ((target.position - transform.position).sqrMagnitude < 20) 
 					{
 						obstacle.enabled = true;
 						agent.enabled = false;
