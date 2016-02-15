@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: 8423384193b69d045b71daecbc4e9e97
+timeCreated: 1455252866
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: group2
+    100004: group3
+    100006: pasted__group1
+    100008: pasted__pasted__pCube1
+    100010: pasted__pasted__pCube2
+    100012: pasted__pasted__pCube4
+    100014: pasted__pasted__pCylinder3
+    100016: pasted__pasted__polySurface14
+    100018: pasted__pCube8
+    100020: pasted__polySurface27
+    100022: pCube11
+    100024: pCube12
+    100026: pCube13
+    100028: pCube15
+    100030: pCylinder6
+    100032: pCylinder7
+    100034: pTorus4
+    100036: pTorus5
+    400000: //RootNode
+    400002: group2
+    400004: group3
+    400006: pasted__group1
+    400008: pasted__pasted__pCube1
+    400010: pasted__pasted__pCube2
+    400012: pasted__pasted__pCube4
+    400014: pasted__pasted__pCylinder3
+    400016: pasted__pasted__polySurface14
+    400018: pasted__pCube8
+    400020: pasted__polySurface27
+    400022: pCube11
+    400024: pCube12
+    400026: pCube13
+    400028: pCube15
+    400030: pCylinder6
+    400032: pCylinder7
+    400034: pTorus4
+    400036: pTorus5
+    2300000: pasted__pasted__pCube1
+    2300002: pasted__pasted__pCube2
+    2300004: pasted__pasted__pCube4
+    2300006: pasted__pasted__pCylinder3
+    2300008: pasted__pasted__polySurface14
+    2300010: pasted__polySurface27
+    2300012: pCube11
+    2300014: pCube12
+    2300016: pCube13
+    2300018: pCube15
+    2300020: pCylinder6
+    2300022: pCylinder7
+    2300024: pTorus4
+    2300026: pTorus5
+    3300000: pasted__pasted__pCube1
+    3300002: pasted__pasted__pCube2
+    3300004: pasted__pasted__pCube4
+    3300006: pasted__pasted__pCylinder3
+    3300008: pasted__pasted__polySurface14
+    3300010: pasted__polySurface27
+    3300012: pCube11
+    3300014: pCube12
+    3300016: pCube13
+    3300018: pCube15
+    3300020: pCylinder6
+    3300022: pCylinder7
+    3300024: pTorus4
+    3300026: pTorus5
+    4300000: pasted__polySurface27
+    4300002: pasted__pasted__pCube1
+    4300004: pasted__pasted__pCube2
+    4300006: pasted__pasted__pCube4
+    4300008: pasted__pasted__pCylinder3
+    4300010: pCube11
+    4300012: pCube12
+    4300014: pCube13
+    4300016: pCube15
+    4300018: pTorus4
+    4300020: pTorus5
+    4300022: pCylinder6
+    4300024: pCylinder7
+    4300026: pasted__pasted__polySurface14
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
