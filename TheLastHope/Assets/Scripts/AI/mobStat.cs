@@ -2,19 +2,22 @@
 using System.Collections;
 
 public class mobStat : MonoBehaviour {
+	public byte objectType;
 	
 	public void damaged(float damage, Transform user)
 	{
-		switch(gameObject.transform.name)
+		switch(objectType)
 		{
-		case "Forest hound":
-			Debug.Log("damafgedsfs");
+		case 0:
 			GetComponent<forestHound>().damaged(damage, user);
 			break;
-		case "Stalker":
-			GetComponent<Stalker>().damaged(damage);
+		case 1:
+			GetComponent<Stalker>().damaged(damage, user);
 			break;
-		case "Hydra":
+		case 2:
+			GetComponent<watcher>().damaged(damage, user);
+			break;
+		case 3:
 			GetComponent<Hydra>().damaged(damage, user);
 			break;
 		}
