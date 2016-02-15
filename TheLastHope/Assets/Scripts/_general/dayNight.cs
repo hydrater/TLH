@@ -4,7 +4,7 @@ using System.Collections;
 public class dayNight : MonoBehaviour {
 	GameObject Sun;
 	Material Sky;
-	public bool canFade = false;
+	public bool canFade = true;
 	private byte fadeType = 0;
 	public Material[] skies;
 	
@@ -98,6 +98,8 @@ public class dayNight : MonoBehaviour {
 				{
 					Sun.GetComponent<Light>().intensity -= Time.deltaTime * 0.0042f;
 				}
+
+				Sun.transform.Translate(Vector3.down * Time.deltaTime);
 				
 				transform.Translate(Vector3.down * Time.deltaTime * 0.02f);
 				break;

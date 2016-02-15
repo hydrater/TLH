@@ -7,7 +7,6 @@ public class watcher : Photon.MonoBehaviour {
 	[HideInInspector]Quaternion realRotation = Quaternion.identity;
 	[HideInInspector]Vector3 lastPosition;
 	private NavMeshAgent agent;
-	NavMeshObstacle obstacle;
 	[HideInInspector] public float hp = 200, idleTimer = 10, attackerTimer = 1;
 	[HideInInspector] public Animator anim;
 	byte AIState = 0;
@@ -17,7 +16,6 @@ public class watcher : Photon.MonoBehaviour {
 	{
 		waypoints = GameObject.Find("Hound and watcher waypoints");
 		agent = GetComponent<NavMeshAgent>();
-		obstacle = GetComponent<NavMeshObstacle>();
 		anim = GetComponent<Animator>();
 		target = waypoints.transform.GetChild(2);
 	}
@@ -67,13 +65,11 @@ public class watcher : Photon.MonoBehaviour {
 				anim.Play("Watcher Walking");
 				if ((target.position - transform.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
 				{
-					obstacle.enabled = true;
 					agent.enabled = false;
 					AIState = 0;
 				} 
 				else 
 				{
-					obstacle.enabled = false;
 					agent.enabled = true;
 					agent.destination = target.position;
 				}
@@ -112,14 +108,12 @@ public class watcher : Photon.MonoBehaviour {
 				{
 					if ((target.position - transform.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
 					{
-						obstacle.enabled = true;
 						agent.enabled = false;
 						anim.SetBool("Watcher Stomp",true);
 						AIState = 4;
 					} 
 					else 
 					{
-						obstacle.enabled = false;
 						agent.enabled = true;
 						agent.destination = target.position;
 						anim.SetBool("Watcher Stomp",false);

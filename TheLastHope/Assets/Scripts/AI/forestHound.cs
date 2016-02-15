@@ -45,7 +45,7 @@ public class forestHound : Photon.MonoBehaviour {
 			switch(AIState)
 			{
 			case 0://idle
-				anim.SetBool("HoundHowl", true);
+				anim.SetBool("Hound Howl", true);
 				idleTimer -= Time.deltaTime;
 				if (idleTimer <= 0)
 				{
@@ -65,7 +65,7 @@ public class forestHound : Photon.MonoBehaviour {
 				break;
 				
 			case 2://move
-				anim.Play("Run");
+				anim.Play("Hound Run");
 				if ((target.position - proxy.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
 				{
 					obstacle.enabled = true;
