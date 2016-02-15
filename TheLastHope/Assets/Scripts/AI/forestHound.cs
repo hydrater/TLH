@@ -33,13 +33,13 @@ public class forestHound : Photon.MonoBehaviour {
 		if (AIState != 4)
 		{
 			target = user;
-			AIState = 3;
+			AIState = 4;
 		}
 	}
 	
 	void Update ()
 	{
-		Debug.Log(AIState);
+		Debug.Log(hp);
 		if (photonView.isMine)
 		{
 			switch(AIState)
@@ -66,7 +66,7 @@ public class forestHound : Photon.MonoBehaviour {
 				
 			case 2://move
 				anim.Play("Hound Run");
-				if ((target.position - proxy.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
+				if ((target.position - proxy.position).sqrMagnitude < 0.1f) 
 				{
 					obstacle.enabled = true;
 					agent.enabled = false;
@@ -111,7 +111,7 @@ public class forestHound : Photon.MonoBehaviour {
 			case 5: // chasing
 				if (target.tag == "Player")
 				{
-					if ((target.position - proxy.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
+					if ((target.position - proxy.position).sqrMagnitude < 0.1f) 
 					{
 						obstacle.enabled = true;
 						agent.enabled = false;

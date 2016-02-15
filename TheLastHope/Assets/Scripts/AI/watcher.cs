@@ -36,13 +36,12 @@ public class watcher : Photon.MonoBehaviour {
 	
 	void Update ()
 	{
-		Debug.Log(AIState);
 		if (photonView.isMine)
 		{
 			switch(AIState)
 			{
 			case 0://idle
-				anim.SetBool("HoundHowl", true);
+				anim.SetBool("Watcher Idle", true);
 				idleTimer -= Time.deltaTime;
 				if (idleTimer <= 0)
 				{
@@ -63,7 +62,7 @@ public class watcher : Photon.MonoBehaviour {
 				
 			case 2://move
 				anim.Play("Watcher Walking");
-				if ((target.position - transform.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
+				if ((target.position - transform.position).sqrMagnitude < 0.1f) 
 				{
 					agent.enabled = false;
 					AIState = 0;
@@ -106,7 +105,7 @@ public class watcher : Photon.MonoBehaviour {
 			case 5: // chasing
 				if (target.tag == "Player")
 				{
-					if ((target.position - transform.position).sqrMagnitude < Mathf.Pow(agent.stoppingDistance, 2)) 
+					if ((target.position - transform.position).sqrMagnitude < 0.1f) 
 					{
 						agent.enabled = false;
 						anim.SetBool("Watcher Stomp",true);

@@ -88,7 +88,7 @@ public class Hydra : Photon.MonoBehaviour {
 				attackTimer -= Time.deltaTime;
 				if (attackTimer <= 0)
 				{
-					if (Vector3.Distance(target.position, transform.position) < 2)
+					if (Vector3.Distance(target.position, transform.position) < 3)
 						target.GetComponent<combatStats>().hp -= 20;
 					AIState = 1;
 				}
@@ -99,7 +99,7 @@ public class Hydra : Photon.MonoBehaviour {
 				attackTimer -= Time.deltaTime;
 				if (attackTimer <= 0)
 				{
-					if (Vector3.Distance(target.position, transform.position) < 2)
+					if (Vector3.Distance(target.position, transform.position) < 3)
 						target.GetComponent<combatStats>().hp -= 20;
 					AIState = 1;
 				}
