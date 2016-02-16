@@ -102,7 +102,7 @@ public class Stalker : Photon.MonoBehaviour {
 				
 			case 4://Attacking
 				attackTimer -= Time.deltaTime;
-				Instantiate(Bullet, transform.position, transform.rotation);
+				//Instantiate(Bullet, transform.position, transform.rotation);
 				if (attackTimer <= 0.5f)
 				{
 					if (Vector3.Distance(target.position, transform.position) < 20)
