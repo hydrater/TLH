@@ -6,6 +6,11 @@ public class generalNetworking : MonoBehaviour {
 	public const int levelIndexStart = 3; //The first non hub scene
 	Transform spawnPoint;
 	
+	void Start()
+	{
+		Application.targetFrameRate = 40;
+	}
+	
 	void OnLevelWasLoaded(int level) //General set up for each level
 	{
 		//GetComponent<ChatGui>().enabled = true;
