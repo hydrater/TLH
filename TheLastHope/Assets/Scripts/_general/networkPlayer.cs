@@ -59,7 +59,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	{
 		nameText.transform.LookAt(Camera.main.transform);
 		
-		if(Input.GetKeyDown(KeyCode.R))
+		if(Input.GetKeyDown(KeyCode.E))
 		{
 			RaycastHit hit;
 			if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
@@ -74,9 +74,9 @@ public class networkPlayer : Photon.MonoBehaviour {
 				}
 				if (hit.collider.tag == "Shop")
 				{
-					GameObject temp = GameObject.Find ("InventoryUi");
+					GameObject temp = GameObject.Find ("InventoryUi").transform.GetChild(0).gameObject;
 					currentClientStats gameStat = GameObject.Find ("GameManager").GetComponent<currentClientStats>();
-					temp.GetComponent<UI>().playerPressing = gameObject;
+					temp.GetComponent<UI>().playerPressing = transform.gameObject;
 					temp.SetActive(true);
 					temp.GetComponent<UI>().CustomEnable(int.Parse(gameStat.weapon1ID),int.Parse(gameStat.weapon2ID),int.Parse(gameStat.deployableID));
 					GetComponent<FirstPersonController>().enabled = false;

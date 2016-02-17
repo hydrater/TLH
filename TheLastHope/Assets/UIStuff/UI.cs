@@ -4,8 +4,8 @@ using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class UI : MonoBehaviour {
-	public GameObject equip1, equip2, equip3, playerPressing;
-	string[] Weapons = new string[] {"ShockWave", "Prism", "Eragen Rifle", "Eragen Rifle"};
+	public GameObject playerPressing;
+	string[] Weapons = new string[] {"ShockWave", "Prism", "Eragen Rifle", "Artic Sniper"};
     
     int pri, sec, deploy;
 
@@ -60,6 +60,9 @@ public class UI : MonoBehaviour {
 	{
 		playerPressing.GetComponent<FirstPersonController>().enabled = true;
 		gameObject.SetActive(false);
+		currentClientStats temp = GameObject.Find("GameManager").GetComponent<currentClientStats>();
+		temp.weapon1ID = "0" + pri.ToString();
+		temp.weapon2ID = "0" + sec.ToString();
 	}
 
     void UpdateText()
