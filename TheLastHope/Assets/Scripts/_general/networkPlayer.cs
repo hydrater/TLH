@@ -58,6 +58,32 @@ public class networkPlayer : Photon.MonoBehaviour {
 	void Update()
 	{
 		nameText.transform.LookAt(Camera.main.transform);
+		
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			RaycastHit hit;
+			if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
+			{
+				Debug.Log(hit.collider.name);
+				if (hit.collider.tag == "Player")
+				{
+					if (hit.collider.transform.gameObject.GetComponent<combatStats>().hp <= 0)
+					{
+						hit.collider.transform.gameObject.GetComponent<combatStats>().revive();
+					}
+				}
+				if (hit.collider.tag == "Shop")
+				{
+					GameObject temp = GameObject.Find ("InventoryUi");
+					currentClientStats gameStat = GameObject.Find ("GameManager").GetComponent<currentClientStats>();
+					temp.GetComponent<UI>().playerPressing = gameObject;
+					temp.SetActive(true);
+					temp.GetComponent<UI>().CustomEnable(int.Parse(gameStat.weapon1ID),int.Parse(gameStat.weapon2ID),int.Parse(gameStat.deployableID));
+					GetComponent<FirstPersonController>().enabled = false;
+				}
+			}
+		}
+		
 		if (photonView.isMine)
 		{
 			InputH = Input.GetAxis("Horizontal");
