@@ -14,7 +14,7 @@ public class watcher : Photon.MonoBehaviour {
 	
 	void Start () 
 	{
-		waypoints = GameObject.Find("Hound and watcher waypoints");
+		waypoints = GameObject.Find("Watcher waypoints");
 		agent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		target = waypoints.transform.GetChild(2);

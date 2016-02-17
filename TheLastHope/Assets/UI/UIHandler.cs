@@ -12,6 +12,7 @@ public class UIHandler : Photon.MonoBehaviour {
 	{
 		if (Input.GetKeyDown(KeyCode.Escape) && Application.loadedLevelName == "Sanctuary")
 		{
+			GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Level 1");
 			if (photonView.isMine)
 			{
 				if (UIOn)
