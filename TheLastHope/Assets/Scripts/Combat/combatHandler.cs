@@ -90,6 +90,27 @@ public class combatHandler : Photon.MonoBehaviour {
 	
 	void Update ()
 	{
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			RaycastHit hit;
+			if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
+			{
+				if (hit.collider.tag == "Player")
+				{
+					if (hit.collider.transform.gameObject.GetComponent<combatStats>().hp <= 0)
+					{
+						hit.collider.transform.gameObject.GetComponent<combatStats>().revive();
+					}
+				}
+				if (hit.collider.tag == "Shop")
+				{
+					
+				}
+			}
+		}
+	
+	
+	
 	 if(reloadTimer)
 		{
 			animTimer -= Time.deltaTime;

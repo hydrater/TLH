@@ -16,7 +16,24 @@ public class combatStats : MonoBehaviour {
 				
 		if (stam > stamM)
 			stam = stamM;
-		
+			
+		if (hp <= 0)
+		{
+			if (transform.root.GetChild(0).gameObject.activeSelf)
+			{
+				transform.root.GetChild(0).gameObject.SetActive(false);
+				transform.root.GetChild(1).gameObject.SetActive(true);
+				transform.root.GetChild(3).gameObject.SetActive(true);
+			}
+		}
+	}
+	
+	public void revive()
+	{
+		transform.root.GetChild(0).gameObject.SetActive(true);
+		transform.root.GetChild(1).gameObject.SetActive(false);
+		transform.root.GetChild(3).gameObject.SetActive(false);
+		hp = 50;
 	}
 	
 }
