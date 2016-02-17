@@ -104,7 +104,11 @@ public class combatHandler : Photon.MonoBehaviour {
 				}
 				if (hit.collider.tag == "Shop")
 				{
-					
+					GameObject temp = GameObject.Find ("InventoryUi");
+					temp.GetComponent<UI>().playerPressing = gameObject;
+					temp.SetActive(true);
+					temp.GetComponent<UI>().CustomEnable(int.Parse(gameStat.weapon1ID),int.Parse(gameStat.weapon2ID),int.Parse(gameStat.deployableID));
+					GetComponent<FirstPersonController>().enabled = false;
 				}
 			}
 		}

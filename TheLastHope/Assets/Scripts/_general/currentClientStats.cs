@@ -4,7 +4,7 @@ using System.Collections;
 public class currentClientStats : MonoBehaviour {
 	public string playerName, roomName = "!Sanctuary", time;
 	public byte charNo, Diff, level;
-	public string weapon1ID = "1001", weapon2ID = "6001", toolID, deployableID;
+	public string weapon1ID = "00", weapon2ID = "01", toolID, deployableID;
 	//	0 resources
 	//	1 gun 
 	//	-- 2nd 0 = semi, 1 = auto, 2 = burst

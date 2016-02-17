@@ -1,57 +1,71 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class UI : MonoBehaviour {
-    private GameObject Canvas1, Canvas2;
+	public GameObject equip1, equip2, equip3, playerPressing;
+	string[] Weapons = new string[] {"ShockWave", "Prism", "Eragen Rifle", "Eragen Rifle"};
     
-    public int Primaryweapon;
-    void Awake()
-    {
-        Canvas1 = GameObject.Find("InventoryBtn");
-        Canvas2 = GameObject.Find("InventoryUi");
-    }
+    int pri, sec, deploy;
 
-	// Use this for initialization
-	void Start () {
-        Canvas1.SetActive(true);
-        Canvas2.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void CustomEnable(int type1, int type2, int type3) 
+	{
+		currentClientStats temp = GameObject.Find("GameManager").GetComponent<currentClientStats>();
+		pri = type1; 
+		sec = type2;
+		deploy = type3;
+		UpdateText();
 	}
 
-    public void InvBtnDown()
-    {
-        Canvas1.SetActive(false);
-        Canvas2.SetActive(true);
-    }
-
-    public void BackBtn1()
-    {
-        Canvas1.SetActive(true);
-        Canvas2.SetActive(false);
-    }
+	public void PrimaryLeft()
+	{
+		if(pri > 0)
+			--pri;
+		UpdateText();
+	}
 
     public void PrimaryRight()
     {
-        Primaryweapon++;
-        PrimaryWeapons();
+    	if(pri < Weapons.Length - 1)
+			++pri;
+		UpdateText();
     }
+    
+	public void SecondaryLeft()
+	{
+		if(sec > 0)
+			--sec;
+		UpdateText();
+	}
+	
+	public void SecondaryRight()
+	{
+		if(sec < Weapons.Length - 1)
+			++sec;
+		UpdateText();
+	}
+	
+	public void DeployLeft()
+	{
+		--deploy;
+	}
+	
+	public void DeployRight()
+	{
+		++deploy;
+	}
+	
+	public void backButton()
+	{
+		playerPressing.GetComponent<FirstPersonController>().enabled = true;
+		gameObject.SetActive(false);
+	}
 
-    void PrimaryWeapons()
+    void UpdateText()
     {
-        switch (Primaryweapon)
-        {
-            case 1:
-                GameObject.Find("InventoryUi").GetComponent<GUIText>().text = "FuckYeu";
-                break;
-            case 2:
-                GameObject.Find("InventoryUi").GetComponent<GUIText>().text = "FuckURedux";
-                break;
-
-        }
+		transform.GetChild(0).gameObject.GetComponent<Text>().text = Weapons[pri];
+		transform.GetChild(1).gameObject.GetComponent<Text>().text = Weapons[sec];
+		transform.GetChild(2).gameObject.GetComponent<Text>().text = Weapons[deploy];
     }
 }
