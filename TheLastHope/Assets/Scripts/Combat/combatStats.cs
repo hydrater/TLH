@@ -49,10 +49,11 @@ public class combatStats : Photon.MonoBehaviour {
 	{
 		if (eventcode == 0)
 		{
+			PhotonPlayer sender = PhotonPlayer.Find(senderid);
 			string[] decoded = (string[])content;
 			if (GetComponent<PhotonView>().owner.name == decoded[1])
 			{
-				hp -= float.Parse(decoded[0]);;
+				hp -= float.Parse(decoded[0]);
 			}
 		}
 	}
