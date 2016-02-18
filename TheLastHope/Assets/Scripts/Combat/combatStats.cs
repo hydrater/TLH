@@ -46,6 +46,7 @@ public class combatStats : Photon.MonoBehaviour {
 		if (GetComponent<PhotonView>().owner.name == name)
 		{
 			hp -= damage;
+			Debug.Log(hp);
 		}
 	}
 }
