@@ -45,18 +45,22 @@ public class combatStats : Photon.MonoBehaviour {
 		}
 	}
 	
-	private void OnEvent(byte eventcode, object content, int senderid)
+	public void playerTakeDmg(float dmg, string user)
 	{
-		if (eventcode == 0)
+		photonView.RPC ("playerTakeDamage", PhotonTargets.All, dmg, user);
+	}
+	
+	[PunRPC]
+	void playerTakeDamage(float dmg, string user)
+	{
+		Debug.Log(photonView.owner.name);
+		if (photonView.owner.name == user)
 		{
-			PhotonPlayer sender = PhotonPlayer.Find(senderid);
-			string[] decoded = (string[])content;
-			if (GetComponent<PhotonView>().owner.name == decoded[1])
-			{
-				hp -= float.Parse(decoded[0]);
-			}
+			hp -= dmg;
 		}
 	}
+	
+	
 	
 	
 }
