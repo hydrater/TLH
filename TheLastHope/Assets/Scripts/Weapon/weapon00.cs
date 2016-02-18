@@ -71,7 +71,9 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			if (hit.collider.tag == "Player")
 			{
-				hit.collider.GetComponent<combatStats>().playerTakeDmg(10, hit.collider.GetComponent<PhotonView>().owner.name);
+//				hit.collider.GetComponent<combatStats>().playerTakeDmg(10, hit.collider.GetComponent<PhotonView>().owner.name);
+				PhotonNetwork.RaiseEvent(0, new string[]{"10", hit.collider.GetComponent<PhotonView>().owner.name }, true, null);
+				
 			}
 		}
 		

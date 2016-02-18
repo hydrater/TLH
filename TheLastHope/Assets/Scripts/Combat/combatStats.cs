@@ -6,6 +6,11 @@ public class combatStats : Photon.MonoBehaviour {
 	public float hp = 100, hpM = 100, stam = 100, stamM = 100, walkSpeed = 5, runSpeed = 10, crouchSpeed = 2.5f;
 	public float stamCD = -1;
 	
+	void Awake()
+	{
+		PhotonNetwork.OnEventCall += this.OnEvent;
+	}
+	
 	void Update () 
 	{
 		if (stam < 0)
@@ -40,21 +45,17 @@ public class combatStats : Photon.MonoBehaviour {
 		}
 	}
 	
-//	void OnTriggerEnter(Collider other)
-//	{
-//		if (other.tag == "Bullet")
-//		{
-//			hp -= 10;
-//			Debug.Log(hp);
-//		}
-//	}
-	
-	[PunRPC]
-	public void playerTakeDmg(float damage, string name)
+	private void OnEvent(byte eventcode, object content, int senderid)
 	{
-		if (GetComponent<PhotonView>().owner.name == name)
+		if (eventcode == 0)
 		{
-			hp -= damage;
+			string[] decoded = (string[])content;
+			if (GetComponent<PhotonView>().owner.name == decoded[1])
+			{
+				hp -= float.Parse(decoded[0]);;
+			}
 		}
 	}
+	
+	
 }
