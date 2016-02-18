@@ -39,4 +39,13 @@ public class combatStats : Photon.MonoBehaviour {
 			hp = (float)stream.ReceiveNext();
 		}
 	}
+	
+	[PunRPC]
+	public void playerTakeDmg(float damage, string name)
+	{
+		if (GetComponent<PhotonView>().owner.name == name)
+		{
+			hp -= damage;
+		}
+	}
 }
