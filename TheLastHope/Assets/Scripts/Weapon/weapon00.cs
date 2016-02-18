@@ -69,10 +69,10 @@ public class weapon00 : Photon.MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
 		{
-//			if (hit.collider.tag == "Player")
-//			{
-//				hit.collider.GetComponent<combatStats>().playerTakeDmg(10, hit.collider.GetComponent<PhotonView>().owner.name);
-//			}
+			if (hit.collider.tag == "Player")
+			{
+				hit.collider.GetComponent<combatStats>().playerTakeDmg(10, hit.collider.GetComponent<PhotonView>().owner.name);
+			}
 		}
 		
 		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, endPoint.position);

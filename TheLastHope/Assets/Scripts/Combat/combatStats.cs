@@ -40,21 +40,21 @@ public class combatStats : Photon.MonoBehaviour {
 		}
 	}
 	
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Bullet")
-		{
-			hp -= 10;
-			Debug.Log(hp);
-		}
-	}
-	
-//	[PunRPC]
-//	public void playerTakeDmg(float damage, string name)
+//	void OnTriggerEnter(Collider other)
 //	{
-//		if (GetComponent<PhotonView>().owner.name == name)
+//		if (other.tag == "Bullet")
 //		{
-//			hp -= damage;
+//			hp -= 10;
+//			Debug.Log(hp);
 //		}
 //	}
+	
+	[PunRPC]
+	public void playerTakeDmg(float damage, string name)
+	{
+		if (GetComponent<PhotonView>().owner.name == name)
+		{
+			hp -= damage;
+		}
+	}
 }
