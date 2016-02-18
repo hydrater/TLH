@@ -40,6 +40,14 @@ public class combatStats : Photon.MonoBehaviour {
 		}
 	}
 	
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Bullet")
+		{
+			hp -= 10;
+		}
+	}
+	
 	[PunRPC]
 	public void playerTakeDmg(float damage, string name)
 	{
