@@ -6,11 +6,6 @@ public class combatStats : Photon.MonoBehaviour {
 	public float hp = 100, hpM = 100, stam = 100, stamM = 100, walkSpeed = 5, runSpeed = 10, crouchSpeed = 2.5f;
 	public float stamCD = -1;
 	
-	void Awake()
-	{
-		PhotonNetwork.OnEventCall += this.OnEvent;
-	}
-	
 	void Update () 
 	{
 		if (stam < 0)

@@ -18,6 +18,7 @@ public class BGM : Photon.MonoBehaviour {
 				break;
 			case "Level 1":
 				AudioPlayer.clip = list[1];
+				break;
 			}
 		}
 		GetComponent<AudioSource>().Play();
