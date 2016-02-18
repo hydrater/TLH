@@ -45,16 +45,16 @@ public class combatStats : Photon.MonoBehaviour {
 		if (other.tag == "Bullet")
 		{
 			hp -= 10;
-		}
-	}
-	
-	[PunRPC]
-	public void playerTakeDmg(float damage, string name)
-	{
-		if (GetComponent<PhotonView>().owner.name == name)
-		{
-			hp -= damage;
 			Debug.Log(hp);
 		}
 	}
+	
+//	[PunRPC]
+//	public void playerTakeDmg(float damage, string name)
+//	{
+//		if (GetComponent<PhotonView>().owner.name == name)
+//		{
+//			hp -= damage;
+//		}
+//	}
 }
