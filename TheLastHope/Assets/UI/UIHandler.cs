@@ -4,7 +4,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class UIHandler : Photon.MonoBehaviour {
 	
-	public GameObject playerUI, body, levelSelectUI, inventoryUI, UILight;
+	public GameObject body, levelSelectUI;
 	byte buttonFocus;
 	bool canRotate = false, UIOn = false;
 	
@@ -18,8 +18,6 @@ public class UIHandler : Photon.MonoBehaviour {
 				if (UIOn)
 				{
 					UIOn = false;
-					playerUI.SetActive(false);
-					UILight.SetActive(false);
 					Cursor.lockState =  CursorLockMode.Locked;
 					Cursor.visible = false;
 					GetComponent<FirstPersonController>().enabled = true;
@@ -28,8 +26,6 @@ public class UIHandler : Photon.MonoBehaviour {
 				else
 				{
 					UIOn = true;
-					playerUI.SetActive(true);
-					UILight.SetActive(true);
 					Cursor.lockState =  CursorLockMode.Confined;
 					Cursor.visible = true;
 					buttonFocus = 0;
@@ -73,21 +69,6 @@ public class UIHandler : Photon.MonoBehaviour {
 //					levelSelectUI.SetActive(true);
 //					playerUI.SetActive(false);
 					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Level 1");
-					break;
-					
-				case 1:
-					inventoryUI.SetActive(true);
-					playerUI.SetActive(false);
-					break;
-					
-				case 2:
-					
-					
-					break;
-					
-				case 3:
-					
-					
 					break;
 					
 				}

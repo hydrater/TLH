@@ -48,7 +48,6 @@ public class combatStats : Photon.MonoBehaviour {
 	[PunRPC]
 	void playerTakeDamage(float dmg, string user)
 	{
-		Debug.Log(photonView.owner.name);
 		if (photonView.owner.name == user)
 		{
 			hp -= dmg;

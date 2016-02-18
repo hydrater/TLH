@@ -93,13 +93,20 @@ public class generalNetworking : MonoBehaviour {
 	{
 		if (Application.loadedLevelName == "Tutorial")
 			return;
-		spawnPoint = GameObject.Find("LevelManager").transform;
+		if (Application.loadedLevelName == "Sanctuary")
+		{
+			spawnPoint = GameObject.Find("LevelManager").transform;
+			Destroy(GameObject.Find("loadingScreen"));
+		}
+		else
+		{
+			spawnPoint = GameObject.Find("LevelManager").transform.GetChild(Random.Range(0,8));
+		}
 		if (GetComponent<currentClientStats>().charNo == 0)
 			PhotonNetwork.Instantiate("Male", spawnPoint.position, spawnPoint.rotation, 0);
 		else
 			PhotonNetwork.Instantiate("Female", spawnPoint.position, spawnPoint.rotation, 0);
-		if (Application.loadedLevelName == "Sanctuary")
-			Destroy(GameObject.Find("loadingScreen"));
+		
 	}
 	
 	void Update()
@@ -140,12 +147,11 @@ public class generalNetworking : MonoBehaviour {
 	IEnumerator spawnNow() 
 	{
 		yield return new WaitForSeconds(3f);
+		spawnPoint = GameObject.Find("LevelManager").transform.GetChild(Random.Range(0,8));
 		if (GetComponent<currentClientStats>().charNo == 0)
 			PhotonNetwork.Instantiate("Male", spawnPoint.position, spawnPoint.rotation, 0);
 		else
 			PhotonNetwork.Instantiate("Female", spawnPoint.position, spawnPoint.rotation, 0);
-		if (Application.loadedLevelName == "Sanctuary")
-			Destroy(GameObject.Find("loadingScreen"));
 	}
 	
 	

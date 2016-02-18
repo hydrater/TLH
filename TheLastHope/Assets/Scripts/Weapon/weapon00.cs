@@ -18,7 +18,7 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			combathandler = transform.root.gameObject.GetComponent<combatHandler>();
 			_camera = transform.parent.parent.gameObject;
-			endPoint = transform.root.GetChild(0).GetChild(2);
+			endPoint = transform.root.GetChild(0).GetChild(1);
 		}
 		else
 		{

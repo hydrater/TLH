@@ -7,7 +7,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
 	float lastUpdateTime;
-	public GameObject _camera, firstPersonCam, body, hands, nameText;
+	public GameObject _camera, firstPersonCam, body, nameText;
 	
 	public Animator anim;
 	
@@ -23,18 +23,13 @@ public class networkPlayer : Photon.MonoBehaviour {
 			nameText.SetActive(false);
 			GetComponent<FirstPersonController>().enabled = true;
 			_camera.SetActive(true);
-			hands.SetActive(true);
 			body.transform.GetChild(1).gameObject.SetActive(false);
-			hands.layer = 8;
 			if (Application.loadedLevelName != "Sanctuary")
 			{
-				hands.SetActive(false);
 			}
 		}
 		else
 		{
-			hands.layer = 0;
-			hands.SetActive(false);
 			body.transform.GetChild(1).gameObject.SetActive(true);
 			_camera.GetComponent<Camera>().enabled = false;
 			_camera.GetComponent<AudioListener>().enabled = false;
@@ -57,7 +52,13 @@ public class networkPlayer : Photon.MonoBehaviour {
 	
 	void Update()
 	{
-		nameText.transform.LookAt(Camera.main.transform);
+		try
+		{
+			nameText.transform.LookAt(Camera.main.transform);
+		}
+		catch(System.NullReferenceException)
+		{
+		}
 		
 		if(Input.GetKeyDown(KeyCode.E))
 		{
