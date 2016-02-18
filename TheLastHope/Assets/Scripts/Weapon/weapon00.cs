@@ -54,15 +54,6 @@ public class weapon00 : Photon.MonoBehaviour {
 						Shoot();
 					}
 				}
-				else
-				{
-					if (combathandler.Ammo2 > 0)
-					{
-						--combathandler.Ammo;
-						timer = 0.8f;
-						Shoot();
-					}
-				}
 			}
 		}
 		}
@@ -78,9 +69,9 @@ public class weapon00 : Photon.MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
 		{
-			if (hit.collider.tag == "Enemy")
+			if (hit.collider.tag == "Player")
 			{
-				hit.collider.transform.root.GetComponent<mobStat>().damaged(30, transform.root);
+				hit.collider.GetComponent<combatStats>().hp -= 10;
 			}
 		}
 		

@@ -28,11 +28,10 @@ public class combatHandler : Photon.MonoBehaviour {
 	//	1 = weapon2
 	//	2 = tool
 	//	3 = deployable
-	public GameObject weapon1, weapon2;
+	public GameObject weapon1;
 	
 	//Shooting
 	public int Ammo, TotalAmmo, magazineMax, totalAmmoMax;
-	public int Ammo2, TotalAmmo2, magazineMax2, totalAmmoMax2;
 
 	// To Do: Add grenade object and initialize number of grenades in inspector
 	public int Grenades = 5;
@@ -40,7 +39,7 @@ public class combatHandler : Photon.MonoBehaviour {
 	private float grenadeCooldown = 1f;
 	string grenadeObject; 
 
-	float regenTimer, regenTimer2, grenadeRegen = 120;
+	float regenTimer, grenadeRegen = 120;
 	
 	//Change networking to load levels via string instead of int
 	
@@ -55,36 +54,32 @@ public class combatHandler : Photon.MonoBehaviour {
 		
 		if (photonView.isMine) 
 		{	
-			photonView.RPC ("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID, gameStat.weapon2ID);
+			photonView.RPC ("spawnWeapon", PhotonTargets.AllBuffered, gameStat.weapon1ID);
 			gunAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild(1).GetChild(2).GetComponent<Animator> ();
 			handAnim = transform.GetChild (0).GetChild (0).GetChild (0).GetChild(1).GetComponent<Animator> ();
-			weapon2.SetActive(false);
 //			gunAnim.GetComponent<Animation>()["reload"].wrapMode = WrapMode.Once;
 //			handAnim.GetComponent<Animation>()["reload"].wrapMode = WrapMode.Once;
 		} 
 		
 		//Ammo info
-		switch(gameStat.weapon1ID)
-		{
-			case "00":
-			TotalAmmo = 99999;
-			totalAmmoMax = 99999;
-			Ammo = 10;
-			magazineMax = 10;
-			regenTimer = 3;
-			break;
-		}
 		
-		switch(gameStat.weapon2ID)
-		{
-			case "00":
-			TotalAmmo2 = 99999;
-			totalAmmoMax2 = 99999;//30
-			Ammo2 = 10;
-			magazineMax2 = 10;
-			regenTimer2 = 3;
-			break;
-		}
+		TotalAmmo = 99999;
+		totalAmmoMax = 99999;
+		Ammo = 10;
+		magazineMax = 10;
+		regenTimer = 3;
+		
+//		switch(gameStat.weapon1ID)
+//		{
+//			case "00":
+//			TotalAmmo = 99999;
+//			totalAmmoMax = 99999;
+//			Ammo = 10;
+//			magazineMax = 10;
+//			regenTimer = 3;
+//			break;
+//		}
+		
 		
 	}
 	
@@ -105,19 +100,11 @@ public class combatHandler : Photon.MonoBehaviour {
 		{
 			if (TotalAmmo >= magazineMax - Ammo)
 			{	
-				if (weaponHold == 0)
-				{
-					handAnim.SetBool("reload",true);
-					gunAnim.SetBool("reload",true);
-					TotalAmmo -= (magazineMax - Ammo);
-					Ammo = magazineMax;
-					reloadTimer = true;
-				}
-				else
-				{
-					TotalAmmo2 -= (magazineMax2 - Ammo2);
-					Ammo2 = magazineMax2;
-				}
+				handAnim.SetBool("reload",true);
+				gunAnim.SetBool("reload",true);
+				TotalAmmo -= (magazineMax - Ammo);
+				Ammo = magazineMax;
+				reloadTimer = true;
 			}
 		}
 		
@@ -132,59 +119,53 @@ public class combatHandler : Photon.MonoBehaviour {
 		}
 		
 		regenTimer -= Time.deltaTime;
-		regenTimer2 -= Time.deltaTime;
 		if (regenTimer <= 0 && TotalAmmo < totalAmmoMax) 
 		{
 			++TotalAmmo;
 			regenTimer = 2;
 		}
+
 		
-		if (regenTimer2 <= 0 && TotalAmmo2 < totalAmmoMax2) 
-		{
-			++TotalAmmo2;
-			regenTimer2 = 2;
-		}
-		
-		if(Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			if (weaponHold != 0)
-			{
-				weaponHold = 0;
-				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
-				weapon1.SetActive(true);
-				weapon2.SetActive(false);
-			}
-		}
-		
-		//Weapon switching
-		if(Input.GetKeyDown(KeyCode.Alpha2))
-		{
-			if (weaponHold != 1)
-			{
-				weaponHold = 1;
-				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
-				weapon1.SetActive(false);
-				weapon2.SetActive(true);
-			}
-		}
-		
-		if(Input.GetKeyDown(KeyCode.Alpha3))
-		{
-			if (weaponHold != 2)
-			{
-				weaponHold = 2;
-				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
-			}
-		}
-		
-		if(Input.GetKeyDown(KeyCode.Alpha4))
-		{
-			if (weaponHold != 3)
-			{
-				weaponHold = 3;
-				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
-			}
-		}
+//		if(Input.GetKeyDown(KeyCode.Alpha1))
+//		{
+//			if (weaponHold != 0)
+//			{
+//				weaponHold = 0;
+//				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
+//				weapon1.SetActive(true);
+//				weapon2.SetActive(false);
+//			}
+//		}
+//		
+//		//Weapon switching
+//		if(Input.GetKeyDown(KeyCode.Alpha2))
+//		{
+//			if (weaponHold != 1)
+//			{
+//				weaponHold = 1;
+//				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
+//				weapon1.SetActive(false);
+//				weapon2.SetActive(true);
+//			}
+//		}
+//		
+//		if(Input.GetKeyDown(KeyCode.Alpha3))
+//		{
+//			if (weaponHold != 2)
+//			{
+//				weaponHold = 2;
+//				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
+//			}
+//		}
+//		
+//		if(Input.GetKeyDown(KeyCode.Alpha4))
+//		{
+//			if (weaponHold != 3)
+//			{
+//				weaponHold = 3;
+//				photonView.RPC("switchWeapon", PhotonTargets.All, weaponHold);
+//			}
+//		}
 		
 		//---------------------------------- Running
 		
@@ -303,22 +284,14 @@ public class combatHandler : Photon.MonoBehaviour {
 	}
 	
 	[PunRPC]
-	void spawnWeapon(string WeaponID1, string WeaponID2)
+	void spawnWeapon(string WeaponID1)
 	{
 		if (photonView.isMine)
 		{
 		Vector3 tempTransform = Vector3.zero;
 		Quaternion tempRotation = Quaternion.identity;
-		string WeaponID;
-		
-		for (byte i = 0; i<2; ++i)
-		{
-			if (i == 0)
-				WeaponID = WeaponID1;
-			else
-				WeaponID = WeaponID2;
-				
-			switch (WeaponID)
+
+			switch (WeaponID1)
 			{
 			case "00": 
 				tempTransform = new Vector3(-0.203f, -1.907f, 0.054f);
@@ -338,33 +311,29 @@ public class combatHandler : Photon.MonoBehaviour {
 				break;
 			}
 			
-			GameObject weapon = PhotonNetwork.Instantiate(WeaponID, tempTransform, tempRotation, 0) as GameObject;
+			GameObject weapon = PhotonNetwork.Instantiate(WeaponID1, tempTransform, tempRotation, 0) as GameObject;
 			weapon.transform.SetParent(GetComponent<networkPlayer>().firstPersonCam.transform, false);
 			
-			if (i == 0)
-				weapon1 = weapon;
-			else
-				weapon2 = weapon;
-		}
+			
+			weapon1 = weapon;
 			weapon1.layer = 8;
-			weapon2.layer = 8;
 			weaponHold = 0;
 		}
 	}
 	
-	[PunRPC]
-	void switchWeapon(byte weaponHoldNo)
-	{
-		if (weaponHoldNo == 0)
-		{
-			weapon1.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
-			weapon2.transform.GetChild(1).GetChild(2).gameObject.SetActive(false);
-		}
-		else
-		{
-			weapon1.transform.GetChild(1).GetChild(2).gameObject.SetActive(false);
-			weapon2.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
-		}
-		
-	}
+//	[PunRPC]
+//	void switchWeapon(byte weaponHoldNo)
+//	{
+//		if (weaponHoldNo == 0)
+//		{
+//			weapon1.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
+//			weapon2.transform.GetChild(1).GetChild(2).gameObject.SetActive(false);
+//		}
+//		else
+//		{
+//			weapon1.transform.GetChild(1).GetChild(2).gameObject.SetActive(false);
+//			weapon2.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
+//		}
+//		
+//	}
 }

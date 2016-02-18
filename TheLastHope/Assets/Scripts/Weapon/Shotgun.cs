@@ -40,14 +40,6 @@ public class Shotgun : Photon.MonoBehaviour {
 						fire ();
 					}
 				}
-				else
-				{
-					if (combathandler.Ammo2 > 0)
-					{
-						--combathandler.Ammo;
-						fire ();
-					}
-				}
 			}
 		}
 		else
