@@ -23,6 +23,7 @@ public class combatStats : Photon.MonoBehaviour {
 			if (hp <= 0)
 			{
 				PhotonNetwork.Destroy(gameObject);
+				GameObject.Find("GameManager").GetComponent<generalNetworking>().Respawn();
 			}
 		}
 	}

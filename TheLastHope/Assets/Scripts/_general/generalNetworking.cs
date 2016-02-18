@@ -134,10 +134,10 @@ public class generalNetworking : MonoBehaviour {
 	
 	public void Respawn()
 	{
-		StartCoroutine(Respawn());
+		StartCoroutine(spawnNow());
 	}
 	
-	IEnumerator Respawn() 
+	IEnumerator spawnNow() 
 	{
 		yield return new WaitForSeconds(3f);
 		if (GetComponent<currentClientStats>().charNo == 0)
