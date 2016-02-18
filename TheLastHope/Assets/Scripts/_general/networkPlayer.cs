@@ -64,14 +64,6 @@ public class networkPlayer : Photon.MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (_camera.transform.position, _camera.transform.forward, out hit)) 
 			{
-				Debug.Log(hit.collider.name);
-				if (hit.collider.tag == "Player")
-				{
-					if (hit.collider.transform.gameObject.GetComponent<combatStats>().hp <= 0)
-					{
-						hit.collider.transform.gameObject.GetComponent<combatStats>().revive();
-					}
-				}
 				if (hit.collider.tag == "Shop")
 				{
 					GameObject temp = GameObject.Find ("InventoryUi").transform.GetChild(0).gameObject;

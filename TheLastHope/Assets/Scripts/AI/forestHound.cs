@@ -28,7 +28,7 @@ public class forestHound : Photon.MonoBehaviour {
 		hp -= damage;
 		if (hp <= 0)
 		{
-			PhotonNetwork.Destroy(this.gameObject);
+			PhotonNetwork.Destroy(gameObject);
 		}
 		if (AIState != 4)
 		{

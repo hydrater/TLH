@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class combatStats : MonoBehaviour {
+public class combatStats : Photon.MonoBehaviour {
 	public float hp = 100, hpM = 100, stam = 100, stamM = 100, walkSpeed = 5, runSpeed = 10, crouchSpeed = 2.5f;
 	public float stamCD = -1;
 	
@@ -17,26 +17,25 @@ public class combatStats : MonoBehaviour {
 				
 		if (stam > stamM)
 			stam = stamM;
-			
-		if (hp <= 0)
+		
+		if (photonView.isMine)	
 		{
-			if (transform.root.GetChild(0).gameObject.activeSelf)
+			if (hp <= 0)
 			{
-				transform.root.GetChild(0).gameObject.SetActive(false);
-				transform.root.GetChild(1).gameObject.SetActive(true);
-				transform.root.GetChild(3).gameObject.SetActive(true);
-				GetComponent<FirstPersonController>().enabled = false;
+				PhotonNetwork.Destroy(gameObject);
 			}
 		}
 	}
 	
-	public void revive()
+	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
-		transform.root.GetChild(0).gameObject.SetActive(true);
-		transform.root.GetChild(1).gameObject.SetActive(false);
-		transform.root.GetChild(3).gameObject.SetActive(false);
-		GetComponent<FirstPersonController>().enabled = true;
-		hp = 50;
+		if (stream.isWriting)
+		{
+			stream.SendNext(hp);
+		}
+		else
+		{
+			hp = (float)stream.ReceiveNext();
+		}
 	}
-	
 }
