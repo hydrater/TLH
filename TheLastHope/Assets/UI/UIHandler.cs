@@ -13,67 +13,67 @@ public class UIHandler : Photon.MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape) && Application.loadedLevelName == "Sanctuary")
 		{
 			GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Level 1");
-			if (photonView.isMine)
-			{
-				if (UIOn)
-				{
-					UIOn = false;
-					Cursor.lockState =  CursorLockMode.Locked;
-					Cursor.visible = false;
-					GetComponent<FirstPersonController>().enabled = true;
-					body.GetComponent<Animator>().enabled = true;
-				}
-				else
-				{
-					UIOn = true;
-					Cursor.lockState =  CursorLockMode.Confined;
-					Cursor.visible = true;
-					buttonFocus = 0;
-					GetComponent<FirstPersonController>().enabled = false;
-					body.GetComponent<Animator>().enabled = false;
-				}
-			}
+//			if (photonView.isMine)
+//			{
+//				if (UIOn)
+//				{
+//					UIOn = false;
+//					Cursor.lockState =  CursorLockMode.Locked;
+//					Cursor.visible = false;
+//					GetComponent<FirstPersonController>().enabled = true;
+//					body.GetComponent<Animator>().enabled = true;
+//				}
+//				else
+//				{
+//					UIOn = true;
+//					Cursor.lockState =  CursorLockMode.Confined;
+//					Cursor.visible = true;
+//					buttonFocus = 0;
+//					GetComponent<FirstPersonController>().enabled = false;
+//					body.GetComponent<Animator>().enabled = false;
+//				}
+//			}
 		}
 		
-		if (UIOn)
-		{
-			if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				if (buttonFocus!= 3)
-					--buttonFocus;
-				canRotate = true;
-			}
-			
-			if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-			{
-				if (buttonFocus!= 0)
-					++buttonFocus;
-				canRotate = true;
-			}
-			
-			if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-			{
-				
-			}
-			
-			if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-			{
-				
-			}
-			
-			if (Input.GetKeyDown(KeyCode.Return))
-			{
-				switch(buttonFocus)
-				{
-				case 0:
-//					levelSelectUI.SetActive(true);
-//					playerUI.SetActive(false);
-					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Level 1");
-					break;
-					
-				}
-			}
-		}
+//		if (UIOn)
+//		{
+//			if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+//			{
+//				if (buttonFocus!= 3)
+//					--buttonFocus;
+//				canRotate = true;
+//			}
+//			
+//			if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+//			{
+//				if (buttonFocus!= 0)
+//					++buttonFocus;
+//				canRotate = true;
+//			}
+//			
+//			if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+//			{
+//				
+//			}
+//			
+//			if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+//			{
+//				
+//			}
+//			
+//			if (Input.GetKeyDown(KeyCode.Return))
+//			{
+//				switch(buttonFocus)
+//				{
+//				case 0:
+////					levelSelectUI.SetActive(true);
+////					playerUI.SetActive(false);
+//					GameObject.Find("GameManager").GetComponent<generalNetworking>().customLoadLevel("Level 1");
+//					break;
+//					
+//				}
+//			}
+//		}
 		
 //		if (canRotate)
 //		{

@@ -12,6 +12,8 @@ public class UI : MonoBehaviour {
 	public void CustomEnable(int type1, int type2, int type3) 
 	{
 		currentClientStats temp = GameObject.Find("GameManager").GetComponent<currentClientStats>();
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
 		pri = type1; 
 		sec = type2;
 		deploy = type3;
@@ -59,10 +61,12 @@ public class UI : MonoBehaviour {
 	public void backButton()
 	{
 		playerPressing.GetComponent<FirstPersonController>().enabled = true;
+		Cursor.lockState =  CursorLockMode.Locked;
 		gameObject.SetActive(false);
 		currentClientStats temp = GameObject.Find("GameManager").GetComponent<currentClientStats>();
 		temp.weapon1ID = "0" + pri.ToString();
 		temp.weapon2ID = "0" + sec.ToString();
+		Cursor.visible = false;
 	}
 
     void UpdateText()
