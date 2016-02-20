@@ -5,6 +5,8 @@ public class currentClientStats : MonoBehaviour {
 	public string playerName, roomName = "!Sanctuary", time;
 	public byte charNo, Diff, level;
 	public string weapon1ID = "00", weapon2ID = "01", toolID, deployableID;
+	public short kills;
+	
 	//	0 resources
 	//	1 gun 
 	//	-- 2nd 0 = semi, 1 = auto, 2 = burst
