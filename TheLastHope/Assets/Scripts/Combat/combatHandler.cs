@@ -11,10 +11,8 @@ public class combatHandler : Photon.MonoBehaviour {
 	private FirstPersonController m_FirstPerson;
 	private currentClientStats gameStat;
 	private combatStats combatStat;
-	private Animator handAnim;
-	private float animTimer = 3.0f;
-	private Animator gunAnim;
-	private bool reloadTimer;
+	public Animator handAnim;
+	public Animator gunAnim;
 	
 	//Crouching
 	private float crouchHeight = 0.9f;
@@ -85,29 +83,6 @@ public class combatHandler : Photon.MonoBehaviour {
 	
 	void Update ()
 	{
-	 if(reloadTimer)
-		{
-			animTimer -= Time.deltaTime;
-		}
-		if(animTimer <= 0)
-		{
-			handAnim.SetBool("reload",false);
-			gunAnim.SetBool("reload",false);
-			reloadTimer = false;
-			animTimer = 2;	
-		}
-		if (Input.GetKeyDown(KeyCode.R)) 
-		{
-			if (TotalAmmo >= magazineMax - Ammo)
-			{	
-				handAnim.SetBool("reload",true);
-				gunAnim.SetBool("reload",true);
-				TotalAmmo -= (magazineMax - Ammo);
-				Ammo = magazineMax;
-				reloadTimer = true;
-			}
-		}
-		
 		grenadeRegen -= Time.deltaTime;
 		if (grenadeRegen <= 0)
 		{

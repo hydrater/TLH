@@ -11,9 +11,21 @@ public class weapon00 : Photon.MonoBehaviour {
 	float timer = 0.8f;
 	bool isShooting = false;
 	Transform endPoint;
+	AudioSource aud;
+	bool canShoot;
+	float shootCD;
+	combatHandler master;
+	
+//	float maxRecoil_x = -20;
+//	float recoilSpeed = 10;
+//	float recoil = 0;
+//	public Transform recoilMod;
 	
 	void Start ()
 	{
+//		recoilMod = transform.parent;
+		aud = GetComponent<AudioSource>();
+		master = transform.root.GetComponent<combatHandler>();
 		if (photonView.isMine)
 		{
 			combathandler = transform.root.gameObject.GetComponent<combatHandler>();
@@ -27,41 +39,97 @@ public class weapon00 : Photon.MonoBehaviour {
 		
 	}
 	
+	private bool reloadTimer;
+	private float animTimer = 1.0f;
+	
 	void Update () 
 	{
-		if(photonView.isMine)
+		if(reloadTimer)
 		{
-		if(Input.GetMouseButtonDown(0))
+			animTimer -= Time.deltaTime;
+		}
+		if(animTimer <= 0)
 		{
-			isShooting = true;
-			timer = 0.01f;
+			master.handAnim.SetBool("reload",false);
+			master.gunAnim.SetBool("reload",false);
+			reloadTimer = false;
+			animTimer = 1;	
+		}
+		if (Input.GetKeyDown(KeyCode.R)) 
+		{
+			if (master.TotalAmmo > master.magazineMax && master.Ammo < master.magazineMax )
+			{	
+				master.handAnim.SetBool("reload",true);
+				master.gunAnim.SetBool("reload",true);
+				master.TotalAmmo -= (master.magazineMax - master.Ammo);
+				master.Ammo = master.magazineMax;
+				reloadTimer = true;
+				transform.GetChild(1).GetComponent<AudioSource>().Play();
+			}
 		}
 		
-		if(Input.GetMouseButtonUp(0))
-			isShooting = false;
-			
-		if (isShooting)
+		if(photonView.isMine)
 		{
-			timer -= Time.deltaTime;
-			if (timer <= 0)
+			if(Input.GetMouseButtonDown(0))
 			{
-				if (combathandler.weaponHold == 0)
+				if (canShoot && !reloadTimer)
 				{
-					if (combathandler.Ammo > 0)
+					isShooting = true;
+					timer = 0.01f;
+					canShoot = false;
+					shootCD = 0.8f;
+				}
+			}
+			
+			shootCD -= Time.deltaTime;
+			if (shootCD <= 0)
+			{
+				canShoot = true;
+			}
+			
+			if(Input.GetMouseButtonUp(0))
+				isShooting = false;
+			
+			if (isShooting)
+			{
+				timer -= Time.deltaTime;
+				if (timer <= 0)
+				{
+					if (combathandler.weaponHold == 0)
 					{
-						--combathandler.Ammo;
-						timer = 0.8f;
-						Shoot();
+						if (combathandler.Ammo > 0)
+						{
+							--combathandler.Ammo;
+							timer = 0.8f;
+							Shoot();
+						}
 					}
 				}
 			}
-		}
+		
 		}
 		else
 		{
 			transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
 			transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
 		}
+		
+//		if(recoil > 0)
+//		{
+//			Quaternion maxRecoil = Quaternion.Euler (maxRecoil_x, 0, 0);
+//			// Dampen towards the target rotation
+//			recoilMod.rotation = Quaternion.Slerp(recoilMod.rotation, maxRecoil, Time.deltaTime * recoilSpeed);
+//			transform.localEulerAngles = new Vector3(recoilMod.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+//			recoil -= Time.deltaTime;
+//		}
+//		else
+//		{
+//			recoil = 0;
+//			Quaternion minRecoil = Quaternion.identity;
+//			// Dampen towards the target rotation
+//			recoilMod.rotation = Quaternion.Slerp(recoilMod.rotation, minRecoil,Time.deltaTime * recoilSpeed / 2);
+//			transform.localEulerAngles = new Vector3(recoilMod.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+//		}
 	}
 	
 	void Shoot()
@@ -71,11 +139,11 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			if (hit.collider.tag == "Player")
 			{
-				hit.collider.GetComponent<combatStats>().playerTakeDmg(10, hit.collider.GetComponent<PhotonView>().owner.name);
-//				PhotonNetwork.RaiseEvent(0, new string[]{"10", hit.collider.GetComponent<PhotonView>().owner.name }, true, null);
-				
+				hit.collider.GetComponent<combatStats>().playerTakeDmg(34, hit.collider.GetComponent<PhotonView>().owner.name);
 			}
 		}
+		
+//		recoil+= 0.5f;
 		
 		photonView.RPC("shootingEffect", PhotonTargets.All, weaponOutput.transform.position, endPoint.position);
 		
@@ -86,6 +154,7 @@ public class weapon00 : Photon.MonoBehaviour {
 	{
 		GameObject Temp = Instantiate(projectile, pos, Quaternion.identity) as GameObject;
 		Temp.transform.LookAt(endPoint);
+		aud.Play();
 	}
 	
 	public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)

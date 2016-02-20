@@ -71,8 +71,8 @@ public class UI : MonoBehaviour {
 
     void UpdateText()
     {
-		transform.GetChild(0).gameObject.GetComponent<Text>().text = Weapons[pri];
-		transform.GetChild(1).gameObject.GetComponent<Text>().text = Weapons[sec];
-		transform.GetChild(2).gameObject.GetComponent<Text>().text = Weapons[deploy];
+		transform.GetChild(1).gameObject.GetComponent<Text>().text = Weapons[pri];
+		transform.GetChild(2).gameObject.GetComponent<Text>().text = Weapons[sec];
+		transform.GetChild(3).gameObject.GetComponent<Text>().text = Weapons[deploy];
     }
 }
