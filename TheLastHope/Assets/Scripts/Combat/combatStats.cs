@@ -5,6 +5,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class combatStats : Photon.MonoBehaviour {
 	public float hp = 100, hpM = 100, stam = 100, stamM = 100, walkSpeed = 5, runSpeed = 10, crouchSpeed = 2.5f;
 	public float stamCD = -1;
+	public GameObject ragDoll;
 	
 	void Update () 
 	{
@@ -18,9 +19,9 @@ public class combatStats : Photon.MonoBehaviour {
 		if (stam > stamM)
 			stam = stamM;
 		
-		if (photonView.isMine)	
+		if (hp <= 0)	
 		{
-			if (hp <= 0)
+			if (photonView.isMine)
 			{
 				PhotonNetwork.Destroy(gameObject);
 				GameObject.Find("GameManager").GetComponent<generalNetworking>().Respawn();
@@ -28,6 +29,7 @@ public class combatStats : Photon.MonoBehaviour {
 				temp.SetActive(true);
 				temp.GetComponent<respawnUI>().startTimer();
 			}
+			Instantiate(ragDoll, transform.position,Quaternion.identity);
 		}
 	}
 	
