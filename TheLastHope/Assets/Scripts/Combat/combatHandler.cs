@@ -107,6 +107,24 @@ public class combatHandler : Photon.MonoBehaviour {
 		HUD.transform.GetChild(2).GetComponent<Text>().text = Ammo.ToString();
 		HUD.transform.GetChild(3).GetComponent<Text>().text = combatStat.hp.ToString();
 		
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+			foreach (GameObject X in GameObject.FindGameObjectsWithTag("Player"))
+			{
+				if(!X.GetComponent<PhotonView>().isMine)
+					X.transform.GetChild(4).gameObject.SetActive(true);
+			}
+		}
+		
+		if (Input.GetKeyUp(KeyCode.Tab))
+		{
+			foreach (GameObject X in GameObject.FindGameObjectsWithTag("Player"))
+			{
+				if(!X.GetComponent<PhotonView>().isMine)
+					X.transform.GetChild(4).gameObject.SetActive(false);
+			}
+		}
+		
 //		if(Input.GetKeyDown(KeyCode.Alpha1))
 //		{
 //			if (weaponHold != 0)
