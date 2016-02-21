@@ -12,7 +12,7 @@ public class weapon00 : Photon.MonoBehaviour {
 	bool isShooting = false;
 	Transform endPoint;
 	AudioSource aud;
-	bool canShoot;
+	bool canShoot, isZoom = false;
 	float shootCD;
 	combatHandler master;
 	
@@ -81,6 +81,14 @@ public class weapon00 : Photon.MonoBehaviour {
 				}
 			}
 			
+			if(Input.GetMouseButtonDown(1))
+				isZoom = !isZoom;
+			
+			if (isZoom)
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 15, Time.deltaTime * 5);
+			else
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60, Time.deltaTime * 5);
+			
 			shootCD -= Time.deltaTime;
 			if (shootCD <= 0)
 			{
@@ -143,6 +151,7 @@ public class weapon00 : Photon.MonoBehaviour {
 				if (hit.collider.GetComponent<combatStats>().hp <= 0)
 				{
 					++transform.root.GetComponent<combatHandler>().gameStat.kills;
+					GameObject.Find("HUD").GetComponent<HuD>().killNotification(hit.collider.GetComponent<PhotonView>().owner.name);
 				}
 			}
 		}
