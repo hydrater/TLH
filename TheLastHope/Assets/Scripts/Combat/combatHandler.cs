@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 
 public class combatHandler : Photon.MonoBehaviour {
 	public GameObject _camera;
@@ -9,7 +10,7 @@ public class combatHandler : Photon.MonoBehaviour {
 	Vector3 dashDir;
 	private CharacterController m_CharacterController;
 	private FirstPersonController m_FirstPerson;
-	private currentClientStats gameStat;
+	public currentClientStats gameStat;
 	private combatStats combatStat;
 	public Animator handAnim;
 	public Animator gunAnim;
@@ -19,6 +20,7 @@ public class combatHandler : Photon.MonoBehaviour {
 	private float standardHeight = 1.8f;
 	private bool crouching = false;
 	private float slideTimer = 0.9f;
+	private GameObject HUD;
 	
 	//Weapons
 	public byte weaponHold = 0; //current weapon being held
@@ -77,7 +79,10 @@ public class combatHandler : Photon.MonoBehaviour {
 //			regenTimer = 3;
 //			break;
 //		}
-		
+		if (Application.loadedLevelName == "Level 1")
+		{
+			HUD = GameObject.Find("HUD");
+		}
 		
 	}
 	
@@ -99,7 +104,8 @@ public class combatHandler : Photon.MonoBehaviour {
 			++TotalAmmo;
 			regenTimer = 2;
 		}
-
+		HUD.transform.GetChild(2).GetComponent<Text>().text = Ammo.ToString();
+		HUD.transform.GetChild(3).GetComponent<Text>().text = combatStat.hp.ToString();
 		
 //		if(Input.GetKeyDown(KeyCode.Alpha1))
 //		{

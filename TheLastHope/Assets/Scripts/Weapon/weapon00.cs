@@ -139,7 +139,11 @@ public class weapon00 : Photon.MonoBehaviour {
 		{
 			if (hit.collider.tag == "Player")
 			{
-				hit.collider.GetComponent<combatStats>().playerTakeDmg(34, hit.collider.GetComponent<PhotonView>().owner.name);
+				hit.collider.GetComponent<combatStats>().playerTakeDmg((Random.Range(30, 41)), hit.collider.GetComponent<PhotonView>().owner.name);
+				if (hit.collider.GetComponent<combatStats>().hp <= 0)
+				{
+					++transform.root.GetComponent<combatHandler>().gameStat.kills;
+				}
 			}
 		}
 		
