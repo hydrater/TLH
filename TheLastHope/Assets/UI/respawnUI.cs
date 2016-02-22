@@ -23,6 +23,7 @@ public class respawnUI : MonoBehaviour {
 			{
 				if (seconds >= 0)
 				{
+					Debug.Log(transform.GetChild(0).gameObject.name);
 					transform.GetChild(2).GetComponent<Text>().text = seconds.ToString();
 				}
 				else
