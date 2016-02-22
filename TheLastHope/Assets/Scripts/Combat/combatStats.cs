@@ -5,8 +5,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class combatStats : Photon.MonoBehaviour {
 	public float hp = 100, hpM = 100, stam = 100, stamM = 100, walkSpeed = 5, runSpeed = 10, crouchSpeed = 2.5f;
 	public float stamCD = -1;
-	public getrekt ragDoll, rektHuD;
+	public getrekt rektHuD;
 	bool isDead = false;
+	public GameObject ragDoll;
 
 	void Start()
 	{
@@ -33,10 +34,10 @@ public class combatStats : Photon.MonoBehaviour {
 				{
 					Debug.Log(GetComponent<PhotonView>().owner.name + " " + hp.ToString());
 					++GetComponent<combatHandler>().gameStat.death;
-//					GameObject.Find("GameManager").GetComponent<generalNetworking>().Respawn();
-//					GameObject temp = GameObject.Find("RespawnScreen");
-//					temp.SetActive(true);
-//					temp.GetComponent<respawnUI>().startTimer();
+					GameObject.Find("GameManager").GetComponent<generalNetworking>().Respawn();
+					GameObject temp = GameObject.Find("RespawnScreen");
+					temp.SetActive(true);
+					temp.GetComponent<respawnUI>().startTimer();
 					isDead = true;
 					PhotonNetwork.Destroy(this.gameObject);
 					Destroy(gameObject);

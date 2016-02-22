@@ -77,7 +77,6 @@ public class weapon00 : Photon.MonoBehaviour {
 			{
 				if (canShoot && !reloadTimer)
 				{
-					--combathandler.Ammo;
 					isShooting = true;
 					timer = 0.01f;
 					canShoot = false;
