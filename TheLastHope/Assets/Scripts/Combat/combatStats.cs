@@ -36,7 +36,7 @@ public class combatStats : Photon.MonoBehaviour {
 					++GetComponent<combatHandler>().gameStat.death;
 					GameObject.Find("GameManager").GetComponent<generalNetworking>().Respawn();
 					GameObject temp = GameObject.Find("RespawnScreen");
-					temp.SetActive(true);
+					temp.transform.GetChild(0).gameObject.SetActive(true);
 					temp.GetComponent<respawnUI>().startTimer();
 					isDead = true;
 					PhotonNetwork.Destroy(this.gameObject);
