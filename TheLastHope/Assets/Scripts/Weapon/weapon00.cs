@@ -57,14 +57,17 @@ public class weapon00 : Photon.MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.R)) 
 		{
-			if (master.Ammo < master.magazineMax )
-			{	
-				master.handAnim.SetBool("reload",true);
-				master.gunAnim.SetBool("reload",true);
-				master.TotalAmmo -= (master.magazineMax - master.Ammo);
-				master.Ammo = master.magazineMax;
-				reloadTimer = true;
-				transform.GetChild(1).GetComponent<AudioSource>().Play();
+			if (photonView.isMine)
+			{
+				if (master.Ammo < master.magazineMax)
+				{	
+					master.handAnim.SetBool("reload",true);
+					master.gunAnim.SetBool("reload",true);
+					master.TotalAmmo -= (master.magazineMax - master.Ammo);
+					master.Ammo = master.magazineMax;
+					reloadTimer = true;
+					transform.GetChild(1).GetComponent<AudioSource>().Play();
+				}
 			}
 		}
 		
@@ -86,7 +89,7 @@ public class weapon00 : Photon.MonoBehaviour {
 				isZoom = !isZoom;
 			
 			if (isZoom)
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 30, Time.deltaTime * 5);
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 24, Time.deltaTime * 5);
 			else
 				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60, Time.deltaTime * 5);
 			

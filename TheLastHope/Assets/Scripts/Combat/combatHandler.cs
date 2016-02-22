@@ -104,8 +104,11 @@ public class combatHandler : Photon.MonoBehaviour {
 			++TotalAmmo;
 			regenTimer = 2;
 		}
-		HUD.transform.GetChild(2).GetComponent<Text>().text = Ammo.ToString();
-		HUD.transform.GetChild(3).GetComponent<Text>().text = combatStat.hp.ToString();
+		if (photonView.isMine) 
+		{
+			HUD.transform.GetChild (2).GetComponent<Text> ().text = Ammo.ToString ();
+			HUD.transform.GetChild (3).GetComponent<Text> ().text = combatStat.hp.ToString ();
+		}
 		
 		if (Input.GetKeyDown(KeyCode.Tab))
 		{
