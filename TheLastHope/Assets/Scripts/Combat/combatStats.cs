@@ -32,7 +32,6 @@ public class combatStats : Photon.MonoBehaviour {
 			{
 				if (!isDead)
 				{
-					Debug.Log(GetComponent<PhotonView>().owner.name + " " + hp.ToString());
 					++GetComponent<combatHandler>().gameStat.death;
 					GameObject.Find("GameManager").GetComponent<generalNetworking>().Respawn();
 					GameObject temp = GameObject.Find("RespawnScreen");

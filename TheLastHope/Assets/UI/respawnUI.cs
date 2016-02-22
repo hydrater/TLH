@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class respawnUI : MonoBehaviour {
 
 	byte seconds;
-	float timer;
+	float timer = 1;
 	bool canTime;
 	
 	public void startTimer()
@@ -19,8 +19,10 @@ public class respawnUI : MonoBehaviour {
 		if (canTime)
 		{
 			timer -= Time.deltaTime;
+			Debug.Log(timer);
 			if (timer <= 0)
 			{
+				--seconds;
 				if (seconds >= 0)
 				{
 					Debug.Log(transform.GetChild(1).gameObject.name);
@@ -31,6 +33,7 @@ public class respawnUI : MonoBehaviour {
 					canTime = false;
 					gameObject.SetActive(false);
 				}
+				timer = 1;
 			}
 		}
 	}
