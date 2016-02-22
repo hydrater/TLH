@@ -5,8 +5,13 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class combatStats : Photon.MonoBehaviour {
 	public float hp = 100, hpM = 100, stam = 100, stamM = 100, walkSpeed = 5, runSpeed = 10, crouchSpeed = 2.5f;
 	public float stamCD = -1;
-	public GameObject ragDoll;
-	
+	public getrekt ragDoll, rektHuD;
+
+	void Start()
+	{
+		rektHuD = GameObject.Find ("Canvas").GetComponent<getrekt>();
+	}
+
 	void Update () 
 	{
 		if (stam < 0)
@@ -57,6 +62,10 @@ public class combatStats : Photon.MonoBehaviour {
 		if (photonView.owner.name == user)
 		{
 			hp -= dmg;
+		}
+		if (photonView.isMine) 
+		{
+			rektHuD.hitFX();
 		}
 	}
 	
