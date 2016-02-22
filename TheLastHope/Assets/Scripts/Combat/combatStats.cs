@@ -28,12 +28,12 @@ public class combatStats : Photon.MonoBehaviour {
 		{
 			if (photonView.isMine)
 			{
-				--GetComponent<combatHandler>().gameStat.death;
+				++GetComponent<combatHandler>().gameStat.death;
 				GameObject.Find("GameManager").GetComponent<generalNetworking>().Respawn();
 				GameObject temp = GameObject.Find("RespawnScreen");
 				temp.SetActive(true);
 				temp.GetComponent<respawnUI>().startTimer();
-				PhotonNetwork.Destroy(gameObject);
+				PhotonNetwork.Destroy(this.gameObject);
 				this.enabled = false;
 			}
 			Instantiate(ragDoll, transform.position,Quaternion.identity);
