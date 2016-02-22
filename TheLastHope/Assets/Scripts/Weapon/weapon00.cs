@@ -74,6 +74,7 @@ public class weapon00 : Photon.MonoBehaviour {
 			{
 				if (canShoot && !reloadTimer)
 				{
+					--combathandler.Ammo;
 					isShooting = true;
 					timer = 0.01f;
 					canShoot = false;
@@ -85,7 +86,7 @@ public class weapon00 : Photon.MonoBehaviour {
 				isZoom = !isZoom;
 			
 			if (isZoom)
-				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 15, Time.deltaTime * 5);
+				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 30, Time.deltaTime * 5);
 			else
 				Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60, Time.deltaTime * 5);
 			
