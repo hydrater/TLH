@@ -40,10 +40,14 @@ public class combatStats : Photon.MonoBehaviour {
 					temp.transform.GetChild(0).GetComponent<respawnUI>().startTimer();
 					isDead = true;
 					PhotonNetwork.Destroy(this.gameObject);
-					Destroy(gameObject);
+					PhotonNetwork.Destroy(transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
 				}
 			}
-			Instantiate(ragDoll, transform.position,Quaternion.identity);
+			else if(!isDead)
+			{
+				Instantiate(ragDoll, transform.position,Quaternion.identity);
+				isDead = true;
+			}
 		}
 	}
 	
