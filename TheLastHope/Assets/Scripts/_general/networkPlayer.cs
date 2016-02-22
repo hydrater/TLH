@@ -19,6 +19,7 @@ public class networkPlayer : Photon.MonoBehaviour {
 		anim = transform.GetChild(1).GetComponent<Animator>();
 		if (photonView.isMine)
 		{
+			GetComponent<BoxCollider>().enabled = false;
 			photonView.RPC ("displayName", PhotonTargets.AllBuffered, GameObject.Find("GameManager").GetComponent<currentClientStats>().playerName);
 			nameText.SetActive(false);
 			GetComponent<FirstPersonController>().enabled = true;

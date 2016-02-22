@@ -34,6 +34,7 @@ public class combatStats : Photon.MonoBehaviour {
 				temp.SetActive(true);
 				temp.GetComponent<respawnUI>().startTimer();
 				PhotonNetwork.Destroy(gameObject);
+				this.enabled = false;
 			}
 			Instantiate(ragDoll, transform.position,Quaternion.identity);
 		}

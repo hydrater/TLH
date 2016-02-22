@@ -57,7 +57,7 @@ public class weapon00 : Photon.MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.R)) 
 		{
-			if (master.TotalAmmo > master.magazineMax && master.Ammo < master.magazineMax )
+			if (master.Ammo < master.magazineMax )
 			{	
 				master.handAnim.SetBool("reload",true);
 				master.gunAnim.SetBool("reload",true);
